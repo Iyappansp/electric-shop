@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shop All Categories | Voltage</title>
+  <meta name="description" content="Browse every category at Voltage — laptops, smartphones, headphones, smartwatches, gaming gear, and accessories from top global brands.">
+  <link rel="canonical" href="https://www.voltage-store.example/categories.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Shop All Categories | Voltage">
+  <meta property="og:description" content="Browse every category at Voltage — laptops, smartphones, headphones, smartwatches, gaming gear, and accessories.">
+  <meta property="og:image" content="https://picsum.photos/seed/voltogcategories/1200/630">
+  <meta property="og:url" content="https://www.voltage-store.example/categories.html">
+  <meta property="og:site_name" content="Voltage">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Shop All Categories | Voltage">
+  <meta name="twitter:description" content="Browse every category at Voltage — laptops, smartphones, headphones, smartwatches, gaming gear, and accessories.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231565C0'%3E%3Cpath d='M13 2 3 14h7l-1 8 10-12h-7l1-8Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/listing.css">
+  <script>(function(){try{var t=localStorage.getItem('voltage-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&pd)){document.documentElement.classList.add('dark');}var d=localStorage.getItem('voltage-dir');if(d==='rtl'){document.documentElement.setAttribute('dir','rtl');}}catch(e){}})();</script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header id="main-header"></header>
+  <div class="breadcrumb-bar"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Shop</span></nav></div></div>
+
+  <main id="main-content">
+    <section class="section--tight section" style="padding-top:var(--sp-7);">
+      <div class="container text-center" style="max-width:680px; margin-inline:auto;">
+        <span class="eyebrow">Full Catalog</span>
+        <h1 class="section-title">Shop by Category</h1>
+        <p class="section-sub">Every category at Voltage, organized so you can move from browsing to buying in seconds.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="grid grid-3">
+          <a href="laptops.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Laptops</h3>
+            <p class="category-card__count">Gaming · Business · Student · Creator</p>
+          </a>
+          <a href="smartphones.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Smartphones</h3>
+            <p class="category-card__count">Flagship · Android · Budget · iPhone</p>
+          </a>
+          <a href="headphones.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Headphones</h3>
+            <p class="category-card__count">Wireless · Gaming · Studio · Sports</p>
+          </a>
+          <a href="smartwatches.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Smartwatches</h3>
+            <p class="category-card__count">Fitness · Lifestyle · Premium · Kids</p>
+          </a>
+          <a href="gaming.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Gaming</h3>
+            <p class="category-card__count">PCs · Monitors · Controllers</p>
+          </a>
+          <a href="accessories.html" class="category-card" data-reveal="fade">
+            <div class="category-card__icon"></div>
+            <h3 class="category-card__title">Accessories</h3>
+            <p class="category-card__count">Keyboards · Storage · Chargers</p>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="section-head" data-reveal="fade">
+          <span class="eyebrow">Popular Right Now</span>
+          <h2 class="section-title">Across All Categories</h2>
+        </div>
+        <div class="grid grid-4" data-featured="all" data-limit="8"></div>
+      </div>
+    </section>
+  </main>
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/products.js" defer></script>
+  <script src="assets/js/comparison.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var icons = window.VOLTAGE_CATEGORY_ICONS || {};
+      document.querySelectorAll('.category-card__icon').forEach(function(el){
+        var title = el.closest('.category-card').querySelector('.category-card__title').textContent.trim();
+        el.innerHTML = icons[title] || '';
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Store Locator | Voltage</title>
+  <meta name="description" content="Find a Voltage showroom near you. View store hours, addresses, and available services at each location.">
+  <link rel="canonical" href="https://www.voltage-store.example/store-locator.html">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Store Locator | Voltage">
+  <meta property="og:description" content="Find a Voltage showroom near you. View store hours, addresses, and available services.">
+  <meta property="og:image" content="https://picsum.photos/seed/voltogstores/1200/630">
+  <meta property="og:url" content="https://www.voltage-store.example/store-locator.html">
+  <meta property="og:site_name" content="Voltage">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Store Locator | Voltage">
+  <meta name="twitter:description" content="Find a Voltage showroom near you. View store hours, addresses, and available services.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231565C0'%3E%3Cpath d='M13 2 3 14h7l-1 8 10-12h-7l1-8Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .store-map-placeholder{
+      border-radius: var(--radius-lg); background: var(--surface-3); border:1px dashed var(--border-color-strong);
+      aspect-ratio:16/9; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:10px;
+      color: var(--text-muted); text-align:center; padding:var(--sp-6);
+    }
+    .store-map-placeholder svg{ width:40px; height:40px; }
+    .store-card{ padding: var(--sp-6); }
+    .store-card__hours{ display:flex; justify-content:space-between; font-size:var(--fs-xs); color:var(--text-muted); padding:4px 0; }
+    .store-card__hours strong{ color: var(--text-secondary); font-weight:600; }
+  </style>
+  <script>(function(){try{var t=localStorage.getItem('voltage-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&pd)){document.documentElement.classList.add('dark');}var d=localStorage.getItem('voltage-dir');if(d==='rtl'){document.documentElement.setAttribute('dir','rtl');}}catch(e){}})();</script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header id="main-header"></header>
+  <div class="breadcrumb-bar"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span class="current">Store Locator</span></nav></div></div>
+
+  <main id="main-content">
+    <section class="section--tight section" style="padding-top:var(--sp-7);">
+      <div class="container text-center" style="max-width:680px; margin-inline:auto;">
+        <span class="eyebrow">Visit Us</span>
+        <h1 class="section-title">Find a Voltage Store</h1>
+        <p class="section-sub">Hands-on demos, expert consultations, and same-day pickup at showrooms across the country.</p>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="store-map-placeholder" data-reveal="fade">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>
+          <span>Interactive store map — connect a maps provider to enable live pins.</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" style="padding-top:0;">
+      <div class="container">
+        <div class="grid grid-3">
+          <div class="card store-card" data-reveal="fade">
+            <h3 style="font-family:var(--font-display); font-size:var(--fs-md);">Voltage Downtown Flagship</h3>
+            <p style="font-size:var(--fs-sm); margin-bottom:var(--sp-3);">120 Market Street, Suite 100<br>Downtown District</p>
+            <div class="store-card__hours"><span>Mon – Fri</span><strong>9:00 AM – 8:00 PM</strong></div>
+            <div class="store-card__hours"><span>Sat – Sun</span><strong>10:00 AM – 6:00 PM</strong></div>
+            <div class="d-flex gap-2" style="margin-top:var(--sp-4);">
+              <span class="badge badge-primary">Demo Bar</span><span class="badge badge-primary">Repairs</span>
+            </div>
+          </div>
+          <div class="card store-card" data-reveal="fade">
+            <h3 style="font-family:var(--font-display); font-size:var(--fs-md);">Voltage Northside Mall</h3>
+            <p style="font-size:var(--fs-sm); margin-bottom:var(--sp-3);">450 Northside Mall, Unit 22<br>Northside</p>
+            <div class="store-card__hours"><span>Mon – Fri</span><strong>10:00 AM – 9:00 PM</strong></div>
+            <div class="store-card__hours"><span>Sat – Sun</span><strong>10:00 AM – 9:00 PM</strong></div>
+            <div class="d-flex gap-2" style="margin-top:var(--sp-4);">
+              <span class="badge badge-primary">Gaming Lounge</span><span class="badge badge-primary">Trade-In</span>
+            </div>
+          </div>
+          <div class="card store-card" data-reveal="fade">
+            <h3 style="font-family:var(--font-display); font-size:var(--fs-md);">Voltage Business Center</h3>
+            <p style="font-size:var(--fs-sm); margin-bottom:var(--sp-3);">88 Corporate Parkway, Floor 3<br>Business District</p>
+            <div class="store-card__hours"><span>Mon – Fri</span><strong>8:00 AM – 6:00 PM</strong></div>
+            <div class="store-card__hours"><span>Sat – Sun</span><strong>Closed</strong></div>
+            <div class="d-flex gap-2" style="margin-top:var(--sp-4);">
+              <span class="badge badge-primary">Bulk Orders</span><span class="badge badge-primary">Consultations</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container text-center">
+        <span class="eyebrow">Need Help Choosing a Location?</span>
+        <h2 class="section-title">Our Support Team Can Help</h2>
+        <a href="contact.html" class="btn btn-primary" style="margin-top:var(--sp-5);">Contact Support</a>
+      </div>
+    </section>
+  </main>
+  <footer id="main-footer"></footer>
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/products.js" defer></script>
+  <script src="assets/js/comparison.js" defer></script>
+</body>
+</html>

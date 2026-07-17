@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Coming Soon | Voltage</title>
+  <meta name="description" content="Something new is launching soon at Voltage. Sign up to be the first to know when it drops.">
+  <link rel="canonical" href="https://www.voltage-store.example/coming-soon.html">
+  <meta name="robots" content="noindex">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Coming Soon | Voltage">
+  <meta property="og:description" content="Something new is launching soon at Voltage. Sign up to be the first to know when it drops.">
+  <meta property="og:image" content="https://picsum.photos/seed/voltcomingsoonog/1200/630">
+  <meta property="og:url" content="https://www.voltage-store.example/coming-soon.html">
+  <meta property="og:site_name" content="Voltage">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Coming Soon | Voltage">
+  <meta name="twitter:description" content="Something new is launching soon at Voltage. Sign up to be the first to know when it drops.">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231565C0'%3E%3Cpath d='M13 2 3 14h7l-1 8 10-12h-7l1-8Z'/%3E%3C/svg%3E">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <style>
+    .state-page{ min-height:100vh; display:flex; align-items:center; justify-content:center; padding:var(--sp-6); text-align:center; position:relative; overflow:hidden; background:var(--c-dark); color:#fff; }
+    .state-page::before{ content:''; position:absolute; inset:0; background:radial-gradient(circle at 20% 20%, rgba(var(--c-primary-rgb),0.35), transparent 45%), radial-gradient(circle at 80% 80%, rgba(var(--c-secondary-rgb),0.28), transparent 45%); }
+    .state-page > *{ position:relative; z-index:1; }
+    .state-page__mark{ width:64px; height:64px; border-radius:16px; background:linear-gradient(135deg,var(--c-primary),var(--c-secondary)); display:flex; align-items:center; justify-content:center; color:#fff; margin:0 auto var(--sp-6); }
+    .state-page__mark svg{ width:32px; height:32px; }
+    .state-page h1{ color:#fff; }
+    .state-page p{ color:#B8C4DC; }
+    .coming-soon-countdown{ display:flex; gap:14px; justify-content:center; margin:var(--sp-7) 0; }
+    .coming-soon-countdown .unit{ background:rgba(255,255,255,0.08); border:1px solid rgba(255,255,255,0.12); border-radius:var(--radius-md); padding:16px 20px; min-width:80px; }
+    .coming-soon-countdown .unit strong{ display:block; font-family:var(--font-display); font-size:var(--fs-2xl); font-weight:700; }
+    .coming-soon-countdown .unit span{ font-size:var(--fs-xs); color:#93A0B8; text-transform:uppercase; letter-spacing:0.05em; }
+    .coming-soon-form{ display:flex; gap:10px; max-width:440px; margin:0 auto; flex-wrap:wrap; }
+    .coming-soon-form input{ flex:1; min-width:200px; padding:14px 20px; border-radius:var(--radius-pill); border:1px solid rgba(255,255,255,0.18); background:rgba(255,255,255,0.06); color:#fff; font-size:var(--fs-sm); }
+    .coming-soon-form input::placeholder{ color:#8493AD; }
+  </style>
+  <script>(function(){try{var t=localStorage.getItem('voltage-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&pd)){document.documentElement.classList.add('dark');}var d=localStorage.getItem('voltage-dir');if(d==='rtl'){document.documentElement.setAttribute('dir','rtl');}}catch(e){}})();</script>
+</head>
+<body>
+  <div class="state-page">
+    <div style="max-width:560px;">
+      <div class="state-page__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></div>
+      <span class="eyebrow" style="background:rgba(255,255,255,0.1); color:var(--c-secondary);">Launching Soon</span>
+      <h1 class="section-title" style="margin-top:var(--sp-4);">Something new is charging up.</h1>
+      <p class="section-sub">We're preparing a new collection. Leave your email and we'll let you know the moment it's live.</p>
+      <div class="coming-soon-countdown" data-countdown="240"></div>
+      <form class="coming-soon-form" id="comingSoonForm">
+        <input type="email" required placeholder="Enter your email address" aria-label="Email address">
+        <button type="submit" class="btn btn-accent">Notify Me</button>
+      </form>
+      <div style="margin-top:var(--sp-7);">
+        <a href="index.html" style="color:#B8C4DC; font-size:var(--fs-sm); text-decoration:underline;">← Back to Voltage Home</a>
+      </div>
+    </div>
+  </div>
+  <script src="assets/js/animations.js" defer></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var form = document.getElementById('comingSoonForm');
+      form.addEventListener('submit', function(e){
+        e.preventDefault();
+        var btn = form.querySelector('button');
+        var original = btn.textContent;
+        btn.textContent = 'You\'re on the list ✓';
+        form.querySelector('input').value = '';
+        setTimeout(function(){ btn.textContent = original; }, 2400);
+      });
+    });
+  </script>
+</body>
+</html>

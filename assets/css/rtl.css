@@ -1,0 +1,54 @@
+/* ==========================================================================
+   VOLTAGE — RTL Support
+   Most layout already uses logical properties (inset-inline-*, padding-inline,
+   text-align:start). This file handles the remaining explicit overrides:
+   icon mirroring, flex-direction reversals, and specific transforms.
+   ========================================================================== */
+
+[dir="rtl"]{ text-align: right; }
+
+[dir="rtl"] .main-nav a::after{ left:auto; right:0; }
+
+[dir="rtl"] .icon-arrow,
+[dir="rtl"] .breadcrumb svg,
+[dir="rtl"] .btn svg.icon-arrow{ transform: scaleX(-1); }
+
+[dir="rtl"] .utility-bar .container,
+[dir="rtl"] .footer-bottom .container{ flex-direction: row-reverse; }
+
+[dir="rtl"] .header-actions{ flex-direction: row-reverse; }
+
+[dir="rtl"] .product-card__actions,
+[dir="rtl"] .footer-payments,
+[dir="rtl"] .footer-bottom-links,
+[dir="rtl"] .utility-bar__links,
+[dir="rtl"] .footer-social{ flex-direction: row-reverse; }
+
+[dir="rtl"] .spec-strip__track{ direction: rtl; }
+
+[dir="rtl"] .hero-split{ direction: rtl; }
+
+[dir="rtl"] .compare-table th:first-child,
+[dir="rtl"] .compare-table td:first-child{ text-align:right; }
+
+[dir="rtl"] .mobile-nav__body .mobile-accordion-toggle svg{ transform: scaleX(-1); }
+[dir="rtl"] .mobile-nav__body li.open .mobile-accordion-toggle svg{ transform: scaleX(-1) rotate(180deg); }
+
+[dir="rtl"] .back-to-top{ right:auto; left:28px; }
+
+[dir="rtl"] .form-check,
+[dir="rtl"] .alert,
+[dir="rtl"] .feature-card,
+[dir="rtl"] .footer-contact li{ text-align: right; }
+
+[dir="rtl"] .select-wrap select{ padding-inline-end:16px; padding-inline-start:40px; }
+
+[dir="rtl"] input, [dir="rtl"] textarea{ text-align: right; }
+
+[dir="rtl"] .bento-grid{ direction: rtl; }
+
+[dir="rtl"] .countdown-inline{ direction: ltr; display:inline-flex; }
+
+@media (min-width:1024px){
+  [dir="rtl"] .hero-2col{ grid-template-columns: 1fr 1fr; }
+}

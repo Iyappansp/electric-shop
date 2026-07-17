@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Smartphones | Voltage</title>
+  <meta name="description" content="Explore flagship, Android, budget, and iPhone smartphones with the latest chipsets, cameras, and 5G connectivity.">
+  <link rel="canonical" href="https://www.voltage-store.example/smartphones.html">
+
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Smartphones | Voltage">
+  <meta property="og:description" content="Explore flagship, Android, budget, and iPhone smartphones with the latest chipsets, cameras, and 5G connectivity.">
+  <meta property="og:image" content="https://picsum.photos/seed/voltogimage/1200/630">
+  <meta property="og:url" content="https://www.voltage-store.example/smartphones.html">
+  <meta property="og:site_name" content="Voltage">
+
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Smartphones | Voltage">
+  <meta name="twitter:description" content="Explore flagship, Android, budget, and iPhone smartphones with the latest chipsets, cameras, and 5G connectivity.">
+  <meta name="twitter:image" content="https://picsum.photos/seed/voltogimage/1200/630">
+
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='%231565C0'%3E%3Cpath d='M13 2 3 14h7l-1 8 10-12h-7l1-8Z'/%3E%3C/svg%3E">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/layout.css">
+  <link rel="stylesheet" href="assets/css/dark-mode.css">
+  <link rel="stylesheet" href="assets/css/rtl.css">
+  <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/home.css"><link rel="stylesheet" href="assets/css/listing.css">
+  <script>
+  (function(){
+    try{
+      var theme = localStorage.getItem('voltage-theme');
+      var prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+      if(theme === 'dark' || (!theme && prefersDark)){ document.documentElement.classList.add('dark'); }
+      var dir = localStorage.getItem('voltage-dir');
+      if(dir === 'rtl'){ document.documentElement.setAttribute('dir','rtl'); }
+    }catch(e){}
+  })();
+</script>
+</head>
+<body>
+
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  <header id="main-header"></header>
+  <div class="breadcrumb-bar"><div class="container"><nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a href="categories.html">Shop</a><span class="sep">/</span><span class="current">Smartphones</span></nav></div></div>
+  <main id="main-content">
+
+    <section class="listing-hero">
+      <div class="container listing-hero__grid">
+        <div data-reveal="left">
+          <span class="eyebrow">Smartphones</span>
+          <h1 class="hero-title" style="font-size:clamp(1.9rem,1.4rem+2vw,2.75rem);">Premium Smartphones for Every Need</h1>
+          <p class="section-sub">Flagship performance or everyday value — every phone here ships with full manufacturer warranty.</p>
+        </div>
+        <img class="listing-hero__img" data-reveal="right" src="https://picsum.photos/seed/voltcatphonehero/800/450" alt="Featured smartphones lineup on display">
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="container">
+        <div class="listing-layout">
+          <aside class="filter-panel" id="filterPanel" aria-label="Product filters">
+            <h3>Filters <button class="mobile-filter-toggle icon-btn btn-sm" id="closeFilterPanel" aria-label="Close filters" style="display:none;">✕</button></h3>
+            <div class="filter-group" data-filter-sub>
+            <h4>Sub-Category</h4>
+            <label class="filter-check"><input type="checkbox" value="Flagship"><span>Flagship</span></label><label class="filter-check"><input type="checkbox" value="Android"><span>Android</span></label><label class="filter-check"><input type="checkbox" value="Budget"><span>Budget</span></label><label class="filter-check"><input type="checkbox" value="iPhone"><span>iPhone</span></label>
+          </div>
+            <div class="filter-group" data-filter-brand>
+            <h4>Brand</h4>
+            <label class="filter-check"><input type="checkbox" value="Samsung"><span>Samsung</span></label><label class="filter-check"><input type="checkbox" value="Apple"><span>Apple</span></label><label class="filter-check"><input type="checkbox" value="Sony"><span>Sony</span></label>
+          </div>
+            <div class="filter-group">
+              <h4>Max Price</h4>
+              <input type="range" class="filter-range" data-filter-price min="0" max="1500" value="1500" step="10">
+              <span class="filter-range-value" data-price-output">$1,500</span>
+            </div>
+            <button class="btn btn-secondary btn-block btn-sm" data-clear-filters>Clear All Filters</button>
+          </aside>
+
+          <div>
+            <div class="listing-toolbar">
+              <button class="btn btn-secondary btn-sm mobile-filter-toggle" id="openFilterPanel">Filters</button>
+              <span class="result-count" data-result-count></span>
+              <div class="select-wrap">
+                <select class="form-control" data-sort aria-label="Sort products">
+                  <option value="featured">Featured</option>
+                  <option value="price-asc">Price: Low to High</option>
+                  <option value="price-desc">Price: High to Low</option>
+                  <option value="rating">Highest Rated</option>
+                </select>
+              </div>
+            </div>
+            <div class="grid grid-3" data-product-grid data-category="Smartphones" data-compare-enabled></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section--alt">
+      <div class="container">
+        <div class="compare-preview" data-reveal="scale">
+          <div>
+            <span class="eyebrow">Not Sure Which One?</span>
+            <h2 class="section-title" style="margin-bottom:var(--sp-3);">Compare Smartphones Side by Side</h2>
+            <p class="section-sub">Select the checkbox on any product card, or open the full comparison tool for detailed specs.</p>
+            <a href="product-comparison.html" class="btn btn-primary" style="margin-top:var(--sp-4);">Open Comparison Tool</a>
+          </div>
+          <div class="compare-preview__visual">
+            <div class="compare-preview__card">
+              <img src="https://picsum.photos/seed/voltcatphonec1/200/200" alt="Comparison example product 1" width="120" height="120">
+            </div>
+            <div class="compare-preview__vs">VS</div>
+            <div class="compare-preview__card">
+              <img src="https://picsum.photos/seed/voltcatphonec2/200/200" alt="Comparison example product 2" width="120" height="120">
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  <footer id="main-footer"></footer>
+
+  <script src="assets/js/main.js" defer></script>
+  <script src="assets/js/animations.js" defer></script>
+  <script src="assets/js/products.js" defer></script>
+  <script src="assets/js/comparison.js" defer></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', function(){
+      var openBtn = document.getElementById('openFilterPanel');
+      var closeBtn = document.getElementById('closeFilterPanel');
+      var panel = document.getElementById('filterPanel');
+      if(openBtn){ openBtn.addEventListener('click', function(){ panel.classList.add('active'); document.body.style.overflow='hidden'; closeBtn.style.display='flex'; }); }
+      if(closeBtn){ closeBtn.addEventListener('click', function(){ panel.classList.remove('active'); document.body.style.overflow=''; }); }
+    });
+  </script>
+</body>
+</html>

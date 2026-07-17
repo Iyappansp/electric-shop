@@ -1,0 +1,91 @@
+/* ==========================================================================
+   VOLTAGE — Responsive Fine-Tuning
+   Breakpoints tested conceptually: 320 / 360 / 390 / 465 / 768 / 1024 / 1280 / 1440 / 1920
+   Mobile-first base styles live in component files; this file handles
+   fluid type, hero scaling, and edge-case fixes across the range.
+   ========================================================================== */
+
+/* Fluid type scale using clamp — smooth across 320px→1920px without breakpoints */
+h1, .h1{ font-size: clamp(1.9rem, 1.35rem + 2.6vw, 3.75rem); }
+h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
+.section-title{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
+.hero-title{ font-size: clamp(2rem, 1.3rem + 3vw, 4rem); }
+
+/* --------- Extra-small phones (320–359px): tighten paddings & stacks --------- */
+@media (max-width:359.98px){
+  .container{ padding-inline: var(--sp-4); }
+  .section{ padding-block: var(--sp-7); }
+  .btn{ padding:12px 20px; font-size:13px; }
+  .grid-4{ grid-template-columns: 1fr; }
+  .footer-newsletter form{ flex-direction:column; }
+  .footer-newsletter .btn-primary{ width:100%; }
+  .brand-logo__text{ font-size:1rem; }
+}
+
+/* --------- Small phones (360–389px) --------- */
+@media (min-width:360px) and (max-width:389.98px){
+  .grid-4{ grid-template-columns: 1fr 1fr; }
+}
+
+/* --------- 390–464px --------- */
+@media (min-width:390px) and (max-width:464.98px){
+  .grid-4{ grid-template-columns: 1fr 1fr; }
+}
+
+/* --------- 465–767px (large phones) --------- */
+@media (min-width:465px) and (max-width:767.98px){
+  .grid-3{ grid-template-columns: 1fr 1fr; }
+}
+
+/* --------- General mobile ceiling (<768px) --------- */
+@media (max-width:767.98px){
+  .hero-2col, .split-hero, .about-split, .contact-split{ grid-template-columns:1fr!important; }
+  .mega-menu{ display:none!important; } /* mega menu replaced by mobile accordion drawer */
+  .header-search{ display:none!important; }
+  .footer-grid{ text-align:left; }
+  .stat-grid{ grid-template-columns: 1fr 1fr; }
+  table.data-table{ min-width:560px; }
+  .offer-card{ min-height:220px; }
+}
+
+/* --------- Tablet (768–1023px) --------- */
+@media (min-width:768px) and (max-width:1023.98px){
+  .hero-2col{ grid-template-columns:1fr; gap: var(--sp-7); }
+  .mega-menu__grid{ grid-template-columns: repeat(2,1fr); }
+  .footer-grid{ grid-template-columns: 1fr 1fr; }
+  .stat-grid{ grid-template-columns: repeat(4,1fr); }
+  .bento-grid{ grid-template-columns: repeat(4,1fr); }
+}
+
+/* --------- Desktop (1024–1279px) --------- */
+@media (min-width:1024px) and (max-width:1279.98px){
+  .container{ padding-inline: var(--sp-6); }
+}
+
+/* --------- Large desktop (1280–1439px) --------- */
+@media (min-width:1280px) and (max-width:1439.98px){
+  :root{ --container-max: 1240px; }
+}
+
+/* --------- XL desktop (1440px+) --------- */
+@media (min-width:1440px){
+  :root{ --container-max: 1360px; }
+  .section--lg{ padding-block: 7rem; }
+}
+
+/* --------- 1920px+ ultra-wide guard rail --------- */
+@media (min-width:1920px){
+  :root{ --container-max: 1440px; }
+}
+
+/* --------- Landscape phone height guard (short viewports) --------- */
+@media (max-height:420px) and (orientation:landscape){
+  .mobile-nav__body{ padding-block: var(--sp-3); }
+}
+
+/* Image & media guards to prevent overflow/distortion at all sizes */
+img, video, svg{ max-width:100%; height:auto; }
+.product-card__media img,
+.hero-media img,
+.category-card__icon svg{ height:100%; width:100%; }
+.no-overflow-guard{ overflow-x:hidden; }

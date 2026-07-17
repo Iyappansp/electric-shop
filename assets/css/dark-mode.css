@@ -1,0 +1,75 @@
+/* ==========================================================================
+   VOLTAGE — Dark Mode
+   Strategy: remap semantic surface/text tokens under html.dark.
+   Brand colors stay identical (brand consistency requirement).
+   ========================================================================== */
+
+html.dark{
+  --surface-0: #0B0F19;
+  --surface-1: #10141F;
+  --surface-2: #161B27;
+  --surface-3: #1F2635;
+  --border-color: #2A3244;
+  --border-color-strong: #3A4358;
+
+  --text-primary: #F1F4F9;
+  --text-secondary: #A6B0C3;
+  --text-muted: #6B7686;
+  --text-inverse: #111827;
+
+  --header-bg: rgba(11,15,25,0.82);
+  --footer-bg: #060A12;
+  --footer-text: #93A0B8;
+
+  --c-primary-light: #6FA3E8;
+
+  color-scheme: dark;
+}
+
+html.dark body{ background: var(--surface-0); }
+
+html.dark .btn-secondary{ color: var(--c-primary-light); }
+html.dark .btn-ghost:hover{ background: var(--surface-3); }
+
+html.dark .card,
+html.dark .product-card,
+html.dark .category-card,
+html.dark .brand-card,
+html.dark .feature-card{ background: var(--surface-2); border-color: var(--border-color); }
+
+html.dark .category-card__icon{ background: rgba(var(--c-primary-rgb),0.16); }
+html.dark .product-card__wishlist{ background: rgba(22,27,39,0.9); border-color: var(--border-color); }
+
+html.dark .offer-card{ background: linear-gradient(135deg, #0D1420 0%, #1A2333 100%); border:1px solid var(--border-color); }
+
+html.dark .eyebrow{ background: rgba(var(--c-primary-rgb),0.16); }
+
+html.dark .form-control{ background: var(--surface-3); border-color: var(--border-color-strong); color: var(--text-primary); }
+html.dark .form-control::placeholder{ color: var(--text-muted); }
+
+html.dark .data-table th{ background: var(--surface-3); }
+html.dark table.data-table{ background: var(--surface-2); }
+
+html.dark .mega-menu{ background: var(--surface-2); border-color: var(--border-color); }
+html.dark .mega-menu__col a{ color: var(--text-secondary); }
+
+html.dark .skeleton{ background: var(--surface-3); }
+html.dark .skeleton::after{ background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+
+html.dark .header-search input{ background: var(--surface-3); border-color: var(--border-color-strong); color:#fff; }
+html.dark .icon-btn{ background: var(--surface-3); }
+
+html.dark .breadcrumb-bar{ background: var(--surface-1); border-color: var(--border-color); }
+
+html.dark .modal{ background: var(--surface-2); }
+html.dark .modal__close{ background: var(--surface-3); color:#fff; }
+
+html.dark .dropdown-menu{ background: var(--surface-2); border-color: var(--border-color); }
+
+html.dark img.auto-invert-icon{ filter: invert(1); }
+
+/* Theme transition smoothing for key surfaces */
+html.dark, html.dark body, html.dark .site-header, html.dark .card,
+html.dark .product-card, html.dark .category-card, html.dark .form-control{
+  transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
+}
