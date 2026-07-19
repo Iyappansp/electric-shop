@@ -26,6 +26,7 @@
     chevronDown: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m6 9 6 6 6-6"/></svg>',
     chevronRight: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="icon-arrow"><path d="m9 18 6-6-6-6"/></svg>',
     arrowUp: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 19V5M5 12l7-7 7 7"/></svg>',
+    user: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>',
     mapPin: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0Z"/><circle cx="12" cy="10" r="3"/></svg>',
     phoneIcon: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92Z"/></svg>',
     mail: '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>',
@@ -35,13 +36,22 @@
 
   /* ---------------- NAVIGATION DATA ---------------- */
   const NAV = [
-    { label: "Home", href: "index.html", active: ["index.html","home-2.html"] },
+    {
+      label: "Home",
+      href: "index.html",
+      active: ["index.html","home-2.html"],
+      dropdown: [
+        ["Home 1", "index.html"],
+        ["Home 2", "home-2.html"]
+      ]
+    },
     {
       label: "Shop", href: "categories.html", mega: true, active: ["categories.html","laptops.html","smartphones.html","headphones.html","smartwatches.html","gaming.html","accessories.html"],
       columns: [
-        { title: "Computing", links: [["Laptops","laptops.html"],["Gaming Laptops","laptops.html#gaming"],["Ultrabooks","laptops.html#ultrabooks"],["Accessories","accessories.html"]] },
-        { title: "Mobile", links: [["Smartphones","smartphones.html"],["Smartwatches","smartwatches.html"],["Tablets","smartphones.html#tablets"],["Mobile Accessories","accessories.html"]] },
-        { title: "Audio & Gaming", links: [["Headphones","headphones.html"],["Speakers","headphones.html#speakers"],["Gaming Zone","gaming.html"],["Consoles","gaming.html#consoles"]] }
+        { title: "Computing", links: [["Laptops","laptops.html"]] },
+        { title: "Accessories", links: [["Accessories","accessories.html"]] },
+        { title: "Mobile", links: [["Smartphones","smartphones.html"],["Smartwatches","smartwatches.html"]] },
+        { title: "Audio & Gaming", links: [["Headphones","headphones.html"],["Gaming Zone","gaming.html"]] }
       ]
     },
     { label: "Deals", href: "weekly-deals.html", active: ["weekly-deals.html"] },
@@ -59,10 +69,9 @@
   }
 
   /* ---------------- HEADER TEMPLATE ---------------- */
-  function buildMegaMenu(cols, promo) {
-    return `<div class="mega-menu"><div class="container mega-menu__grid">
+  function buildMegaMenu(cols) {
+    return `<div class="mega-menu"><div class="container mega-menu__grid" style="grid-template-columns: repeat(4, 1fr);">
       ${cols.map(c => `<div class="mega-menu__col"><h4>${c.title}</h4>${c.links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join("")}</div>`).join("")}
-      <div class="mega-menu__col"><div class="mega-menu__promo"><span>Featured</span><strong>${promo}</strong></div></div>
     </div></div>`;
   }
 
@@ -70,7 +79,16 @@
     const cur = currentPage();
     const navItems = NAV.map(item => {
       const isActive = item.active.includes(cur);
-      const mega = item.mega ? buildMegaMenu(item.columns, "Latest Gaming Laptops →") : "";
+      if (item.dropdown) {
+        const dropMenu = `<ul class="dropdown-menu">
+          ${item.dropdown.map(d => `<li><a href="${d[1]}" class="${cur === d[1] ? 'active' : ''}">${d[0]}</a></li>`).join("")}
+        </ul>`;
+        return `<li class="has-dropdown ${isActive ? "active" : ""}">
+          <a href="${item.href}">${item.label} ${ICONS.chevronDown}</a>
+          ${dropMenu}
+        </li>`;
+      }
+      const mega = item.mega ? buildMegaMenu(item.columns) : "";
       return `<li class="${isActive ? "active" : ""} ${item.mega ? "has-mega" : ""}">
         <a href="${item.href}">${item.label}${item.mega ? ICONS.chevronDown : ""}</a>
         ${mega}
@@ -101,18 +119,13 @@
           <ul>${navItems}</ul>
         </nav>
         <div class="header-actions">
-          <div class="header-search">
-            <input type="search" placeholder="Search products..." aria-label="Search products">
-            ${ICONS.search}
-          </div>
-          <button class="icon-btn" id="searchToggleMobile" aria-label="Search" style="display:none">${ICONS.search}</button>
-          <a href="#" class="icon-btn" aria-label="Wishlist">${ICONS.heart}<span class="icon-btn__count">3</span></a>
+          <a href="login.html" class="icon-btn" aria-label="Account">${ICONS.user}</a>
           <a href="#" class="icon-btn" aria-label="Cart">${ICONS.cart}<span class="icon-btn__count">2</span></a>
           <button class="icon-btn rtl-toggle" id="rtlToggle" aria-label="Toggle right-to-left layout">${ICONS.globe}</button>
           <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span>
           </button>
-          <a href="bulk-orders.html" class="btn btn-primary btn-sm header-cta">Bulk Enquiry</a>
+          <a href="login.html" class="btn btn-outline btn-sm header-cta" style="border-radius:var(--radius-pill);">Sign In</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">${ICONS.menu}</button>
         </div>
       </div>
@@ -127,10 +140,16 @@
         <ul>
           ${NAV.map(item => {
             const isActive = item.active.includes(cur);
+            if (item.dropdown) {
+              return `<li class="${isActive ? 'active' : ''}">
+                <button class="mobile-accordion-toggle">${item.label} ${ICONS.chevronDown}</button>
+                <div class="mobile-submenu">${item.dropdown.map(d => `<a href="${d[1]}">${d[0]}</a>`).join("")}</div>
+              </li>`;
+            }
             if (item.mega) {
               const links = item.columns.flatMap(c => c.links);
               return `<li class="${isActive ? 'active' : ''}">
-                <button class="mobile-accordion-toggle">${item.label}${ICONS.chevronDown}</button>
+                <button class="mobile-accordion-toggle">${item.label} ${ICONS.chevronDown}</button>
                 <div class="mobile-submenu">${links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join("")}</div>
               </li>`;
             }
@@ -139,7 +158,7 @@
         </ul>
       </div>
       <div class="mobile-nav__foot">
-        <a href="bulk-orders.html" class="btn btn-primary btn-block">Bulk Enquiry</a>
+        <a href="login.html" class="btn btn-primary btn-block">Sign In / Register</a>
         <div class="d-flex gap-3 justify-center">
           <button class="icon-btn rtl-toggle" data-sync="rtlToggle" aria-label="Toggle RTL">${ICONS.globe}</button>
           <button class="icon-btn theme-toggle" data-sync="themeToggle" aria-label="Toggle dark mode"><span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span></button>
