@@ -12,11 +12,11 @@
   /* ---------------- CATALOG ---------------- */
   const PRODUCTS = [
     { id: 1, name: "AeroBook Pro 16 OLED", cat: "Laptops", sub: "Creator", brand: "ASUS", price: 2199, was: 2499, rating: 4.8, badge: "sale", img: seed(101) },
-    { id: 2, name: "Vortex Gaming Laptop RTX", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: seed(102) },
+    { id: 2, name: "Vortex Gaming Laptop", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: seed(102) },
     { id: 3, name: "EliteBook Ultraslim 14", cat: "Laptops", sub: "Business", brand: "Dell", price: 1349, was: null, rating: 4.6, badge: "", img: seed(103) },
     { id: 4, name: "StudyMate Air 13", cat: "Laptops", sub: "Student", brand: "Lenovo", price: 799, was: 899, rating: 4.4, badge: "sale", img: seed(104) },
     { id: 5, name: "Zenith Ultrabook X", cat: "Laptops", sub: "Ultrabooks", brand: "ASUS", price: 1599, was: null, rating: 4.7, badge: "", img: seed(105) },
-    { id: 6, name: "Nimbus Phone 15 Flagship", cat: "Smartphones", sub: "Flagship", brand: "Samsung", price: 1099, was: null, rating: 4.8, badge: "new", img: seed(106) },
+    { id: 6, name: "Nimbus Phone 15", cat: "Smartphones", sub: "Flagship", brand: "Samsung", price: 1099, was: null, rating: 4.8, badge: "new", img: seed(106) },
     { id: 7, name: "AuraPhone Pro Max", cat: "Smartphones", sub: "iPhone", brand: "Apple", price: 1299, was: null, rating: 4.9, badge: "", img: seed(107) },
     { id: 8, name: "Pulse Lite 5G", cat: "Smartphones", sub: "Budget", brand: "Samsung", price: 349, was: 429, rating: 4.2, badge: "sale", img: seed(108) },
     { id: 9, name: "DroidCore X3", cat: "Smartphones", sub: "Android", brand: "Sony", price: 749, was: null, rating: 4.5, badge: "", img: seed(109) },
@@ -39,6 +39,13 @@
     { id: 26, name: "PowerLine 100W GaN", cat: "Accessories", sub: "Chargers", brand: "Apple", price: 59, was: null, rating: 4.5, badge: "new", img: seed(126) },
     { id: 27, name: "LinkWeave Mesh Router", cat: "Accessories", sub: "Networking", brand: "ASUS", price: 229, was: null, rating: 4.6, badge: "", img: seed(127) },
     { id: 28, name: "HomeGlow Smart Bulb Kit", cat: "Accessories", sub: "Smart Home", brand: "Samsung", price: 69, was: 89, rating: 4.3, badge: "sale", img: seed(128) },
+    { id: 29, name: "ThinkBook Studio 14", cat: "Laptops", sub: "Business", brand: "Lenovo", price: 1199, was: 1299, rating: 4.6, badge: "sale", img: seed(129) },
+    { id: 30, name: "Veloce Creator Pro 15", cat: "Laptops", sub: "Creator", brand: "Dell", price: 1899, was: null, rating: 4.7, badge: "new", img: seed(130) },
+    { id: 31, name: "iPhone 16 Pro", cat: "Smartphones", sub: "iPhone", brand: "Apple", price: 999, was: null, rating: 4.9, badge: "new", img: seed(131) },
+    { id: 32, name: "Xperia Ultra 5G", cat: "Smartphones", sub: "Android", brand: "Sony", price: 899, was: 999, rating: 4.5, badge: "sale", img: seed(132) },
+    { id: 33, name: "TuneSport Wireless", cat: "Headphones", sub: "Sports", brand: "JBL", price: 99, was: null, rating: 4.4, badge: "", img: seed(133) },
+    { id: 34, name: "ProStream Webcam 4K", cat: "Gaming", sub: "Streaming", brand: "Logitech", price: 199, was: null, rating: 4.6, badge: "", img: seed(134) },
+    { id: 35, name: "ROG Swift 360Hz", cat: "Gaming", sub: "Monitors", brand: "ASUS", price: 699, was: 799, rating: 4.8, badge: "sale", img: seed(135) }
   ];
 
   const CATEGORY_ICONS = {

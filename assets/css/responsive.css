@@ -16,7 +16,6 @@ h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
   .container{ padding-inline: var(--sp-4); }
   .section{ padding-block: var(--sp-7); }
   .btn{ padding:12px 20px; font-size:13px; }
-  .grid-4{ grid-template-columns: 1fr; }
   .footer-newsletter form{ flex-direction:column; }
   .footer-newsletter .btn-primary{ width:100%; }
   .brand-logo__text{ font-size:1rem; }
@@ -24,17 +23,14 @@ h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
 
 /* --------- Small phones (360–389px) --------- */
 @media (min-width:360px) and (max-width:389.98px){
-  .grid-4{ grid-template-columns: 1fr 1fr; }
 }
 
 /* --------- 390–464px --------- */
 @media (min-width:390px) and (max-width:464.98px){
-  .grid-4{ grid-template-columns: 1fr 1fr; }
 }
 
 /* --------- 465–767px (large phones) --------- */
 @media (min-width:465px) and (max-width:767.98px){
-  .grid-3{ grid-template-columns: 1fr 1fr; }
 }
 
 /* --------- General mobile ceiling (<768px) --------- */
@@ -43,7 +39,13 @@ h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
   .mega-menu{ display:none!important; } /* mega menu replaced by mobile accordion drawer */
   .header-search{ display:none!important; }
   .footer-grid{ text-align:left; }
-  .stat-grid{ grid-template-columns: 1fr 1fr; }
+  .grid-4, .grid-3, .grid-2 { grid-template-columns: 1fr !important; }
+  .stat-grid{ grid-template-columns: 1fr !important; }
+  .bento-grid{ grid-template-columns: 1fr !important; grid-auto-rows: auto; }
+  .bento-item--wide{ grid-column: span 1 !important; }
+  .bento-item--tall{ grid-row: span 1 !important; min-height: 150px; }
+  .brand-row{ grid-template-columns: 1fr !important; }
+  .deals-strip{ grid-template-columns: 1fr !important; }
   table.data-table{ min-width:560px; }
   .offer-card{ min-height:220px; }
 }
@@ -55,6 +57,14 @@ h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
   .footer-grid{ grid-template-columns: 1fr 1fr; }
   .stat-grid{ grid-template-columns: repeat(4,1fr); }
   .bento-grid{ grid-template-columns: repeat(4,1fr); }
+  /* Center the last child if it's odd in a 2-column tablet layout */
+  .grid-3 > *:last-child:nth-child(odd),
+  .grid-4 > *:last-child:nth-child(odd) {
+    grid-column: 1 / span 2;
+    margin-inline: auto;
+    width: 100%;
+    max-width: 380px;
+  }
 }
 
 /* --------- Desktop (1024–1279px) --------- */
@@ -91,7 +101,7 @@ img, video, svg{ max-width:100%; height:auto; }
 .no-overflow-guard{ overflow-x:hidden; }
 
 /* --------- Responsive Product Actions (Stack: Add to Cart upper, Details lower) --------- */
-@media (max-width: 1023.98px) {
+@media (max-width: 1024px) {
   .product-card__actions {
     flex-direction: column-reverse;
   }

@@ -47,10 +47,36 @@
   grid-column: span 1; position:relative; border-radius: var(--radius-lg); overflow:hidden; min-height:220px;
   display:flex; flex-direction:column; justify-content:flex-end; padding: var(--sp-6); color:#fff;
 }
-@media (min-width:768px){ .latest-tech__feature{ grid-column: span 2; } }
+@media (min-width:768px){ .latest-tech__feature{ grid-column: span 2; height: 380px; } }
 .latest-tech__feature::after{ content:''; position:absolute; inset:0; background: linear-gradient(180deg, rgba(17,24,39,0.1), rgba(17,24,39,0.85)); z-index:0; }
 .latest-tech__feature > *{ position:relative; z-index:1; }
 .latest-tech__side{ display:flex; flex-direction:column; gap: var(--sp-5); }
+
+/* Make the product card in latest tech side compact to achieve a shorter section height */
+.latest-tech .product-card {
+  height: 380px;
+  display: flex;
+  flex-direction: column;
+}
+.latest-tech .product-card__media {
+  height: 140px;
+  min-height: 140px;
+  overflow: hidden;
+}
+.latest-tech .product-card__media img {
+  height: 100%;
+  object-fit: cover;
+}
+.latest-tech .product-card__body {
+  padding: var(--sp-4);
+  gap: 4px;
+}
+.latest-tech .product-card__actions {
+  padding: 0 var(--sp-4) var(--sp-4);
+}
+.latest-tech .product-card__compare {
+  padding: 0 var(--sp-4) var(--sp-2);
+}
 
 /* ---------------- WORKSPACE / BUSINESS SOLUTIONS ---------------- */
 .workspace-strip{ display:grid; grid-template-columns: 1fr; gap: var(--sp-5); }
