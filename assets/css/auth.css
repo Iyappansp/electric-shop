@@ -10,9 +10,9 @@
   justify-content: center;
   align-items: center;
   position: relative;
-  background: radial-gradient(circle at 50% 30%, rgba(21, 101, 192, 0.25), transparent 70%),
-              linear-gradient(rgba(11, 15, 25, 0.78), rgba(11, 15, 25, 0.88)),
-              url('https://picsum.photos/seed/voltdarkambient/1920/1080') center/cover no-repeat fixed;
+  background: radial-gradient(circle at 10% 20%, rgba(var(--c-primary-rgb), 0.18), transparent 35%),
+              radial-gradient(circle at 90% 80%, rgba(var(--c-accent-rgb), 0.15), transparent 40%),
+              url('../images/home/auth_bg.png') center/cover no-repeat fixed;
   padding: var(--sp-6) var(--sp-4);
   color: var(--text-primary);
 }

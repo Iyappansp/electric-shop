@@ -6,13 +6,14 @@
 
 /* ---------------- HERO ---------------- */
 .hero{
-  position:relative; overflow:hidden;
-  background: linear-gradient(rgba(11, 15, 25, 0.72), rgba(11, 15, 25, 0.85)), url('https://picsum.photos/seed/voltherohero/1600/900') no-repeat center/cover;
-  padding-block: var(--sp-9) var(--sp-10);
-  text-align: center;
-  color: #ffffff;
+  position: relative; overflow: hidden; padding-block: var(--sp-9) var(--sp-8);
+  background: linear-gradient(rgba(11, 15, 25, 0.72), rgba(11, 15, 25, 0.85)), url('../images/home/hero_bg.png') no-repeat center/cover;
 }
-html.dark .hero{ background: linear-gradient(rgba(11, 15, 25, 0.72), rgba(11, 15, 25, 0.85)), url('https://picsum.photos/seed/voltherohero/1600/900') no-repeat center/cover; }
+.hero::after{
+  content:''; position:absolute; inset:0; pointer-events:none;
+  background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(var(--c-primary-rgb),0.12), transparent 40%);
+}
+html.dark .hero{ background: linear-gradient(rgba(11, 15, 25, 0.72), rgba(11, 15, 25, 0.85)), url('../images/home/hero_bg.png') no-repeat center/cover; }
 .hero .container{ position:relative; z-index:2; }
 .hero-2col{ display:block; }
 
