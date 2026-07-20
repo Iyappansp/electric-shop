@@ -11,15 +11,15 @@
 
   /* ---------------- CATALOG ---------------- */
   const PRODUCTS = [
-    { id: 1,  name: "AeroBook Pro 16 OLED", cat: "Laptops", sub: "Creator", brand: "ASUS", price: 2199, was: 2499, rating: 4.8, badge: "sale", img: seed(101) },
-    { id: 2,  name: "Vortex Gaming Laptop RTX 5080", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: seed(102) },
-    { id: 3,  name: "EliteBook Ultraslim 14", cat: "Laptops", sub: "Business", brand: "Dell", price: 1349, was: null, rating: 4.6, badge: "", img: seed(103) },
-    { id: 4,  name: "StudyMate Air 13", cat: "Laptops", sub: "Student", brand: "Lenovo", price: 799, was: 899, rating: 4.4, badge: "sale", img: seed(104) },
-    { id: 5,  name: "Zenith Ultrabook X", cat: "Laptops", sub: "Ultrabooks", brand: "ASUS", price: 1599, was: null, rating: 4.7, badge: "", img: seed(105) },
-    { id: 6,  name: "Nimbus Phone 15 Flagship", cat: "Smartphones", sub: "Flagship", brand: "Samsung", price: 1099, was: null, rating: 4.8, badge: "new", img: seed(106) },
-    { id: 7,  name: "AuraPhone Pro Max", cat: "Smartphones", sub: "iPhone", brand: "Apple", price: 1299, was: null, rating: 4.9, badge: "", img: seed(107) },
-    { id: 8,  name: "Pulse Lite 5G", cat: "Smartphones", sub: "Budget", brand: "Samsung", price: 349, was: 429, rating: 4.2, badge: "sale", img: seed(108) },
-    { id: 9,  name: "DroidCore X3", cat: "Smartphones", sub: "Android", brand: "Sony", price: 749, was: null, rating: 4.5, badge: "", img: seed(109) },
+    { id: 1, name: "AeroBook Pro 16 OLED", cat: "Laptops", sub: "Creator", brand: "ASUS", price: 2199, was: 2499, rating: 4.8, badge: "sale", img: seed(101) },
+    { id: 2, name: "Vortex Gaming Laptop RTX", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: seed(102) },
+    { id: 3, name: "EliteBook Ultraslim 14", cat: "Laptops", sub: "Business", brand: "Dell", price: 1349, was: null, rating: 4.6, badge: "", img: seed(103) },
+    { id: 4, name: "StudyMate Air 13", cat: "Laptops", sub: "Student", brand: "Lenovo", price: 799, was: 899, rating: 4.4, badge: "sale", img: seed(104) },
+    { id: 5, name: "Zenith Ultrabook X", cat: "Laptops", sub: "Ultrabooks", brand: "ASUS", price: 1599, was: null, rating: 4.7, badge: "", img: seed(105) },
+    { id: 6, name: "Nimbus Phone 15 Flagship", cat: "Smartphones", sub: "Flagship", brand: "Samsung", price: 1099, was: null, rating: 4.8, badge: "new", img: seed(106) },
+    { id: 7, name: "AuraPhone Pro Max", cat: "Smartphones", sub: "iPhone", brand: "Apple", price: 1299, was: null, rating: 4.9, badge: "", img: seed(107) },
+    { id: 8, name: "Pulse Lite 5G", cat: "Smartphones", sub: "Budget", brand: "Samsung", price: 349, was: 429, rating: 4.2, badge: "sale", img: seed(108) },
+    { id: 9, name: "DroidCore X3", cat: "Smartphones", sub: "Android", brand: "Sony", price: 749, was: null, rating: 4.5, badge: "", img: seed(109) },
     { id: 10, name: "SoundHalo ANC Pro", cat: "Headphones", sub: "Noise Cancelling", brand: "Sony", price: 349, was: 399, rating: 4.8, badge: "sale", img: seed(110) },
     { id: 11, name: "GameSound Wireless GX", cat: "Headphones", sub: "Gaming", brand: "Logitech", price: 179, was: null, rating: 4.6, badge: "", img: seed(111) },
     { id: 12, name: "StudioTrue Reference", cat: "Headphones", sub: "Studio", brand: "Sony", price: 299, was: null, rating: 4.7, badge: "", img: seed(112) },
@@ -29,10 +29,10 @@
     { id: 16, name: "ChronoLux Premium", cat: "Smartwatches", sub: "Premium", brand: "Apple", price: 599, was: null, rating: 4.8, badge: "new", img: seed(116) },
     { id: 17, name: "EveryDay Watch SE", cat: "Smartwatches", sub: "Lifestyle", brand: "Samsung", price: 199, was: 249, rating: 4.3, badge: "sale", img: seed(117) },
     { id: 18, name: "JuniorTrack Kids Watch", cat: "Smartwatches", sub: "Kids", brand: "Samsung", price: 89, was: null, rating: 4.1, badge: "", img: seed(118) },
-    { id: 19, name: "TitanForce Gaming Tower", cat: "Gaming", sub: "Gaming PCs", brand: "ASUS", price: 2999, was: null, rating: 4.9, badge: "new", img: seed(119) },
+    { id: 19, name: "TitanForce Gaming", cat: "Gaming", sub: "Gaming PCs", brand: "ASUS", price: 2999, was: null, rating: 4.9, badge: "new", img: seed(119) },
     { id: 20, name: "PixelView 27\" 240Hz", cat: "Gaming", sub: "Monitors", brand: "ASUS", price: 549, was: 649, rating: 4.7, badge: "sale", img: seed(120) },
-    { id: 21, name: "GripCommand Pro Controller", cat: "Gaming", sub: "Controllers", brand: "Logitech", price: 79, was: null, rating: 4.5, badge: "", img: seed(121) },
-    { id: 22, name: "StreamCast Capture Kit", cat: "Gaming", sub: "Streaming", brand: "Logitech", price: 249, was: null, rating: 4.6, badge: "", img: seed(122) },
+    { id: 21, name: "GripCommand Pro", cat: "Gaming", sub: "Controllers", brand: "Logitech", price: 79, was: null, rating: 4.5, badge: "", img: seed(121) },
+    { id: 22, name: "StreamCast Capture", cat: "Gaming", sub: "Streaming", brand: "Logitech", price: 249, was: null, rating: 4.6, badge: "", img: seed(122) },
     { id: 23, name: "MechType Pro Keyboard", cat: "Accessories", sub: "Keyboard", brand: "Logitech", price: 149, was: null, rating: 4.7, badge: "", img: seed(123) },
     { id: 24, name: "PrecisionGlide Mouse", cat: "Accessories", sub: "Mouse", brand: "Logitech", price: 89, was: 109, rating: 4.6, badge: "sale", img: seed(124) },
     { id: 25, name: "VaultDrive 2TB SSD", cat: "Accessories", sub: "Storage", brand: "Dell", price: 159, was: null, rating: 4.8, badge: "", img: seed(125) },
@@ -82,7 +82,7 @@
     <article class="product-card" data-cat="${p.cat}" data-brand="${p.brand}" data-price="${p.price}" data-name="${p.name.toLowerCase()}">
       <div class="product-card__media">
         ${badgeHtml}
-        <button class="product-card__wishlist ${isWished ? "active" : ""}" data-wishlist="${p.id}" aria-label="Toggle wishlist">${document.querySelector ? '<svg viewBox="0 0 24 24" fill="'+(isWished?'currentColor':'none')+'" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>' : ''}</button>
+        <button class="product-card__wishlist ${isWished ? "active" : ""}" data-wishlist="${p.id}" aria-label="Toggle wishlist">${document.querySelector ? '<svg viewBox="0 0 24 24" fill="' + (isWished ? 'currentColor' : 'none') + '" stroke="currentColor" stroke-width="2"><path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.29 1.51 4.04 3 5.5l7 7Z"/></svg>' : ''}</button>
         <img src="${p.img}" alt="${p.name} — ${p.sub} ${p.cat}" loading="lazy" width="640" height="480">
       </div>
       <div class="product-card__body">

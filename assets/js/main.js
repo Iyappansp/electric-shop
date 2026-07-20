@@ -58,7 +58,6 @@
     { label: "Compare", href: "product-comparison.html", active: ["product-comparison.html"] },
     { label: "Brands", href: "brands.html", active: ["brands.html"] },
     { label: "Bulk Orders", href: "bulk-orders.html", active: ["bulk-orders.html"] },
-    { label: "Stores", href: "store-locator.html", active: ["store-locator.html"] },
     { label: "About", href: "about.html", active: ["about.html"] },
     { label: "Contact", href: "contact.html", active: ["contact.html"] },
   ];
@@ -70,7 +69,7 @@
 
   /* ---------------- HEADER TEMPLATE ---------------- */
   function buildMegaMenu(cols) {
-    return `<div class="mega-menu"><div class="container mega-menu__grid" style="grid-template-columns: repeat(4, 1fr);">
+    return `<div class="mega-menu"><div class="mega-menu__grid">
       ${cols.map(c => `<div class="mega-menu__col"><h4>${c.title}</h4>${c.links.map(l => `<a href="${l[1]}">${l[0]}</a>`).join("")}</div>`).join("")}
     </div></div>`;
   }
@@ -84,44 +83,32 @@
           ${item.dropdown.map(d => `<li><a href="${d[1]}" class="${cur === d[1] ? 'active' : ''}">${d[0]}</a></li>`).join("")}
         </ul>`;
         return `<li class="has-dropdown ${isActive ? "active" : ""}">
-          <a href="${item.href}">${item.label} ${ICONS.chevronDown}</a>
+          <a href="javascript:void(0)">${item.label} ${ICONS.chevronDown}</a>
           ${dropMenu}
         </li>`;
       }
       const mega = item.mega ? buildMegaMenu(item.columns) : "";
       return `<li class="${isActive ? "active" : ""} ${item.mega ? "has-mega" : ""}">
-        <a href="${item.href}">${item.label}${item.mega ? ICONS.chevronDown : ""}</a>
+        <a href="${item.mega ? 'javascript:void(0)' : item.href}">${item.label}${item.mega ? ICONS.chevronDown : ""}</a>
         ${mega}
       </li>`;
     }).join("");
 
     return `
-    <div class="utility-bar">
-      <div class="container">
-        <div class="utility-bar__msg">${ICONS.mapPin}<span>Free shipping on orders over $99</span></div>
-        <div class="utility-bar__links">
-          <a href="store-locator.html">Store Locator</a>
-          <a href="bulk-orders.html">Corporate Orders</a>
-          <a href="contact.html">Track Order</a>
-        </div>
-      </div>
-    </div>
+  
     <div class="spec-strip" aria-hidden="true">
       <div class="spec-strip__track" id="specStripTrack"></div>
     </div>
     <div class="site-header">
       <div class="container">
         <a href="index.html" class="brand-logo" aria-label="Voltage home">
-          <span class="brand-logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
-          <span class="brand-logo__text">Volt<span>age</span></span>
+          <img src="assets/logo1.png" alt="Voltage Logo" class="brand-logo-img">
         </a>
         <nav class="main-nav" aria-label="Primary">
           <ul>${navItems}</ul>
         </nav>
         <div class="header-actions">
-          <a href="login.html" class="icon-btn" aria-label="Account">${ICONS.user}</a>
-          <a href="#" class="icon-btn" aria-label="Cart">${ICONS.cart}<span class="icon-btn__count">2</span></a>
-          <button class="icon-btn rtl-toggle" id="rtlToggle" aria-label="Toggle right-to-left layout">${ICONS.globe}</button>
+          <button class="icon-btn rtl-toggle" id="rtlToggle" aria-label="Toggle right-to-left layout">RTL</button>
           <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span>
           </button>
@@ -133,7 +120,7 @@
     <div class="nav-overlay" id="navOverlay"></div>
     <aside class="mobile-nav" id="mobileNav" aria-label="Mobile navigation">
       <div class="mobile-nav__head">
-        <span class="brand-logo__text">Volt<span style="color:var(--c-primary)">age</span></span>
+        <img src="assets/logo1.png" alt="Voltage Logo" class="brand-logo-img">
         <button class="mobile-nav__close" id="mobileNavClose" aria-label="Close menu">${ICONS.close}</button>
       </div>
       <div class="mobile-nav__body">
@@ -160,7 +147,7 @@
       <div class="mobile-nav__foot">
         <a href="login.html" class="btn btn-primary btn-block">Sign In / Register</a>
         <div class="d-flex gap-3 justify-center">
-          <button class="icon-btn rtl-toggle" data-sync="rtlToggle" aria-label="Toggle RTL">${ICONS.globe}</button>
+          <button class="icon-btn rtl-toggle" data-sync="rtlToggle" aria-label="Toggle RTL">RTL</button>
           <button class="icon-btn theme-toggle" data-sync="themeToggle" aria-label="Toggle dark mode"><span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span></button>
         </div>
       </div>
@@ -175,8 +162,7 @@
       <div class="container footer-grid">
         <div class="footer-col footer-brand">
           <a href="index.html" class="brand-logo" style="margin-bottom:14px;">
-            <span class="brand-logo__mark"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h7l-1 8 10-12h-7l1-8Z"/></svg></span>
-            <span class="brand-logo__text" style="color:#fff;">Volt<span>age</span></span>
+            <img src="assets/logo1.png" alt="Voltage Logo" class="brand-logo-img">
           </a>
           <p>Premium electronics and next-generation gadgets, curated for people who expect more from their technology.</p>
           <div class="footer-social">
@@ -373,7 +359,10 @@
     const headerEl = document.getElementById("main-header");
     const footerEl = document.getElementById("main-footer");
     if (headerEl) headerEl.innerHTML = buildHeader();
-    if (footerEl) footerEl.innerHTML = buildFooter();
+    if (footerEl) {
+      footerEl.innerHTML = buildFooter();
+      footerEl.classList.add("site-footer");
+    }
     const strip = document.getElementById("specStripTrack");
     if (strip) strip.innerHTML = buildSpecStrip();
   }

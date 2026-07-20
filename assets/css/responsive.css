@@ -89,3 +89,10 @@ img, video, svg{ max-width:100%; height:auto; }
 .hero-media img,
 .category-card__icon svg{ height:100%; width:100%; }
 .no-overflow-guard{ overflow-x:hidden; }
+
+/* --------- Responsive Product Actions (Stack: Add to Cart upper, Details lower) --------- */
+@media (max-width: 1023.98px) {
+  .product-card__actions {
+    flex-direction: column-reverse;
+  }
+}

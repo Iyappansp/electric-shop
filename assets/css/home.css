@@ -129,13 +129,22 @@ html.dark .hero{ background: linear-gradient(180deg, #0D1420 0%, var(--surface-0
 .carousel-dot.active{ background: var(--c-primary); width:24px; border-radius:4px; transition: all var(--transition-fast); }
 
 /* ---------------- TESTIMONIALS ---------------- */
-.testimonial-grid{ position:relative; min-height:260px; }
-.testimonial-slide{ display:none; }
-.testimonial-slide.active{ display:block; }
-.testimonial-card{ background: var(--surface-2); border:1px solid var(--border-color); border-radius: var(--radius-lg); padding: var(--sp-7); max-width:720px; margin-inline:auto; text-align:center; }
+.testimonial-grid{ display:grid; grid-template-columns: 1fr; gap: var(--sp-6); }
+@media (min-width:768px){ .testimonial-grid{ grid-template-columns: repeat(3, 1fr); } }
+.testimonial-slide{ display:flex; flex-direction:column; }
+.testimonial-card{
+  background: var(--surface-2); border:1px solid var(--border-color); border-radius: var(--radius-lg); padding: var(--sp-6);
+  text-align:center; display:flex; flex-direction:column; justify-content:space-between; height:100%; width:100%;
+}
 .testimonial-card__stars{ display:flex; justify-content:center; gap:4px; color: var(--c-accent); margin-bottom: var(--sp-4); }
 .testimonial-card__stars svg{ width:18px; height:18px; }
-.testimonial-card__quote{ font-family:var(--font-display); font-size: var(--fs-lg); font-weight:500; color: var(--text-primary); margin-bottom: var(--sp-5); }
+.testimonial-card__quote{ font-family:var(--font-display); font-size: var(--fs-lg); font-weight:500; color: var(--text-primary); margin-bottom: var(--sp-5); font-style: italic; }
+@media (max-width:1023.98px){
+  .testimonial-card__quote{ font-size: var(--fs-base); }
+}
+@media (max-width:767.98px){
+  .testimonial-card__quote{ font-size: var(--fs-sm); }
+}
 .testimonial-card__author{ display:flex; align-items:center; justify-content:center; gap:12px; }
 .testimonial-card__author img{ width:46px; height:46px; border-radius:50%; object-fit:cover; }
 .testimonial-card__author strong{ display:block; font-size: var(--fs-sm); }

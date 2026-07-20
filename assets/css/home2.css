@@ -44,7 +44,7 @@
 .latest-tech{ display:grid; grid-template-columns:1fr; gap: var(--sp-6); }
 @media (min-width:768px){ .latest-tech{ grid-template-columns: repeat(3,1fr); } }
 .latest-tech__feature{
-  grid-column: span 1; position:relative; border-radius: var(--radius-lg); overflow:hidden; min-height:340px;
+  grid-column: span 1; position:relative; border-radius: var(--radius-lg); overflow:hidden; min-height:220px;
   display:flex; flex-direction:column; justify-content:flex-end; padding: var(--sp-6); color:#fff;
 }
 @media (min-width:768px){ .latest-tech__feature{ grid-column: span 2; } }
@@ -66,6 +66,15 @@
 .store-experience__gallery img:first-child{ grid-column: span 2; aspect-ratio:16/9; }
 
 /* ---------------- BRAND SHOWCASE (large logos row, alt style) ---------------- */
-.brand-showcase-row{ display:flex; gap: var(--sp-6); flex-wrap:wrap; justify-content:center; align-items:center; }
-.brand-showcase-row span{ font-family: var(--font-display); font-weight:700; font-size: var(--fs-xl); color: var(--text-muted); transition: color var(--transition-fast); }
+.brand-showcase-row{ display:flex; gap: var(--sp-8); flex-wrap:nowrap; justify-content:center; align-items:center; }
+.brand-showcase-row span{
+  font-family: var(--font-display);
+  font-weight: 700;
+  font-size: var(--fs-base);
+  color: var(--text-secondary);
+  transition: color var(--transition-fast);
+  cursor: pointer;
+  white-space: nowrap;
+}
 .brand-showcase-row span:hover{ color: var(--c-primary); }
+
