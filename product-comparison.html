@@ -25,15 +25,14 @@
   <link rel="stylesheet" href="assets/css/rtl.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <style>
-    .compare-picker{ display:grid; grid-template-columns:repeat(2,1fr); gap:12px; }
-    @media (min-width:640px){ .compare-picker{ grid-template-columns:repeat(3,1fr); } }
-    @media (min-width:1024px){ .compare-picker{ grid-template-columns:repeat(4,1fr); } }
-    .compare-picker__item{ display:flex; flex-direction:column; align-items:center; gap:8px; text-align:center; padding:14px; border:1.5px solid var(--border-color); border-radius:var(--radius-md); cursor:pointer; font-size:var(--fs-xs); background:var(--surface-2); transition:border-color var(--transition-fast), background var(--transition-fast); }
-    .compare-picker__item:hover{ border-color:var(--c-primary); }
-    .compare-picker__item.active{ border-color:var(--c-primary); background:rgba(var(--c-primary-rgb),0.06); }
-    .compare-picker__item img{ border-radius:8px; object-fit:cover; }
-    .compare-picker__item input{ accent-color:var(--c-primary); }
-    .compare-toolbar{ display:flex; align-items:center; justify-content:space-between; gap:var(--sp-4); flex-wrap:wrap; margin-bottom:var(--sp-6); }
+    .compare-picker { display: grid; grid-template-columns: 1fr; gap: 16px; }
+    @media (min-width: 640px) { .compare-picker { grid-template-columns: repeat(3, 1fr); } }
+    .compare-picker__item { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; text-align: center; padding: 16px; border: 1.5px solid var(--border-color); border-radius: var(--radius-md); cursor: pointer; font-size: var(--fs-xs); background: var(--surface-2); transition: border-color var(--transition-fast), background var(--transition-fast); }
+    .compare-picker__item:hover { border-color: var(--c-primary); }
+    .compare-picker__item.active { border-color: var(--c-primary); background: rgba(var(--c-primary-rgb), 0.06); }
+    .compare-picker__item img { border-radius: 8px; object-fit: cover; margin: 0 auto; display: block; max-width: 100%; height: auto; }
+    .compare-picker__item input { accent-color: var(--c-primary); }
+    .compare-toolbar { display: flex; align-items: center; justify-content: space-between; gap: var(--sp-4); flex-wrap: wrap; margin-bottom: var(--sp-6); }
   </style>
   <script>(function(){try{var t=localStorage.getItem('voltage-theme');var pd=window.matchMedia&&window.matchMedia('(prefers-color-scheme: dark)').matches;if(t==='dark'||(!t&&pd)){document.documentElement.classList.add('dark');}var d=localStorage.getItem('voltage-dir');if(d==='rtl'){document.documentElement.setAttribute('dir','rtl');}}catch(e){}})();</script>
 </head>

@@ -201,13 +201,23 @@
   /* ---------------- HOMEPAGE FEATURED RENDER HELPERS ---------------- */
   function initFeaturedSections() {
     document.querySelectorAll("[data-featured]").forEach(el => {
-      const type = el.getAttribute("data-featured"); // "all" | "sale" | "new" | category name
+      const type = el.getAttribute("data-featured"); // "all" | "sale" | "new" | category name | "brand-ASUS"
       const limit = Number(el.getAttribute("data-limit")) || 8;
       let list;
       if (type === "sale") list = PRODUCTS.filter(p => p.badge === "sale");
       else if (type === "new") list = PRODUCTS.filter(p => p.badge === "new");
       else if (type === "all") list = PRODUCTS.slice();
-      else list = PRODUCTS.filter(p => p.cat === type);
+      else if (type.startsWith("brand-")) {
+        const targetBrand = type.replace("brand-", "").toLowerCase();
+        list = PRODUCTS.filter(p => p.brand.toLowerCase() === targetBrand);
+        if (targetBrand === "asus") {
+          list = list.map((p, idx) => ({ ...p, img: `assets/images/brands/rog_product_${(idx % 4) + 1}.png` }));
+        } else if (targetBrand === "apple") {
+          list = list.map((p, idx) => ({ ...p, img: `assets/images/brands/apple_product_${(idx % 6) + 1}.png` }));
+        }
+      } else {
+        list = PRODUCTS.filter(p => p.cat === type || p.brand.toLowerCase() === type.toLowerCase());
+      }
       renderGrid(el, list.slice(0, limit));
     });
   }
