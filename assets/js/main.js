@@ -203,7 +203,7 @@
           </form>
           <ul class="footer-contact" style="margin-top:var(--sp-5);">
             <li>${ICONS.phoneIcon}<span>1-800-VOLTAGE</span></li>
-            <li>${ICONS.mail}<span>support@voltage-store.example</span></li>
+            <li>${ICONS.mapPin}<span>120 Market Street, Suite 100, Downtown District</span></li>
           </ul>
         </div>
       </div>
