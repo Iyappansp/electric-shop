@@ -45,6 +45,8 @@
         ["Home 2", "home-2.html"]
       ]
     },
+        { label: "About", href: "about.html", active: ["about.html"] },
+
     {
       label: "Shop", href: "categories.html", mega: true, active: ["categories.html","laptops.html","smartphones.html","headphones.html","smartwatches.html","gaming.html","accessories.html"],
       columns: [
@@ -58,7 +60,6 @@
     { label: "Compare", href: "product-comparison.html", active: ["product-comparison.html"] },
     { label: "Brands", href: "brands.html", active: ["brands.html"] },
     { label: "Bulk Orders", href: "bulk-orders.html", active: ["bulk-orders.html"] },
-    { label: "About", href: "about.html", active: ["about.html"] },
     { label: "Contact", href: "contact.html", active: ["contact.html"] },
   ];
 
