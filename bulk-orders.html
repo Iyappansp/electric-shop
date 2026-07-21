@@ -37,15 +37,13 @@
 
 <body>
   <header id="main-header"></header>
-  <div class="breadcrumb-bar">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span
-          class="current">Bulk Orders</span></nav>
-    </div>
-  </div>
-
   <main id="main-content">
-    <section class="showroom-hero" style="padding-block:var(--sp-8);">
+    <style>
+      .page-header-section::before {
+        background-image: linear-gradient(var(--hero-overlay-start), var(--hero-overlay-end)), url('assets/images/home/bulk_orders_hero_bg.png') !important;
+      }
+    </style>
+    <section class="page-header-section showroom-hero">
       <div class="container showroom-hero-grid">
         <div data-reveal="left">
           <span class="showroom-eyebrow">Corporate Program</span>
@@ -74,7 +72,7 @@
               </svg></div>
             <h3 class="feature-card__title">Schools & Colleges</h3>
             <p class="feature-card__text">Classroom-ready devices with education pricing and simplified procurement
-              paperwork.</p>
+              .</p>
           </div>
           <div class="feature-card" data-reveal="fade">
             <div class="feature-card__icon"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">

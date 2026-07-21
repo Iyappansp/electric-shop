@@ -52,7 +52,9 @@ html.dark .hero {
 }
 
 .hero-2col {
-  display: block;
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: var(--sp-8);
 }
 
 .hero-copy {

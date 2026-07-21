@@ -54,25 +54,20 @@
 <body>
 
   <header id="main-header"></header>
-  <div class="breadcrumb-bar">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><a
-          href="categories.html">Shop</a><span class="sep">/</span><span class="current">Headphones</span></nav>
-    </div>
-  </div>
   <main id="main-content">
 
+    <style>
+      .listing-hero::before {
+        background-image: linear-gradient(var(--hero-overlay-start), var(--hero-overlay-end)), url('assets/images/categories/cat_headphones_hero.png') !important;
+      }
+    </style>
     <section class="listing-hero">
-      <div class="container listing-hero__grid">
-        <div data-reveal="left">
+      <div class="container">
+        <div class="listing-hero__content" data-reveal="fade">
           <span class="eyebrow">Headphones</span>
-          <h1 class="hero-title" style="font-size:clamp(1.9rem,1.4rem+2vw,2.75rem);">Premium Headphones for Every Need
-          </h1>
-          <p class="section-sub">Studio-accurate sound, all-day comfort, or gym-ready durability — tuned for how you
-            listen.</p>
+          <h1 class="hero-title" style="font-size:clamp(1.9rem,1.4rem+2vw,2.75rem);">Premium Headphones for Every Need</h1>
+          <p class="section-sub">Studio-accurate sound, all-day comfort, or gym-ready durability — tuned for how you listen.</p>
         </div>
-        <img class="listing-hero__img" data-reveal="right" src="assets/images/categories/cat_headphones_hero.png"
-          alt="Featured headphones lineup on display">
       </div>
     </section>
 

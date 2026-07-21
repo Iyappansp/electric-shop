@@ -23,6 +23,10 @@ html.dark{
 
   --c-primary-light: #6FA3E8;
 
+  --hero-bg-opacity: 0.90;
+  --hero-overlay-start: rgba(11, 15, 25, 0.72);
+  --hero-overlay-end: rgba(11, 15, 25, 0.85);
+
   color-scheme: dark;
 }
 

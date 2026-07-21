@@ -12,7 +12,7 @@
   /* ---------------- CATALOG ---------------- */
   const PRODUCTS = [
     { id: 1, name: "AeroBook Pro 16 OLED", cat: "Laptops", sub: "Creator", brand: "ASUS", price: 2199, was: 2499, rating: 4.8, badge: "sale", img: prodImg(1) },
-    { id: 2, name: "Vortex Gaming Laptop", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: prodImg(2) },
+    { id: 2, name: "Vortex Gaming", cat: "Laptops", sub: "Gaming", brand: "ASUS", price: 2799, was: null, rating: 4.9, badge: "new", img: prodImg(2) },
     { id: 3, name: "EliteBook Ultraslim 14", cat: "Laptops", sub: "Business", brand: "Dell", price: 1349, was: null, rating: 4.6, badge: "", img: prodImg(3) },
     { id: 4, name: "StudyMate Air 13", cat: "Laptops", sub: "Student", brand: "Lenovo", price: 799, was: 899, rating: 4.4, badge: "sale", img: prodImg(4) },
     { id: 5, name: "Zenith Ultrabook X", cat: "Laptops", sub: "Ultrabooks", brand: "ASUS", price: 1599, was: null, rating: 4.7, badge: "", img: prodImg(5) },

@@ -36,15 +36,13 @@
 
 <body>
   <header id="main-header"></header>
-  <div class="breadcrumb-bar">
-    <div class="container">
-      <nav class="breadcrumb" aria-label="Breadcrumb"><a href="index.html">Home</a><span class="sep">/</span><span
-          class="current">Brands</span></nav>
-    </div>
-  </div>
-
   <main id="main-content">
-    <section class="section--tight section" style="padding-top:var(--sp-7);">
+    <style>
+      .page-header-section::before {
+        background-image: linear-gradient(var(--hero-overlay-start), var(--hero-overlay-end)), url('assets/images/home/brands_hero_bg.png') !important;
+      }
+    </style>
+    <section class="page-header-section">
       <div class="container text-center" style="max-width:680px; margin-inline:auto;">
         <span class="eyebrow">Authorized Retailer</span>
         <h1 class="section-title">Shop by Brand</h1>
@@ -52,7 +50,7 @@
           ready to register.</p>
       </div>
     </section>
-
+<br>
     <section class="section" style="padding-top:0;">
       <div class="container">
         <div class="grid grid-4">

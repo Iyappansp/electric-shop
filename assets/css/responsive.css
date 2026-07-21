@@ -106,3 +106,31 @@ img, video, svg{ max-width:100%; height:auto; }
     flex-direction: column-reverse;
   }
 }
+
+/* Hide header toggles on tab/mobile/1024px screens */
+@media (max-width: 1024px) {
+  .site-header .rtl-toggle,
+  .site-header .theme-toggle {
+    display: none !important;
+  }
+}
+
+/* Showroom hero responsive spacing & image containment */
+@media (max-width: 1023.98px) {
+  .showroom-hero {
+    padding-block: var(--sp-8) var(--sp-8); /* Balanced 64px spacing on mobile/tablet */
+  }
+  .showroom-stack {
+    max-width: 480px;
+    margin-inline: auto;
+    height: 380px;
+    width: 100%;
+  }
+}
+
+@media (max-width: 463.98px) {
+  .showroom-stack {
+    max-width: 320px;
+    height: 260px;
+  }
+}

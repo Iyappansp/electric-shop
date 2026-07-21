@@ -21,6 +21,18 @@
 .showroom-eyebrow{ display:inline-flex; align-items:center; gap:8px; font-family:var(--font-display); font-size:var(--fs-xs); font-weight:700; letter-spacing:0.14em; text-transform:uppercase; color: var(--c-secondary); margin-bottom: var(--sp-5); }
 .showroom-hero h1{ color:#fff; font-family:var(--font-display); font-weight:800; letter-spacing:-0.02em; margin-bottom:var(--sp-5); }
 .showroom-hero p{ color:#B8C4DC; font-size: var(--fs-md); max-width:480px; margin-bottom: var(--sp-6); }
+
+.page-header-section.showroom-hero {
+  background: transparent;
+  color: var(--text-primary);
+}
+.page-header-section.showroom-hero h1 {
+  color: var(--text-primary);
+}
+.page-header-section.showroom-hero p {
+  color: var(--text-secondary);
+}
+
 .showroom-stack{ position:relative; height:420px; }
 .showroom-stack img{
   position:absolute; border-radius: var(--radius-lg); object-fit:cover; box-shadow: 0 30px 60px rgba(0,0,0,0.5);
@@ -31,6 +43,8 @@
 .showroom-stack .s3{ width:34%; aspect-ratio:4/3; top:38%; inset-inline-end:6%; z-index:1; }
 @media (max-width:1023.98px){ .showroom-stack{ height:340px; } }
 @media (max-width:463.98px){ .showroom-stack{ height:280px; } }
+
+.showroom-hero .hero-cta-row{ justify-content: flex-start; }
 
 .showroom-badges{ display:flex; gap: var(--sp-4); flex-wrap:wrap; margin-top:var(--sp-6); }
 .showroom-badge{ display:flex; align-items:center; gap:8px; font-size: var(--fs-xs); color:#B8C4DC; }

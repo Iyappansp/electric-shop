@@ -42,6 +42,11 @@
   --footer-bg: #0D1420;
   --footer-text: #C7CEDA;
 
+  /* Hero Background Opacity & Overlay */
+  --hero-bg-opacity: 0.85;
+  --hero-overlay-start: rgba(248, 250, 252, 0.35);
+  --hero-overlay-end: rgba(248, 250, 252, 0.55);
+
   /* Typography */
   --font-display: 'Poppins', sans-serif;
   --font-body: 'Inter', sans-serif;
@@ -235,6 +240,45 @@ textarea:focus-visible,
 
 .section--alt {
   background: var(--surface-1);
+}
+
+/* Page Header & Listing Hero Background styling with dynamic low opacity */
+.listing-hero,
+.page-header-section {
+  position: relative;
+  overflow: hidden;
+  padding-block: var(--sp-9) var(--sp-9);
+  border-bottom: 1px solid var(--border-color);
+}
+
+.listing-hero .hero-title,
+.page-header-section .hero-title {
+  color: var(--text-primary);
+}
+
+.listing-hero__content p,
+.page-header-section p {
+  color: var(--text-secondary);
+}
+
+.listing-hero::before,
+.page-header-section::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(var(--hero-overlay-start, rgba(248, 250, 252, 0.75)), var(--hero-overlay-end, rgba(248, 250, 252, 0.88))), var(--hero-bg, none);
+  background-size: cover;
+  background-position: center;
+  opacity: var(--hero-bg-opacity, 0.85);
+  z-index: 0;
+  pointer-events: none;
+  transition: opacity var(--transition-base);
+}
+
+.listing-hero > *,
+.page-header-section > * {
+  position: relative;
+  z-index: 1;
 }
 
 .section-head {
