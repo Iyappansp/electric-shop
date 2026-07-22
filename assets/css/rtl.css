@@ -1,61 +1,157 @@
 /* ==========================================================================
    VOLTAGE — RTL Support
-   Most layout already uses logical properties (inset-inline-*, padding-inline,
-   text-align:start). This file handles the remaining explicit overrides:
-   icon mirroring, flex-direction reversals, and specific transforms.
+   Logical properties (inset-inline-*, padding-inline, text-align:start)
+   supplemented by explicit overrides for icons, layout directions, and footer.
    ========================================================================== */
 
-[dir="rtl"]{ text-align: right; }
+[dir="rtl"] { text-align: right; }
 
-[dir="rtl"] .main-nav a::after{ left:auto; right:0; }
+[dir="rtl"] .main-nav a::after { left: auto; right: 0; }
 
 [dir="rtl"] .icon-arrow,
 [dir="rtl"] .breadcrumb svg,
-[dir="rtl"] .btn svg.icon-arrow{ transform: scaleX(-1); }
+[dir="rtl"] .btn svg.icon-arrow { transform: scaleX(-1); }
 
-[dir="rtl"] .utility-bar .container,
-[dir="rtl"] .footer-bottom .container{ flex-direction: row-reverse; }
+[dir="rtl"] .spec-strip__track { direction: rtl; }
 
-[dir="rtl"] .header-actions{ flex-direction: row-reverse; }
-
-[dir="rtl"] .product-card__actions,
-[dir="rtl"] .footer-payments,
-[dir="rtl"] .footer-bottom-links,
-[dir="rtl"] .utility-bar__links,
-[dir="rtl"] .footer-social{ flex-direction: row-reverse; }
-
-[dir="rtl"] .spec-strip__track{ direction: rtl; }
-
-[dir="rtl"] .hero-split{ direction: rtl; }
+[dir="rtl"] .hero-split { direction: rtl; }
 
 [dir="rtl"] .compare-table th:first-child,
-[dir="rtl"] .compare-table td:first-child{ text-align:right; }
+[dir="rtl"] .compare-table td:first-child { text-align: right; }
 
-[dir="rtl"] .mobile-nav__body .mobile-accordion-toggle svg{ transform: scaleX(-1); }
-[dir="rtl"] .mobile-nav__body li.open .mobile-accordion-toggle svg{ transform: scaleX(-1) rotate(180deg); }
+[dir="rtl"] .mobile-nav__body .mobile-accordion-toggle svg { transform: scaleX(-1); }
+[dir="rtl"] .mobile-nav__body li.open .mobile-accordion-toggle svg { transform: scaleX(-1) rotate(180deg); }
 
-[dir="rtl"] .back-to-top{ right:auto; left:28px; }
+[dir="rtl"] .back-to-top { right: auto; left: 20px; bottom: 20px; }
+@media (max-width: 767.98px) {
+  [dir="rtl"] .back-to-top { left: 16px; bottom: 16px; width: 40px; height: 40px; }
+}
 
 [dir="rtl"] .form-check,
 [dir="rtl"] .alert,
-[dir="rtl"] .feature-card,
-[dir="rtl"] .footer-contact li{ text-align: right; }
+[dir="rtl"] .feature-card { text-align: right; }
 
-[dir="rtl"] .select-wrap select{ padding-inline-end:16px; padding-inline-start:40px; }
+[dir="rtl"] .select-wrap select { padding-inline-end: 16px; padding-inline-start: 40px; }
 
-[dir="rtl"] input, [dir="rtl"] textarea{ text-align: right; }
+[dir="rtl"] input, [dir="rtl"] textarea { text-align: right; }
 
-[dir="rtl"] .bento-grid{ direction: rtl; }
+[dir="rtl"] .bento-grid { direction: rtl; }
 
-[dir="rtl"] .countdown-inline{ direction: ltr; display:inline-flex; }
+[dir="rtl"] .countdown-inline { direction: ltr; display: inline-flex; }
 
-@media (min-width:1024px){
-  [dir="rtl"] .hero-2col{ grid-template-columns: 1fr 1fr; }
+@media (min-width: 1024px) {
+  [dir="rtl"] .hero-2col { grid-template-columns: 1fr 1fr; }
 }
 
 [dir="rtl"] .mobile-nav {
+  right: auto;
+  left: 0;
   transform: translateX(-110%);
+  visibility: hidden;
 }
 [dir="rtl"] .mobile-nav.active {
   transform: translateX(0);
+  visibility: visible;
+}
+
+/* ==========================================================================
+   FOOTER RTL FIXES
+   ========================================================================== */
+[dir="rtl"] .site-footer {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-grid {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-brand p {
+  text-align: right;
+  margin-inline-start: 0;
+  margin-inline-end: auto;
+}
+
+[dir="rtl"] .footer-social {
+  flex-direction: row;
+  justify-content: flex-start;
+}
+
+[dir="rtl"] .footer-col {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-col h5 {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-col ul {
+  padding-inline-start: 0;
+  text-align: right;
+}
+
+[dir="rtl"] .footer-col ul li {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-newsletter {
+  text-align: right;
+}
+
+[dir="rtl"] .footer-newsletter p {
+  text-align: right;
+}
+
+@media (min-width: 360px) {
+  [dir="rtl"] .footer-newsletter form {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 359.98px) {
+  [dir="rtl"] .footer-newsletter form {
+    flex-direction: column;
+    width: 100%;
+  }
+  [dir="rtl"] .footer-newsletter input {
+    width: 100%;
+  }
+  [dir="rtl"] .footer-newsletter .btn-primary {
+    width: 100%;
+  }
+}
+
+[dir="rtl"] .footer-contact li {
+  text-align: right;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 10px;
+}
+
+@media (min-width: 768px) {
+  [dir="rtl"] .footer-bottom .container {
+    flex-direction: row;
+    justify-content: space-between;
+  }
+  [dir="rtl"] .footer-payments,
+  [dir="rtl"] .footer-bottom-links {
+    flex-direction: row;
+  }
+}
+
+@media (max-width: 767.98px) {
+  [dir="rtl"] .footer-bottom .container {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 12px;
+  }
+  [dir="rtl"] .footer-payments,
+  [dir="rtl"] .footer-bottom-links {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+  }
 }

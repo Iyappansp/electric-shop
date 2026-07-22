@@ -316,6 +316,10 @@ textarea:focus-visible,
   display: inline-block;
 }
 
+.eyebrow--no-dot::before {
+  display: none !important;
+}
+
 .section-title {
   font-size: var(--fs-2xl);
   margin-bottom: var(--sp-3);

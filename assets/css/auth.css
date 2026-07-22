@@ -4,28 +4,55 @@
    ========================================================================== */
 
 .auth-page {
-  min-height: calc(100vh - var(--header-h));
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   position: relative;
   background: radial-gradient(circle at 10% 20%, rgba(var(--c-primary-rgb), 0.18), transparent 35%),
               radial-gradient(circle at 90% 80%, rgba(var(--c-accent-rgb), 0.15), transparent 40%),
               url('../images/home/auth_bg.png') center/cover no-repeat fixed;
-  padding: var(--sp-6) var(--sp-4);
+  padding: 4.5rem 1rem 2rem 1rem;
   color: var(--text-primary);
 }
 
 /* Floating top bar for theme/RTL controls */
 .auth-top-actions {
   position: absolute;
-  top: var(--sp-5);
-  inset-inline-end: var(--sp-6);
+  top: 1rem;
+  inset-inline-end: 1.25rem;
   display: flex;
   align-items: center;
-  gap: var(--sp-3);
+  gap: 8px;
   z-index: 10;
+}
+
+.auth-top-actions .icon-btn {
+  width: 36px;
+  height: 36px;
+  font-size: 10px;
+}
+
+@media (max-width: 480px) {
+  .auth-page {
+    padding-top: 4.5rem;
+    padding-inline: 0.75rem;
+  }
+  .auth-top-actions {
+    top: 12px;
+    inset-inline-end: 12px;
+    gap: 6px;
+  }
+  .auth-top-actions .icon-btn {
+    width: 34px;
+    height: 34px;
+    font-size: 10px;
+  }
+  .auth-card {
+    margin-top: 0.5rem;
+    padding: 1.75rem 1.25rem;
+  }
 }
 
 .auth-card {

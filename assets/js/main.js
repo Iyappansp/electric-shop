@@ -146,7 +146,7 @@
         </ul>
       </div>
       <div class="mobile-nav__foot">
-        <a href="login.html" class="btn btn-primary btn-block">Sign In / Register</a>
+        <a href="login.html" class="btn btn-primary btn-block">Sign In</a>
         <div class="d-flex gap-3 justify-center">
           <button class="icon-btn rtl-toggle" data-sync="rtlToggle" aria-label="Toggle RTL">RTL</button>
           <button class="icon-btn theme-toggle" data-sync="themeToggle" aria-label="Toggle dark mode"><span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span></button>
