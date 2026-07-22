@@ -61,12 +61,29 @@
     function renderPicker() {
       const cat = catSelect ? catSelect.value : "Laptops";
       const options = PRODUCTS.filter(p => p.cat === cat);
-      picker.innerHTML = options.map(p => `
-        <label class="compare-picker__item ${selected.includes(p.id) ? "active" : ""}">
-          <input type="checkbox" value="${p.id}" ${selected.includes(p.id) ? "checked" : ""} ${selected.length >= 4 && !selected.includes(p.id) ? "disabled" : ""}>
-          <img src="${p.img}" alt="${p.name}" loading="lazy" width="80" height="60">
-          <span>${p.name}</span>
-        </label>`).join("");
+      picker.innerHTML = options.map(p => {
+        const isActive = selected.includes(p.id);
+        const isDisabled = selected.length >= 4 && !isActive;
+        return `
+        <label class="compare-picker__item ${isActive ? "active" : ""} ${isDisabled ? "disabled" : ""}">
+          <input type="checkbox" value="${p.id}" ${isActive ? "checked" : ""} ${isDisabled ? "disabled" : ""} style="display:none;">
+          <div class="compare-picker__media">
+            ${p.badge ? `<span class="badge badge-${p.badge} compare-picker__badge">${p.badge}</span>` : ''}
+            <div class="compare-picker__check">
+              ${isActive ? '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' : ''}
+            </div>
+            <img src="${p.img}" alt="${p.name}" loading="lazy">
+          </div>
+          <div class="compare-picker__body">
+            <span class="compare-picker__cat">${p.brand || cat} · ${p.sub || 'Tech'}</span>
+            <h3 class="compare-picker__title">${p.name}</h3>
+            <div class="compare-picker__price">
+              <span>$${p.price.toLocaleString()}</span>
+              ${p.was ? `<span style="text-decoration:line-through;color:var(--text-muted);font-size:0.85em;margin-left:auto;">$${p.was.toLocaleString()}</span>` : ''}
+            </div>
+          </div>
+        </label>`;
+      }).join("");
     }
 
     function renderTable() {

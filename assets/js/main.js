@@ -113,7 +113,7 @@
           <button class="icon-btn theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
             <span class="icon-sun">${ICONS.sun}</span><span class="icon-moon">${ICONS.moon}</span>
           </button>
-          <a href="login.html" class="btn btn-outline btn-sm header-cta" style="border-radius:var(--radius-pill);">Sign In</a>
+          <a href="login.html" class="btn btn-primary header-cta">Sign In</a>
           <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">${ICONS.menu}</button>
         </div>
       </div>
@@ -170,6 +170,7 @@
             <a href="#" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1"/></svg></a>
             <a href="#" aria-label="X / Twitter"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h3l-7.5 8.6L22 22h-6.8l-5.3-6.9L4 22H1l8-9.2L2 2h7l4.8 6.3L18 2Z"/></svg></a>
             <a href="#" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 8.5a4 4 0 0 0-2.8-2.8C17 5 12 5 12 5s-5 0-7.2.7A4 4 0 0 0 2 8.5 41 41 0 0 0 2 12a41 41 0 0 0 0 3.5 4 4 0 0 0 2.8 2.8C7 19 12 19 12 19s5 0 7.2-.7A4 4 0 0 0 22 15.5 41 41 0 0 0 22 12a41 41 0 0 0 0-3.5Z"/><path d="m10 9.5 5 2.5-5 2.5v-5Z"/></svg></a>
+            <a href="#" aria-label="Pinterest"><svg viewBox="0 0 384 512" fill="currentColor"><path d="M204 6.5C101.4 6.5 0 74.9 0 185.6 0 256 39.6 296 63.6 296c9.9 0 15.6-27.6 15.6-35.4 0-9.3-23.7-29.1-23.7-67.8 0-80.4 61.2-137.4 140.4-137.4 68.1 0 118.5 38.7 118.5 109.8 0 53.1-21.3 152.7-90.3 152.7-24.9 0-46.2-18-46.2-43.8 0-37.8 26.4-74.4 26.4-113.4 0-66.2-93.9-54.2-93.9 25.8 0 16.8 2.1 35.4 9.6 50.7-13.8 59.4-42 147.9-42 209.1 0 18.9 2.7 37.5 4.5 56.4 3.4 3.8 1.7 3.4 6.9 1.5 50.4-69 48.6-82.5 71.4-172.8 12.3 23.4 44.1 36 69.3 36 106.2 0 153.9-103.5 153.9-196.8C384 71.3 298.2 6.5 204 6.5z"/></svg></a>
           </div>
         </div>
         <div class="footer-col">

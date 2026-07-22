@@ -42,7 +42,7 @@
 .brand-logo__text span{ color: var(--c-primary); }
 
 .main-nav{ display:none; }
-.main-nav ul{ display:flex; align-items:center; gap: var(--sp-6); }
+.main-nav > ul{ display:flex; align-items:center; gap: var(--sp-6); }
 .main-nav a{
   font-family: var(--font-display); font-size: var(--fs-sm); font-weight:500;
   color: var(--text-primary); padding:10px 2px; position:relative; display:inline-flex; align-items:center; gap:6px;

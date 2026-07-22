@@ -52,3 +52,10 @@
 @media (min-width:1024px){
   [dir="rtl"] .hero-2col{ grid-template-columns: 1fr 1fr; }
 }
+
+[dir="rtl"] .mobile-nav {
+  transform: translateX(-110%);
+}
+[dir="rtl"] .mobile-nav.active {
+  transform: translateX(0);
+}
