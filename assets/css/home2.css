@@ -23,14 +23,14 @@
 .showroom-hero p{ color:#B8C4DC; font-size: var(--fs-md); max-width:480px; margin-bottom: var(--sp-6); }
 
 .page-header-section.showroom-hero {
-  background: transparent;
-  color: var(--text-primary);
+  background: #0B132B;
+  color: #FFFFFF;
 }
 .page-header-section.showroom-hero h1 {
-  color: var(--text-primary);
+  color: #FFFFFF !important;
 }
 .page-header-section.showroom-hero p {
-  color: var(--text-secondary);
+  color: #B8C4DC !important;
 }
 
 .showroom-stack{ position:relative; height:420px; }

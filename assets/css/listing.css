@@ -4,12 +4,13 @@
    ========================================================================== */
 
 .listing-hero{
-  background: var(--surface-1);
+  background: #0B0F19;
   text-align: center;
   display: flex;
   align-items: center;
   justify-content: center;
   min-height: 280px;
+  color: #FFFFFF;
 }
 .listing-hero__content {
   max-width: 760px;
@@ -24,9 +25,10 @@
   margin-bottom: var(--sp-3);
   font-size: clamp(2.2rem, 1.8rem + 3vw, 3.5rem);
   line-height: 1.2;
+  color: #FFFFFF !important;
 }
 .listing-hero__content p {
-  color: var(--text-muted);
+  color: #CBD5E1 !important;
   font-size: var(--fs-md);
   margin-inline: auto;
   max-width: 600px;

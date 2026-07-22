@@ -13,7 +13,7 @@ h2, .h2{ font-size: clamp(1.5rem, 1.2rem + 1.6vw, 2.5rem); }
 
 /* Universal strict root bounds guard for 320px & RTL viewports */
 html, body {
-  overflow-x: hidden !important;
+  overflow-x: clip !important;
   max-width: 100vw !important;
 }
 

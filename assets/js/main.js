@@ -335,11 +335,17 @@
 
   /* ---------------- HEADER SCROLL STYLE ---------------- */
   function initHeaderScroll() {
-    const header = document.querySelector(".site-header");
-    if (!header) return;
-    window.addEventListener("scroll", () => {
-      header.style.boxShadow = window.scrollY > 8 ? "var(--shadow-sm)" : "none";
-    }, { passive: true });
+    const mainHeader = document.getElementById("main-header") || document.querySelector(".site-header");
+    if (!mainHeader) return;
+    const handleScroll = () => {
+      const isScrolled = window.scrollY > 10;
+      mainHeader.classList.toggle("scrolled", isScrolled);
+      if (mainHeader.id === "main-header") {
+        mainHeader.style.boxShadow = isScrolled ? "0 10px 30px rgba(0, 0, 0, 0.12)" : "0 4px 20px rgba(0, 0, 0, 0.05)";
+      }
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
   }
 
   /* ---------------- NEWSLETTER (demo-only, no backend) ---------------- */

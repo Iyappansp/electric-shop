@@ -42,10 +42,10 @@
   --footer-bg: #0D1420;
   --footer-text: #C7CEDA;
 
-  /* Hero Background Opacity & Overlay */
-  --hero-bg-opacity: 0.85;
-  --hero-overlay-start: rgba(248, 250, 252, 0.35);
-  --hero-overlay-end: rgba(248, 250, 252, 0.55);
+  /* Hero Background Opacity & Overlay (Dark theme effect maintained across light & dark themes) */
+  --hero-bg-opacity: 0.92;
+  --hero-overlay-start: rgba(11, 15, 25, 0.78);
+  --hero-overlay-end: rgba(11, 15, 25, 0.92);
 
   /* Typography */
   --font-display: 'Poppins', sans-serif;
@@ -116,7 +116,7 @@ body {
   color: var(--text-primary);
   background: var(--surface-0);
   -webkit-font-smoothing: antialiased;
-  overflow-x: hidden;
+  overflow-x: clip;
   transition: background-color var(--transition-base), color var(--transition-base);
 }
 
@@ -242,23 +242,40 @@ textarea:focus-visible,
   background: var(--surface-1);
 }
 
-/* Page Header & Listing Hero Background styling with dynamic low opacity */
+/* Page Header & Listing Hero Background styling with dark theme aesthetic maintained across all modes */
 .listing-hero,
 .page-header-section {
   position: relative;
   overflow: hidden;
   padding-block: var(--sp-9) var(--sp-9);
-  border-bottom: 1px solid var(--border-color);
+  background-color: #0B0F19;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  color: #FFFFFF;
 }
 
 .listing-hero .hero-title,
-.page-header-section .hero-title {
-  color: var(--text-primary);
+.page-header-section .hero-title,
+.listing-hero .section-title,
+.page-header-section .section-title,
+.listing-hero h1,
+.page-header-section h1 {
+  color: #FFFFFF !important;
 }
 
 .listing-hero__content p,
-.page-header-section p {
-  color: var(--text-secondary);
+.page-header-section p,
+.page-header-section .section-sub,
+.listing-hero p {
+  color: #CBD5E1 !important;
+}
+
+.page-header-section .eyebrow,
+.listing-hero .eyebrow,
+.hero .eyebrow,
+.showroom-hero .eyebrow {
+  background: rgba(21, 101, 192, 0.25);
+  color: #00ACC1;
+  border: 1px solid rgba(0, 172, 193, 0.35);
 }
 
 .listing-hero::before,
@@ -266,10 +283,10 @@ textarea:focus-visible,
   content: '';
   position: absolute;
   inset: 0;
-  background-image: linear-gradient(var(--hero-overlay-start, rgba(248, 250, 252, 0.75)), var(--hero-overlay-end, rgba(248, 250, 252, 0.88))), var(--hero-bg, none);
+  background-image: linear-gradient(var(--hero-overlay-start, rgba(11, 15, 25, 0.78)), var(--hero-overlay-end, rgba(11, 15, 25, 0.92))), var(--hero-bg, none);
   background-size: cover;
   background-position: center;
-  opacity: var(--hero-bg-opacity, 0.85);
+  opacity: var(--hero-bg-opacity, 0.92);
   z-index: 0;
   pointer-events: none;
   transition: opacity var(--transition-base);
