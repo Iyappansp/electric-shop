@@ -17,6 +17,30 @@ html, body {
   max-width: 100vw !important;
 }
 
+.container {
+  width: 100% !important;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: 16px !important;
+  box-sizing: border-box !important;
+}
+
+@media (min-width: 480px) {
+  .container { padding-inline: 20px !important; }
+}
+
+@media (min-width: 768px) {
+  .container { padding-inline: 28px !important; }
+}
+
+@media (min-width: 1024px) {
+  .container { padding-inline: 36px !important; }
+}
+
+@media (min-width: 1280px) {
+  .container { padding-inline: 40px !important; }
+}
+
 /* --------- Extra-small phones (320–359px): tighten paddings & stacks --------- */
 @media (max-width:359.98px){
   .container{ padding-inline: 12px !important; width: 100% !important; max-width: 100vw !important; box-sizing: border-box !important; }
@@ -115,8 +139,9 @@ img, video, svg{ max-width:100%; height:auto; }
   }
 }
 
-/* Header toggles stay visible in top right corner on tablet/mobile screens */
-@media (max-width: 1024px) {
+/* Requirement 14: Use icons/toggles in ONE place only on mobile, tablet & <1024px.
+   RTL & Theme toggles live inside the mobile drawer dropdown footer, so hide them from top header actions on screens < 1024px. */
+@media (max-width: 1023.98px) {
   .site-header .container {
     gap: var(--sp-2);
   }
@@ -126,22 +151,16 @@ img, video, svg{ max-width:100%; height:auto; }
   }
   .site-header .rtl-toggle,
   .site-header .theme-toggle {
-    display: inline-flex !important;
-    width: 36px;
-    height: 36px;
-    padding: 0;
-    font-size: 10px;
-    flex-shrink: 0;
+    display: none !important;
   }
   .site-header .menu-toggle {
-    width: 36px;
-    height: 36px;
+    width: 38px;
+    height: 38px;
     flex-shrink: 0;
   }
-  .site-header .theme-toggle svg,
   .site-header .menu-toggle svg {
-    width: 18px;
-    height: 18px;
+    width: 20px;
+    height: 20px;
   }
 }
 

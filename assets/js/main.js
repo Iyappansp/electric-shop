@@ -283,33 +283,74 @@
     const closeBtn = document.getElementById("mobileNavClose");
 
     function open() {
+      if (!nav) return;
+      document.documentElement.classList.add("mobile-nav-open");
+      document.body.classList.add("mobile-nav-open");
       nav.classList.add("active");
-      overlay.classList.add("active");
-      openBtn.setAttribute("aria-expanded", "true");
-      document.body.style.overflow = "hidden";
+      if (overlay) overlay.classList.add("active");
+      if (openBtn) openBtn.setAttribute("aria-expanded", "true");
+
+      nav.scrollTop = 0;
+      const bodyEl = nav.querySelector(".mobile-nav__body");
+      if (bodyEl) bodyEl.scrollTop = 0;
     }
+
     function close() {
+      if (!nav) return;
       nav.classList.remove("active");
-      overlay.classList.remove("active");
-      openBtn.setAttribute("aria-expanded", "false");
-      document.body.style.overflow = "";
+      if (overlay) overlay.classList.remove("active");
+      if (openBtn) openBtn.setAttribute("aria-expanded", "false");
+
+      document.documentElement.classList.remove("mobile-nav-open");
+      document.body.classList.remove("mobile-nav-open");
     }
+
     openBtn && openBtn.addEventListener("click", open);
     closeBtn && closeBtn.addEventListener("click", close);
     overlay && overlay.addEventListener("click", close);
 
+    if (overlay) {
+      overlay.addEventListener("touchmove", (e) => e.preventDefault(), { passive: false });
+    }
+
     document.querySelectorAll(".mobile-accordion-toggle").forEach(btn => {
+      btn.setAttribute("aria-expanded", "false");
       btn.addEventListener("click", () => {
         const li = btn.closest("li");
-        const submenu = li.querySelector(".mobile-submenu");
-        const isOpen = li.classList.contains("open");
+        const submenu = li ? li.querySelector(".mobile-submenu") : null;
+        const isOpen = li ? li.classList.contains("open") : false;
+
         document.querySelectorAll(".mobile-nav__body li.open").forEach(openLi => {
           openLi.classList.remove("open");
-          openLi.querySelector(".mobile-submenu").style.maxHeight = null;
+          const toggle = openLi.querySelector(".mobile-accordion-toggle");
+          if (toggle) toggle.setAttribute("aria-expanded", "false");
+          const openSub = openLi.querySelector(".mobile-submenu");
+          if (openSub) openSub.style.maxHeight = null;
         });
-        if (!isOpen) {
+
+        if (!isOpen && li && submenu) {
           li.classList.add("open");
-          submenu.style.maxHeight = submenu.scrollHeight + "px";
+          btn.setAttribute("aria-expanded", "true");
+          submenu.style.maxHeight = (submenu.scrollHeight + 12) + "px";
+        }
+      });
+    });
+
+    // Auto-close sidebar on option link selection & smooth scroll for in-page anchors
+    document.querySelectorAll(".mobile-nav a").forEach(link => {
+      link.addEventListener("click", (e) => {
+        const href = link.getAttribute("href");
+        if (href && href.startsWith("#") && href.length > 1) {
+          e.preventDefault();
+          close();
+          const targetEl = document.querySelector(href);
+          if (targetEl) {
+            setTimeout(() => {
+              targetEl.scrollIntoView({ behavior: "smooth" });
+            }, 150);
+          }
+        } else {
+          close();
         }
       });
     });
@@ -366,7 +407,14 @@
   function injectLayout() {
     const headerEl = document.getElementById("main-header");
     const footerEl = document.getElementById("main-footer");
-    if (headerEl) headerEl.innerHTML = buildHeader();
+    if (headerEl) {
+      headerEl.innerHTML = buildHeader();
+      // Move navOverlay and mobileNav directly to document.body to prevent containing block issues from sticky/backdrop-filter header
+      const navOverlay = document.getElementById("navOverlay");
+      const mobileNav = document.getElementById("mobileNav");
+      if (navOverlay) document.body.appendChild(navOverlay);
+      if (mobileNav) document.body.appendChild(mobileNav);
+    }
     if (footerEl) {
       footerEl.innerHTML = buildFooter();
       footerEl.classList.add("site-footer");

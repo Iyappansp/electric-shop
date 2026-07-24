@@ -68,7 +68,14 @@ html.dark .breadcrumb-bar{ background: var(--surface-1); border-color: var(--bor
 html.dark .modal{ background: var(--surface-2); }
 html.dark .modal__close{ background: var(--surface-3); color:#fff; }
 
-html.dark .dropdown-menu{ background: var(--surface-2); border-color: var(--border-color); }
+html.dark .dropdown-menu{ background: rgba(22, 27, 39, 0.95); border-color: var(--border-color); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45); }
+html.dark .mobile-nav { background: var(--surface-1); border-color: var(--border-color); }
+html.dark .mobile-nav__body>ul>li { background: var(--surface-2); border-color: var(--border-color); }
+html.dark .mobile-nav__body>ul>li.open { background: var(--surface-2); border-color: var(--c-primary); }
+html.dark .mobile-submenu { background: var(--surface-1); border-color: var(--border-color); }
+html.dark .mobile-submenu a { color: var(--text-secondary); }
+html.dark .mobile-submenu a:hover, html.dark .mobile-submenu a.active { color: var(--c-primary-light); background: rgba(var(--c-primary-rgb), 0.15); }
+html.dark .select-wrap select { background-color: var(--surface-3); color: var(--text-primary); border-color: var(--border-color-strong); }
 
 html.dark img.auto-invert-icon{ filter: invert(1); }
 
