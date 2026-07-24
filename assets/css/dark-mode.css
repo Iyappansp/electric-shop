@@ -4,7 +4,7 @@
    Brand colors stay identical (brand consistency requirement).
    ========================================================================== */
 
-html.dark{
+html.dark {
   --surface-0: #0B0F19;
   --surface-1: #10141F;
   --surface-2: #161B27;
@@ -17,7 +17,7 @@ html.dark{
   --text-muted: #6B7686;
   --text-inverse: #111827;
 
-  --header-bg: rgba(11,15,25,0.82);
+  --header-bg: rgba(11, 15, 25, 0.82);
   --footer-bg: #060A12;
   --footer-text: #93A0B8;
 
@@ -30,57 +30,190 @@ html.dark{
   color-scheme: dark;
 }
 
-html.dark body{ background: var(--surface-0); }
+html.dark body {
+  background: var(--surface-0);
+}
 
-html.dark .btn-secondary{ color: var(--c-primary-light); }
-html.dark .btn-ghost:hover{ background: var(--surface-3); }
+html.dark .btn-secondary {
+  color: var(--c-primary-light);
+}
+
+html.dark .btn-ghost:hover {
+  background: var(--surface-3);
+}
 
 html.dark .card,
 html.dark .product-card,
 html.dark .category-card,
 html.dark .brand-card,
-html.dark .feature-card{ background: var(--surface-2); border-color: var(--border-color); }
+html.dark .feature-card {
+  background: var(--surface-2);
+  border-color: var(--border-color);
+}
 
-html.dark .category-card__icon{ background: rgba(var(--c-primary-rgb),0.16); }
-html.dark .product-card__wishlist{ background: rgba(22,27,39,0.9); border-color: var(--border-color); }
+html.dark .category-card__icon {
+  background: rgba(var(--c-primary-rgb), 0.16);
+}
 
-html.dark .offer-card{ background: linear-gradient(135deg, #0D1420 0%, #1A2333 100%); border:1px solid var(--border-color); }
+html.dark .product-card__wishlist {
+  background: rgba(22, 27, 39, 0.9);
+  border-color: var(--border-color);
+}
 
-html.dark .eyebrow{ background: rgba(var(--c-primary-rgb),0.16); }
+html.dark .offer-card {
+  background: linear-gradient(135deg, #0D1420 0%, #1A2333 100%);
+  border: 1px solid var(--border-color);
+}
 
-html.dark .form-control{ background: var(--surface-3); border-color: var(--border-color-strong); color: var(--text-primary); }
-html.dark .form-control::placeholder{ color: var(--text-muted); }
+html.dark .eyebrow {
+  background: rgba(59, 130, 246, 0.16);
+  color: #60A5FA;
+  border-color: rgba(96, 165, 250, 0.28);
+}
 
-html.dark .data-table th{ background: var(--surface-3); }
-html.dark table.data-table{ background: var(--surface-2); }
+html.dark .product-card__cat,
+html.dark .compare-picker__cat {
+  background: rgba(59, 130, 246, 0.16);
+  color: #60A5FA;
+  border-color: rgba(96, 165, 250, 0.28);
+}
 
-html.dark .mega-menu{ background: var(--surface-2); border-color: var(--border-color); }
-html.dark .mega-menu__col a{ color: var(--text-secondary); }
+html.dark .badge-primary {
+  background: rgba(59, 130, 246, 0.18);
+  color: #60A5FA;
+  border-color: rgba(96, 165, 250, 0.3);
+}
 
-html.dark .skeleton{ background: var(--surface-3); }
-html.dark .skeleton::after{ background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent); }
+html.dark .badge-secondary {
+  background: rgba(168, 85, 247, 0.18);
+  color: #C084FC;
+  border-color: rgba(192, 132, 252, 0.3);
+}
 
-html.dark .header-search input{ background: var(--surface-3); border-color: var(--border-color-strong); color:#fff; }
-html.dark .icon-btn{ background: var(--surface-3); }
+html.dark .badge-success {
+  background: rgba(34, 197, 94, 0.18);
+  color: #4ADE80;
+  border-color: rgba(74, 222, 128, 0.3);
+}
 
-html.dark .breadcrumb-bar{ background: var(--surface-1); border-color: var(--border-color); }
+html.dark .badge-accent {
+  background: rgba(245, 158, 11, 0.18);
+  color: #FBBF24;
+  border-color: rgba(251, 191, 36, 0.3);
+}
 
-html.dark .modal{ background: var(--surface-2); }
-html.dark .modal__close{ background: var(--surface-3); color:#fff; }
+html.dark .form-control {
+  background: var(--surface-3);
+  border-color: var(--border-color-strong);
+  color: var(--text-primary);
+}
 
-html.dark .dropdown-menu{ background: rgba(22, 27, 39, 0.95); border-color: var(--border-color); box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45); }
-html.dark .mobile-nav { background: var(--surface-1); border-color: var(--border-color); }
-html.dark .mobile-nav__body>ul>li { background: var(--surface-2); border-color: var(--border-color); }
-html.dark .mobile-nav__body>ul>li.open { background: var(--surface-2); border-color: var(--c-primary); }
-html.dark .mobile-submenu { background: var(--surface-1); border-color: var(--border-color); }
-html.dark .mobile-submenu a { color: var(--text-secondary); }
-html.dark .mobile-submenu a:hover, html.dark .mobile-submenu a.active { color: var(--c-primary-light); background: rgba(var(--c-primary-rgb), 0.15); }
-html.dark .select-wrap select { background-color: var(--surface-3); color: var(--text-primary); border-color: var(--border-color-strong); }
+html.dark .form-control::placeholder {
+  color: var(--text-muted);
+}
 
-html.dark img.auto-invert-icon{ filter: invert(1); }
+html.dark .data-table th {
+  background: var(--surface-3);
+}
+
+html.dark table.data-table {
+  background: var(--surface-2);
+}
+
+html.dark .mega-menu {
+  background: var(--surface-2);
+  border-color: var(--border-color);
+}
+
+html.dark .mega-menu__col a {
+  color: var(--text-secondary);
+}
+
+html.dark .skeleton {
+  background: var(--surface-3);
+}
+
+html.dark .skeleton::after {
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.08), transparent);
+}
+
+html.dark .header-search input {
+  background: var(--surface-3);
+  border-color: var(--border-color-strong);
+  color: #fff;
+}
+
+html.dark .icon-btn {
+  background: var(--surface-3);
+}
+
+html.dark .breadcrumb-bar {
+  background: var(--surface-1);
+  border-color: var(--border-color);
+}
+
+html.dark .modal {
+  background: var(--surface-2);
+}
+
+html.dark .modal__close {
+  background: var(--surface-3);
+  color: #fff;
+}
+
+html.dark .dropdown-menu {
+  background: rgba(22, 27, 39, 0.95);
+  border-color: var(--border-color);
+  box-shadow: 0 14px 36px rgba(0, 0, 0, 0.45);
+}
+
+html.dark .mobile-nav {
+  background: var(--surface-1);
+  border-color: var(--border-color);
+}
+
+html.dark .mobile-nav__body>ul>li {
+  background: var(--surface-2);
+  border-color: var(--border-color);
+}
+
+html.dark .mobile-nav__body>ul>li.open {
+  background: var(--surface-2);
+  border-color: var(--c-primary);
+}
+
+html.dark .mobile-submenu {
+  background: var(--surface-1);
+  border-color: var(--border-color);
+}
+
+html.dark .mobile-submenu a {
+  color: var(--text-secondary);
+}
+
+html.dark .mobile-submenu a:hover,
+html.dark .mobile-submenu a.active {
+  color: var(--c-primary-light);
+  background: rgba(var(--c-primary-rgb), 0.15);
+}
+
+html.dark .select-wrap select {
+  background-color: var(--surface-3);
+  color: var(--text-primary);
+  border-color: var(--border-color-strong);
+}
+
+html.dark img.auto-invert-icon {
+  filter: invert(1);
+}
 
 /* Theme transition smoothing for key surfaces */
-html.dark, html.dark body, html.dark .site-header, html.dark .card,
-html.dark .product-card, html.dark .category-card, html.dark .form-control{
+html.dark,
+html.dark body,
+html.dark .site-header,
+html.dark .card,
+html.dark .product-card,
+html.dark .category-card,
+html.dark .form-control {
   transition: background-color var(--transition-base), border-color var(--transition-base), color var(--transition-base);
 }
