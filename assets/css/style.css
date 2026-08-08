@@ -947,17 +947,19 @@ textarea:focus-visible,
     padding 0.35s ease;
 }
 
-/* On hover: pill moves up and glows (logo only, no text expansion) */
+/* On hover: pill moves up with pure glassmorphism effect (no solid color fill) */
 .brand-card:hover .brand-card__content {
   opacity: 1;
   visibility: visible;
   transform: translateY(-10px) scale(1.08);
-  background: rgba(var(--brand-rgb), 0.92);
-  border-color: rgba(255, 255, 255, 0.55);
+  background: rgba(12, 18, 36, 0.72);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-color: rgba(255, 255, 255, 0.35);
   box-shadow:
-    0 8px 32px rgba(0, 0, 0, 0.55),
-    0 0 24px rgba(var(--brand-rgb), 0.60),
-    0 0 0 1px rgba(255, 255, 255, 0.20);
+    0 12px 36px rgba(0, 0, 0, 0.65),
+    0 0 0 1px rgba(255, 255, 255, 0.25),
+    inset 0 1px 1px rgba(255, 255, 255, 0.30);
   gap: 0;
   padding: 10px 18px;
 }
@@ -992,7 +994,7 @@ textarea:focus-visible,
 img.brand-card__logo {
   height: 28px;
   width: auto;
-  max-width: 85px;
+  max-width: 95px;
   object-fit: contain;
   flex-shrink: 0;
   display: inline-block;
@@ -1000,19 +1002,42 @@ img.brand-card__logo {
   transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
 }
 
-/* Light Mode: Dark color for brand logos */
+/* Increased display size specifically for Sony, Logitech, Dell, Canon, AMD, and Nvidia logos */
+.brand-card[data-brand="sony"] .brand-card__logo-img,
+.brand-card[data-brand="sony"] img.brand-card__logo,
+.brand-card[data-brand="logitech"] .brand-card__logo-img,
+.brand-card[data-brand="logitech"] img.brand-card__logo,
+.brand-card[data-brand="dell"] .brand-card__logo-img,
+.brand-card[data-brand="dell"] img.brand-card__logo,
+.brand-card[data-brand="canon"] .brand-card__logo-img,
+.brand-card[data-brand="canon"] img.brand-card__logo,
+.brand-card[data-brand="amd"] .brand-card__logo-img,
+.brand-card[data-brand="amd"] img.brand-card__logo,
+.brand-card[data-brand="nvidia"] .brand-card__logo-img,
+.brand-card[data-brand="nvidia"] img.brand-card__logo,
+#brand-sony .brand-card__logo-img,
+#brand-logitech .brand-card__logo-img,
+#brand-dell .brand-card__logo-img,
+#brand-canon .brand-card__logo-img,
+#brand-amd .brand-card__logo-img,
+#brand-nvidia .brand-card__logo-img {
+  height: 35px;
+  max-width: 120px;
+}
+
+/* Light Mode & Dark Mode theme-based logo filters disabled per user request:
 html:not(.dark) .brand-card__logo-img,
 html:not(.dark) img.brand-card__logo {
   filter: brightness(0);
   opacity: 0.88;
 }
 
-/* Dark Mode: Light/White color for brand logos */
 html.dark .brand-card__logo-img,
 html.dark img.brand-card__logo {
   filter: brightness(0) invert(1);
   opacity: 0.95;
 }
+*/
 
 .brand-card:hover .brand-card__logo {
   transform: scale(1.18) rotate(-5deg);
@@ -1025,6 +1050,7 @@ html.dark img.brand-card__logo {
   opacity: 1;
 }
 
+/* Disabled hover theme filters per user request:
 html:not(.dark) .brand-card:hover .brand-card__logo-img,
 html:not(.dark) .brand-card:hover img.brand-card__logo {
   filter: brightness(0) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
@@ -1034,6 +1060,7 @@ html.dark .brand-card:hover .brand-card__logo-img,
 html.dark .brand-card:hover img.brand-card__logo {
   filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
 }
+*/
 
 
 
@@ -1252,7 +1279,19 @@ html.dark .brand-card:hover img.brand-card__logo {
 .brand-marquee .brand-card img.brand-card__logo {
   height: 30px;
   width: auto;
-  max-width: 95px;
+  max-width: 105px;
+}
+
+.brand-marquee .brand-card[data-brand="sony"] .brand-card__logo-img,
+.brand-marquee .brand-card[data-brand="sony"] img.brand-card__logo,
+.brand-marquee .brand-card[data-brand="logitech"] .brand-card__logo-img,
+.brand-marquee .brand-card[data-brand="logitech"] img.brand-card__logo,
+.brand-marquee .brand-card[data-brand="dell"] .brand-card__logo-img,
+.brand-marquee .brand-card[data-brand="dell"] img.brand-card__logo,
+.brand-marquee .brand-card[data-brand="canon"] .brand-card__logo-img,
+.brand-marquee .brand-card[data-brand="canon"] img.brand-card__logo {
+  height: 38px;
+  max-width: 125px;
 }
 
 .brand-marquee .brand-card .brand-card__name {
