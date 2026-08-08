@@ -1,0 +1,106 @@
+=== 404.html ===
+  <div id='' class='state-page'> | H: This page has powered down. | style: 
+=== about.html ===
+  <section id='' class='page-header-section'> | H: Technology should feel exciting, not ove | style: 
+  <section id='' class='section'> | H: Make premium technology genuinely access | style: padding-top:0;
+  <section id='' class='section section--alt'> | H: How We Got Here | style: 
+  <section id='' class='section'> | H: What We Believe In | style: 
+  <section id='' class='section section--alt'> | H: Our Quality Assurance Standards | style: 
+  <section id='' class='section section--alt'> | H: The People Behind Voltage | style: 
+  <section id='' class='final-cta-section'> | H: Ready to find your next device? | style: background-image:linear-gradient(rgba(10,15,28,0.78), rgba(1
+=== accessories.html ===
+  <section id='' class='listing-hero'> | H: Premium Accessories for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Accessories Side by Side | style: 
+=== brands.html ===
+  <section id='' class='page-header-section'> | H: Shop by Brand | style: 
+  <section id='' class='section'> | H:  | style: padding-top:0;
+  <section id='' class='section section--alt'> | H: Featured: ASUS ROG | style: 
+  <section id='' class='section'> | H: Featured: Apple | style: 
+=== bulk-orders.html ===
+  <section id='' class='page-header-section showroom-hero'> | H: Equip your team, school, or agency with
+ | style: 
+  <section id='' class='section'> | H: Built for Every Organization | style: 
+  <section id='' class='section section--alt'> | H: Discount Tiers | style: 
+  <section id='bulk-form' class='section'> | H: Request a Bulk Quote | style: 
+=== categories.html ===
+  <section id='' class='page-header-section'> | H: Shop by Category | style: 
+  <section id='' class='section'> | H: Laptops | style: padding-top:0;
+  <section id='' class='section section--alt'> | H: Across All Categories | style: 
+=== coming-soon.html ===
+  <div id='' class='state-page'> | H: Something new is charging up. | style: 
+=== contact.html ===
+  <section id='' class='page-header-section'> | H: Contact Voltage | style: 
+  <section id='' class='section'> | H: Send Us a Message | style: padding-top:0;
+  <section id='' class='section'> | H: Find Voltage Near You | style: padding-top:var(--sp-6);
+  <section id='' class='section'> | H: Quick Help Answers | style: background: var(--surface-1); border-top: 1px solid var(--bo
+  <section id='' class='final-cta-section'> | H: Our Support Team is Ready | style: background-image:linear-gradient(rgba(10,15,28,0.78), rgba(1
+=== faq.html ===
+  <section id='' class='page-header-section'> | H: Frequently Asked Questions | style: 
+=== gaming.html ===
+  <section id='' class='listing-hero'> | H: Premium Gaming for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Gaming Gear Side by Side | style: 
+=== headphones.html ===
+  <section id='' class='listing-hero'> | H: Premium Headphones for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Headphones Side by Side | style: 
+=== home-2.html ===
+  <section id='' class='showroom-hero'> | H: Technology curated for how you actually  | style: 
+  <section id='' class='section'> | H: Latest Technology | style: padding-block: var(--sp-6);
+  <section id='' class='section section--alt'> | H: Gaming Collection | style: 
+  <section id='' class='section'> | H: Creator Workspace | style: 
+  <section id='' class='section section--alt'> | H: Business Solutions | style: 
+  <section id='' class='section'> | H: Brand Showcase | style: 
+  <section id='' class='section section--alt'> | H: Product Comparison | style: 
+  <section id='' class='section'> | H: Ordering for a team, school, or business | style: 
+  <section id='' class='section section--alt'> | H: The Store Experience | style: 
+  <section id='' class='section'> | H: Customer Reviews | style: 
+  <section id='' class='showroom-step-inside-section'> | H: The showroom is always open. | style: 
+=== index.html ===
+  <section id='' class='hero'> | H: PoweringTomorrow'sTechnology. | style: 
+  <section id='' class='section'> | H: Shop by Category | style: 
+  <section id='' class='section section--alt'> | H: Featured Products | style: 
+  <section id='' class='section'> | H: Weekly Deals | style: 
+  <section id='' class='section section--alt'> | H: Shop by Brand | style: 
+  <section id='' class='section'> | H: Compare Before You Buy | style: 
+  <section id='' class='section section--alt'> | H: Why Choose Voltage | style: 
+  <section id='' class='section'> | H: Gaming Zone | style: 
+  <section id='' class='section section--alt'> | H: Smart Home Collection | style: 
+  <section id='' class='section'> | H: What Our Customers Say | style: 
+  <section id='' class='section section--alt'> | H:  | style: 
+  <section id='' class='section'> | H: Frequently Asked Questions | style: 
+  <section id='' class='section'> | H: Get Exclusive Deals First | style: 
+=== laptops.html ===
+  <section id='' class='listing-hero'> | H: Premium Laptops for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Laptops Side by Side | style: 
+=== login.html ===
+  <div id='' class='auth-page'> | H: Welcome Back | style: 
+=== product-comparison.html ===
+  <section id='' class='page-header-section showroom-hero'> | H: Spec Showdown | style: 
+  <section id='' class='section'> | H:  | style: padding-top:0;
+  <section id='' class='section'> | H: How to Choose the Right Tech | style: background: var(--surface-1); border-top: 1px solid var(--bo
+  <section id='' class='section'> | H: Next-Gen Spec Glossary | style: background: var(--surface-2); border-bottom: 1px solid var(-
+  <section id='' class='final-cta-section'> | H: Talk to a Dedicated Product Specialist | style: background-image:linear-gradient(rgba(10,15,28,0.78), rgba(1
+=== signup.html ===
+  <div id='' class='auth-page'> | H: Create Account | style: 
+=== smartphones.html ===
+  <section id='' class='listing-hero'> | H: Premium Smartphones for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Smartphones Side by Side | style: 
+=== smartwatches.html ===
+  <section id='' class='listing-hero'> | H: Premium Smartwatches for Every Need | style: 
+  <section id='' class='section'> | H: Filters✕ | style: 
+  <section id='' class='section section--alt'> | H: Compare Smartwatches Side by Side | style: 
+=== store-locator.html ===
+  <section id='' class='page-header-section'> | H: Find a Voltage Store | style: 
+  <section id='' class='section'> | H:  | style: padding-top:0;
+  <section id='' class='section'> | H: Voltage Downtown Flagship | style: padding-top:0;
+  <section id='' class='section section--alt'> | H: Our Support Team Can Help | style: 
+=== weekly-deals.html ===
+  <section id='' class='page-header-section showroom-hero'> | H: Weekly Deals | style: 
+  <section id='' class='section'> | H: Up to 30% off Laptops | style: padding-top:0; padding-bottom: var(--sp-2);
+  <section id='' class='section section--alt deals-tabs-section'> | H: All Discounted Products | style: padding-top: var(--sp-4); padding-bottom: var(--sp-8);
+  <section id='' class='section'> | H: Featured: ASUS ROG | style: 
+  <section id='' class='final-cta-section'> | H: Never miss a drop or limited-stock flash | style: background-image:linear-gradient(rgba(10,15,28,0.78), rgba(1

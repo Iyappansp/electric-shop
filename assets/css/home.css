@@ -931,7 +931,7 @@
 /* ---------------- NEWSLETTER CTA BAND ---------------- */
 .newsletter-band {
   border-radius: var(--radius-lg);
-  background-image: linear-gradient(120deg, rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.88)), url('../images/home/newsletter_cta_bg.png');
+  background-image: linear-gradient(120deg, rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.88)), url('../cta/cta_bg_1.png');
   background-size: cover;
   background-position: center;
   padding: var(--sp-8) var(--sp-6);
@@ -1009,7 +1009,7 @@
   position: relative;
   overflow: hidden;
   border-radius: var(--radius-xl);
-  background-image: linear-gradient(rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.9)), url('../images/home/final_cta_bg.png');
+  background-image: linear-gradient(rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.9)), url('../cta/cta_bg_2.png');
   background-size: cover;
   background-position: center;
   border: 1px solid rgba(255, 255, 255, 0.12);

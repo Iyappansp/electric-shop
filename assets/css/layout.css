@@ -1079,7 +1079,8 @@ body.mobile-nav-open {
   position: relative;
   overflow: hidden;
   color: #ffffff;
-}
+
+  background-image: linear-gradient(rgba(10, 15, 28, 0.78), rgba(10, 15, 28, 0.9)), url('../cta/cta_bg_2.png');}
 
 .final-cta-section .container {
   display: flex;
