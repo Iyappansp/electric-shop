@@ -947,7 +947,7 @@ textarea:focus-visible,
     padding 0.35s ease;
 }
 
-/* On hover: pill expands, moves up and glows */
+/* On hover: pill moves up and glows (logo only, no text expansion) */
 .brand-card:hover .brand-card__content {
   opacity: 1;
   visibility: visible;
@@ -958,8 +958,22 @@ textarea:focus-visible,
     0 8px 32px rgba(0, 0, 0, 0.55),
     0 0 24px rgba(var(--brand-rgb), 0.60),
     0 0 0 1px rgba(255, 255, 255, 0.20);
-  gap: 10px;                     /* text appears alongside icon */
-  padding: 11px 22px;            /* expand padding for text */
+  gap: 0;
+  padding: 10px 18px;
+}
+
+/* ---- Brand name text inside pill — REMOVED ---- */
+.brand-card__name {
+  display: none !important;
+}
+
+.brand-card:hover .brand-card__name {
+  display: none !important;
+}
+
+/* ---- BIG brand name reveal overlay — REMOVED ---- */
+.brand-card__big-name {
+  display: none !important;
 }
 
 /* ---- Logo icon inside pill ---- */
@@ -973,10 +987,55 @@ textarea:focus-visible,
   transition: transform 0.35s cubic-bezier(0.34, 1.4, 0.64, 1);
 }
 
+/* ---- Brand Card PNG Logo Images ---- */
+.brand-card__logo-img,
+img.brand-card__logo {
+  height: 28px;
+  width: auto;
+  max-width: 85px;
+  object-fit: contain;
+  flex-shrink: 0;
+  display: inline-block;
+  vertical-align: middle;
+  transition: filter 0.3s cubic-bezier(0.4, 0, 0.2, 1), transform 0.3s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.3s ease;
+}
+
+/* Light Mode: Dark color for brand logos */
+html:not(.dark) .brand-card__logo-img,
+html:not(.dark) img.brand-card__logo {
+  filter: brightness(0);
+  opacity: 0.88;
+}
+
+/* Dark Mode: Light/White color for brand logos */
+html.dark .brand-card__logo-img,
+html.dark img.brand-card__logo {
+  filter: brightness(0) invert(1);
+  opacity: 0.95;
+}
+
 .brand-card:hover .brand-card__logo {
   transform: scale(1.18) rotate(-5deg);
   filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.6));
 }
+
+.brand-card:hover .brand-card__logo-img,
+.brand-card:hover img.brand-card__logo {
+  transform: scale(1.12);
+  opacity: 1;
+}
+
+html:not(.dark) .brand-card:hover .brand-card__logo-img,
+html:not(.dark) .brand-card:hover img.brand-card__logo {
+  filter: brightness(0) drop-shadow(0 2px 4px rgba(0, 0, 0, 0.25));
+}
+
+html.dark .brand-card:hover .brand-card__logo-img,
+html.dark .brand-card:hover img.brand-card__logo {
+  filter: brightness(0) invert(1) drop-shadow(0 0 6px rgba(255, 255, 255, 0.6));
+}
+
+
 
 /* ---- Brand name text inside pill — HIDDEN by default, revealed on hover ---- */
 .brand-card__name {
@@ -1161,19 +1220,19 @@ textarea:focus-visible,
   outline-offset: 3px;
 }
 
-/* ---- Marquee brand-card overrides (homepage ticker — no image, simple pill) ---- */
+/* ---- Marquee brand-card overrides (homepage ticker — logo image pill) ---- */
 .brand-marquee .brand-card {
   display: flex;
   align-items: center;
   justify-content: center;
-  gap: var(--sp-3);              /* always show gap — text always visible */
-  padding: var(--sp-3) var(--sp-5);
+  gap: 0;
+  padding: var(--sp-3) var(--sp-6);
   background: var(--surface-2);
   border: 1px solid var(--border-color);
   border-radius: var(--radius-md);
   min-height: 64px;
-  min-width: 140px;
-  max-width: 180px;
+  min-width: 120px;
+  max-width: 160px;
   overflow: visible;
   cursor: default;
 }
@@ -1189,56 +1248,15 @@ textarea:focus-visible,
   display: none;
 }
 
-.brand-marquee .brand-card .brand-card__logo {
-  width: 24px;
-  height: 24px;
-  color: var(--c-primary);
-  fill: var(--c-primary);
-  filter: none;
-}
-
-.brand-marquee .brand-card:hover .brand-card__logo {
-  color: rgb(var(--brand-rgb));
-  fill: rgb(var(--brand-rgb));
-  transform: scale(1.15);
-  filter: none;
-}
-
-.brand-marquee .brand-card::after {
-  display: none;
-}
-
-.brand-marquee .brand-card .brand-card__logo {
-  width: 24px;
-  height: 24px;
-  color: var(--c-primary);
-  fill: var(--c-primary);
-  filter: none;
-}
-
-.brand-marquee .brand-card:hover .brand-card__logo {
-  transform: scale(1.1);
-  filter: none;
+.brand-marquee .brand-card .brand-card__logo-img,
+.brand-marquee .brand-card img.brand-card__logo {
+  height: 30px;
+  width: auto;
+  max-width: 95px;
 }
 
 .brand-marquee .brand-card .brand-card__name {
-  font-family: var(--font-display);
-  font-weight: 700;
-  font-size: var(--fs-sm);
-  color: var(--text-primary);
-  text-shadow: none;
-  letter-spacing: 0.01em;
-  /* Always visible in marquee — override the brands-page hidden default */
-  max-width: none;
-  opacity: 1;
-  overflow: visible;
-}
-
-.brand-marquee .brand-card:hover .brand-card__name {
-  letter-spacing: 0.01em;
-  text-shadow: none;
-  max-width: none;
-  opacity: 1;
+  display: none !important;
 }
 
 .brand-marquee .brand-card .brand-card__bg,
