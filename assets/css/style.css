@@ -328,6 +328,13 @@ textarea:focus-visible,
   max-width: max-content;
 }
 
+.section-head.center .eyebrow,
+.text-center .eyebrow,
+.eyebrow-center {
+  align-self: center !important;
+  margin-inline: auto !important;
+}
+
 .eyebrow::before {
   content: '';
   width: 6px;
