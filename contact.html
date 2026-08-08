@@ -210,21 +210,89 @@
       </div>
     </section>
 
-    <section class="section">
+    <section class="section" style="background: var(--surface-1); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
       <div class="container">
-        <div class="support-hub-card" data-reveal="scale">
-          <div class="support-hub-card__content">
-            <span class="support-hub-card__tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3M12 17h.01"/></svg>
-              Quick Help Answers
-            </span>
-            <h2 class="support-hub-card__title">Have Questions About Shipping or Warranty?</h2>
-            <p class="support-hub-card__text">Save time by exploring our comprehensive knowledge base. Get instant answers on order tracking, return policies, international shipping, and warranty coverage.</p>
+        <div class="section-head text-center" data-reveal="fade" style="max-width:720px; margin-inline:auto; margin-bottom:var(--sp-7);">
+          <span class="eyebrow">Self-Service Support</span>
+          <h2 class="section-title">Quick Help Answers</h2>
+          <p class="section-sub">Find immediate answers to our most common questions before reaching out.</p>
+        </div>
+
+        <div class="grid grid-4" style="gap:var(--sp-5);">
+          <!-- Shipping & Delivery -->
+          <div class="card" data-reveal="fade" style="padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; border: 1px solid var(--border-color); background: var(--surface-2); border-radius:var(--radius-lg); transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+            <div style="width:100%; height:150px; overflow:hidden; background:var(--surface-3); border-bottom:1px solid var(--border-color);">
+              <img src="assets/images/home/help_shipping.png" alt="Shipping & Delivery" style="width:100%; height:100%; object-fit:cover; transition: transform var(--transition-fast);">
+            </div>
+            <div style="padding:var(--sp-5); display:flex; flex-direction:column; flex-grow:1;">
+              <h3 style="font-size:var(--fs-base); font-weight:700; margin-bottom:var(--sp-3); color:var(--text-primary);">Shipping & Delivery</h3>
+              <ul style="margin:0 0 var(--sp-5) 0; padding:0; list-style:none; font-size:var(--fs-sm); color:var(--text-secondary); display:flex; flex-direction:column; gap:8px; flex-grow:1;">
+                <li><strong>Delivery Times:</strong> 2-5 business days depending on location.</li>
+                <li><strong>International:</strong> Worldwide shipping with tracking.</li>
+              </ul>
+              <a href="faq.html" class="btn btn-secondary btn-sm btn-block" style="margin-top:auto;">Shipping FAQ</a>
+            </div>
           </div>
-          <div class="support-hub-card__actions">
-            <a href="faq.html" class="btn btn-primary btn-lg">Explore FAQ Hub</a>
-            <a href="bulk-orders.html" class="btn btn-secondary btn-lg" style="color:#ffffff; border-color:rgba(255,255,255,0.35);">Corporate Pricing</a>
+
+          <!-- Returns & Warranty -->
+          <div class="card" data-reveal="fade" style="padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; border: 1px solid var(--border-color); background: var(--surface-2); border-radius:var(--radius-lg); transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+            <div style="width:100%; height:150px; overflow:hidden; background:var(--surface-3); border-bottom:1px solid var(--border-color);">
+              <img src="assets/images/home/help_warranty.png" alt="Returns & Warranty" style="width:100%; height:100%; object-fit:cover; transition: transform var(--transition-fast);">
+            </div>
+            <div style="padding:var(--sp-5); display:flex; flex-direction:column; flex-grow:1;">
+              <h3 style="font-size:var(--fs-base); font-weight:700; margin-bottom:var(--sp-3); color:var(--text-primary);">Returns & Warranty</h3>
+              <ul style="margin:0 0 var(--sp-5) 0; padding:0; list-style:none; font-size:var(--fs-sm); color:var(--text-secondary); display:flex; flex-direction:column; gap:8px; flex-grow:1;">
+                <li><strong>Return Policy:</strong> 30-day money-back guarantee.</li>
+                <li><strong>Warranty:</strong> 2-year full coverage on all electronics.</li>
+              </ul>
+              <a href="faq.html" class="btn btn-secondary btn-sm btn-block" style="margin-top:auto;">Warranty Info</a>
+            </div>
           </div>
+
+          <!-- Orders & Payments -->
+          <div class="card" data-reveal="fade" style="padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; border: 1px solid var(--border-color); background: var(--surface-2); border-radius:var(--radius-lg); transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+            <div style="width:100%; height:150px; overflow:hidden; background:var(--surface-3); border-bottom:1px solid var(--border-color);">
+              <img src="assets/images/home/help_billing.png" alt="Orders & Payments" style="width:100%; height:100%; object-fit:cover; transition: transform var(--transition-fast);">
+            </div>
+            <div style="padding:var(--sp-5); display:flex; flex-direction:column; flex-grow:1;">
+              <h3 style="font-size:var(--fs-base); font-weight:700; margin-bottom:var(--sp-3); color:var(--text-primary);">Orders & Payments</h3>
+              <ul style="margin:0 0 var(--sp-5) 0; padding:0; list-style:none; font-size:var(--fs-sm); color:var(--text-secondary); display:flex; flex-direction:column; gap:8px; flex-grow:1;">
+                <li><strong>Payment Methods:</strong> Cards, PayPal, and wire transfer.</li>
+                <li><strong>Order Mod:</strong> Edit within 1 hour of placing order.</li>
+              </ul>
+              <a href="faq.html" class="btn btn-secondary btn-sm btn-block" style="margin-top:auto;">Billing FAQ</a>
+            </div>
+          </div>
+
+          <!-- Corporate & Bulk -->
+          <div class="card" data-reveal="fade" style="padding:0; overflow:hidden; display:flex; flex-direction:column; height:100%; border: 1px solid var(--border-color); background: var(--surface-2); border-radius:var(--radius-lg); transition: transform var(--transition-fast), box-shadow var(--transition-fast);">
+            <div style="width:100%; height:150px; overflow:hidden; background:var(--surface-3); border-bottom:1px solid var(--border-color);">
+              <img src="assets/images/home/help_corporate.png" alt="Corporate & Bulk" style="width:100%; height:100%; object-fit:cover; transition: transform var(--transition-fast);">
+            </div>
+            <div style="padding:var(--sp-5); display:flex; flex-direction:column; flex-grow:1;">
+              <h3 style="font-size:var(--fs-base); font-weight:700; margin-bottom:var(--sp-3); color:var(--text-primary);">Corporate & Bulk</h3>
+              <ul style="margin:0 0 var(--sp-5) 0; padding:0; list-style:none; font-size:var(--fs-sm); color:var(--text-secondary); display:flex; flex-direction:column; gap:8px; flex-grow:1;">
+                <li><strong>Volume Discount:</strong> Tiered pricing starting at 5+ units.</li>
+                <li><strong>Support:</strong> Dedicated corporate account manager.</li>
+              </ul>
+              <a href="bulk-orders.html" class="btn btn-secondary btn-sm btn-block" style="margin-top:auto;">Bulk Pricing</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ STILL NEED HELP CTA ============ -->
+    <section class="final-cta-section" data-reveal="fade" style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/contact_cta_bg.png');">
+      <div class="container">
+        <div class="final-cta-section__content">
+          <span class="eyebrow">Still Need Help?</span>
+          <h2>Our Support Team is Ready</h2>
+          <p>If you couldn't find your answer in our quick help section, feel free to open a ticket or drop us an email.</p>
+        </div>
+        <div class="final-cta-section__actions">
+          <a href="#contactForm" class="btn btn-primary btn-lg">Send a Message</a>
+          <a href="faq.html" class="btn btn-secondary btn-lg">Explore Full FAQ</a>
         </div>
       </div>
     </section>

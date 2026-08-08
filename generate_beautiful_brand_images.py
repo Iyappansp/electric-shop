@@ -349,7 +349,7 @@ def gen_rog_4(fp):
     save_img(img, fp)
 
 if __name__ == "__main__":
-    brands_dir = r"c:\Users\infot\Contacts\OneDrive\Desktop\PDI\electric-shop\assets\images\brands"
+    brands_dir = r"d:\mageten\electric-shop\assets\images\brands"
     
     gen_apple_1(os.path.join(brands_dir, "apple_product_1.png"))
     gen_apple_2(os.path.join(brands_dir, "apple_product_2.png"))

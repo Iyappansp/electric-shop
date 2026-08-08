@@ -31,6 +31,7 @@
   <link rel="stylesheet" href="assets/css/rtl.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
   <link rel="stylesheet" href="assets/css/home.css">
+  <link rel="stylesheet" href="assets/css/home2.css">
   <script>(function () { try { var t = localStorage.getItem('voltage-theme'); var pd = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; if (t === 'dark' || (!t && pd)) { document.documentElement.classList.add('dark'); } var d = localStorage.getItem('voltage-dir'); if (d === 'rtl') { document.documentElement.setAttribute('dir', 'rtl'); } } catch (e) { } })();</script>
 </head>
 
@@ -41,16 +42,139 @@
       .page-header-section::before {
         background-image: linear-gradient(var(--hero-overlay-start), var(--hero-overlay-end)), url('assets/images/home/weekly_deals_hero_bg.png') !important;
       }
+
+      /* Premium Tabs System Styling */
+      .deals-tabs-container {
+        margin-top: var(--sp-6);
+        margin-bottom: var(--sp-6);
+        position: relative;
+        z-index: 10;
+      }
+
+      .deals-tabs-nav {
+        display: flex;
+        justify-content: center;
+        gap: var(--sp-6);
+        margin-bottom: var(--sp-6);
+        border-bottom: 1px solid var(--border-color);
+        padding-bottom: 0;
+        flex-wrap: wrap;
+      }
+
+      .deals-tab-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--sp-2-5);
+        padding: var(--sp-4) var(--sp-6);
+        background: transparent;
+        border: none;
+        color: var(--text-muted);
+        font-family: var(--font-display);
+        font-size: var(--fs-base);
+        font-weight: 600;
+        cursor: pointer;
+        position: relative;
+        transition: color var(--transition-base), transform var(--transition-fast);
+        outline: none;
+      }
+
+      .deals-tab-btn::after {
+        content: '';
+        position: absolute;
+        bottom: -1px;
+        left: 0;
+        width: 100%;
+        height: 3px;
+        background-color: var(--c-primary);
+        border-radius: var(--radius-pill);
+        transform: scaleX(0);
+        transition: transform var(--transition-base);
+      }
+
+      .deals-tab-btn:hover {
+        color: var(--text-primary);
+        transform: translateY(-1px);
+      }
+
+      .deals-tab-btn.active {
+        color: var(--c-primary);
+      }
+
+      .deals-tab-btn.active::after {
+        transform: scaleX(1);
+      }
+
+      .deals-tab-btn .tab-icon-svg {
+        width: 20px;
+        height: 20px;
+        stroke: var(--text-muted);
+        transition: stroke var(--transition-base), transform var(--transition-base);
+      }
+
+      .deals-tab-btn:hover .tab-icon-svg {
+        transform: rotate(5deg) scale(1.1);
+        stroke: var(--text-primary);
+      }
+
+      .deals-tab-btn.active .tab-icon-svg {
+        stroke: var(--c-primary);
+      }
+
+      [data-tab-panel] {
+        display: none;
+        animation: tabFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+      }
+
+      [data-tab-panel].active {
+        display: block;
+      }
+
+      @keyframes tabFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(12px);
+        }
+
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @media (max-width: 768px) {
+        .deals-tabs-nav {
+          gap: var(--sp-2);
+        }
+
+        .deals-tab-btn {
+          padding: var(--sp-3) var(--sp-4);
+          font-size: var(--fs-sm);
+        }
+
+        .deals-tab-btn .tab-icon-svg {
+          width: 18px;
+          height: 18px;
+        }
+      }
     </style>
-    <section class="page-header-section">
-      <div class="container text-center" style="max-width:680px; margin-inline:auto;">
-        <span class="eyebrow">Updated Every Monday</span>
-        <h1 class="section-title">Weekly Deals</h1>
-        <p class="section-sub">Real discounts, refreshed weekly — no fake countdowns, no bait pricing.</p>
+    <section class="page-header-section showroom-hero">
+      <div class="container showroom-hero-grid">
+        <div data-reveal="left">
+          <span class="showroom-eyebrow">
+            <svg class="zap-icon" viewBox="0 0 24 24" fill="currentColor" style="width: 14px; height: 14px; margin-inline-end: 6px; display: inline-block; vertical-align: middle;">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Updated Every Monday
+          </span>
+          <h1 class="hero-title" style="font-size:clamp(2rem,1.5rem+2vw,3rem); margin-top:0;">Weekly Deals</h1>
+          <p>Real discounts, refreshed weekly — no fake countdowns, no bait pricing.</p>
+        </div>
+        <img src="assets/images/home/weekly_deals_hero_bg.png" alt="Weekly Deals focal image"
+          style="border-radius:var(--radius-lg); width:100%; height:250px; object-fit:cover;" data-reveal="right">
       </div>
     </section>
-<br>
-    <section class="section" style="padding-top:0;">
+    <br>
+    <section class="section" style="padding-top:0; padding-bottom: var(--sp-2);">
       <div class="container">
         <div class="deals-strip">
           <div class="offer-card" data-reveal="scale"
@@ -93,219 +217,279 @@
       </div>
     </section>
 
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head" data-reveal="fade">
-          <span class="eyebrow">On Sale Now</span>
-          <h2 class="section-title">All Discounted Products</h2>
+    <section class="section section--alt deals-tabs-section"
+      style="padding-top: var(--sp-4); padding-bottom: var(--sp-8);">
+      <div class="container deals-tabs-container" data-tabs>
+        <div class="deals-tabs-nav">
+          <button data-tab-btn="discounted" class="deals-tab-btn active" aria-label="View All Discounted Products">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="tab-icon-svg">
+              <path d="M20.59 13.41l-7.17 7.17a2 2 0 0 1-2.83 0L2 12V2h10l8.59 8.59a2 2 0 0 1 0 2.82z"></path>
+              <line x1="7" y1="7" x2="7.01" y2="7"></line>
+            </svg>
+            <span>All Discounted Products</span>
+          </button>
+          <button data-tab-btn="bundles" class="deals-tab-btn" aria-label="View Combined Value Bundles">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="tab-icon-svg">
+              <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+              <path d="M2 17l10 5 10-5"></path>
+              <path d="M2 12l10 5 10-5"></path>
+            </svg>
+            <span>Combined Value</span>
+          </button>
+          <button data-tab-btn="clearance" class="deals-tab-btn" aria-label="View Clearance and Open Box items">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+              stroke-linejoin="round" class="tab-icon-svg">
+              <path
+                d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z">
+              </path>
+              <polyline points="3.27 6.96 12 12.01 20.73 6.96"></polyline>
+              <line x1="12" y1="22.08" x2="12" y2="12"></line>
+            </svg>
+            <span>Clearance & Open-Box</span>
+          </button>
         </div>
-        <div class="grid grid-4" data-featured="sale" data-limit="12"></div>
+
+        <!-- ============ TAB 1: ALL DISCOUNTED PRODUCTS ============ -->
+        <div data-tab-panel="discounted" class="active">
+          <div class="section-head text-center"
+            style="max-width: 600px; margin-inline: auto; margin-bottom: var(--sp-8);">
+            <span class="eyebrow">On Sale Now</span>
+            <h2 class="section-title">All Discounted Products</h2>
+          </div>
+          <div class="grid grid-4" data-featured="sale" data-limit="12"></div>
+        </div>
+
+        <!-- ============ TAB 2: COMBINED VALUE ============ -->
+        <div data-tab-panel="bundles">
+          <div class="section-head text-center"
+            style="max-width: 600px; margin-inline: auto; margin-bottom: var(--sp-8);">
+            <span class="eyebrow">Combined Value</span>
+            <h2 class="section-title">Bundle & Save Deals</h2>
+            <p class="section-sub">Pair high-performance hardware with essential accessories and save up to $350 on
+              curated packages.</p>
+          </div>
+          <div class="grid grid-4">
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Bundle Save $350</span>
+                <img src="assets/images/deals/bundle_1.png" alt="Creator Studio Bundle" loading="lazy" width="640"
+                  height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Lenovo & Dell · Creator Suite</span>
+                <h3 class="product-card__title">Creator Studio Pro Bundle</h3>
+                <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Studio
+                  Laptop + 27" 4K Monitor + SSD</p>
+                <div class="product-card__price">
+                  <span class="now">$1,799</span>
+                  <span class="was">$2,149</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="laptops.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-new">Bundle Save $300</span>
+                <img src="assets/images/deals/bundle_2.png" alt="Ultimate Gaming Rig Pack" loading="lazy" width="640"
+                  height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">ASUS ROG · Gaming Rig</span>
+                <h3 class="product-card__title">Ultimate Gaming Battlestation Pack</h3>
+                <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes RTX
+                  Gaming
+                  PC + 360Hz Display + Mech KB</p>
+                <div class="product-card__price">
+                  <span class="now">$3,499</span>
+                  <span class="was">$3,799</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="gaming.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Bundle Save $150</span>
+                <img src="assets/images/deals/bundle_3.png" alt="Mobile Power User Pack" loading="lazy" width="640"
+                  height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Apple · Ecosystem Pack</span>
+                <h3 class="product-card__title">Mobile Power User Ecosystem</h3>
+                <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Flagship
+                  Phone + Wireless Buds + GaN Charger</p>
+                <div class="product-card__price">
+                  <span class="now">$1,399</span>
+                  <span class="was">$1,549</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="smartphones.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Bundle Save $100</span>
+                <img src="assets/images/deals/bundle_4.png" alt="Audio Enthusiast Pair" loading="lazy" width="640"
+                  height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Sony & JBL · Studio Audio</span>
+                <h3 class="product-card__title">Audio Enthusiast Studio Pair</h3>
+                <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Studio
+                  Headphones + USB Stream Mic</p>
+                <div class="product-card__price">
+                  <span class="now">$449</span>
+                  <span class="was">$549</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="headphones.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
+              </div>
+            </article>
+          </div>
+        </div>
+
+        <!-- ============ TAB 3: CLEARANCE & OPEN-BOX ============ -->
+        <div data-tab-panel="clearance">
+          <div class="section-head text-center"
+            style="max-width: 600px; margin-inline: auto; margin-bottom: var(--sp-8);">
+            <span class="eyebrow">Certified Outlet</span>
+            <h2 class="section-title">Clearance & Open-Box</h2>
+            <p class="section-sub">Inspected, tested, and full warranty backed closeout deals. Limited stock available.
+            </p>
+          </div>
+          <div class="grid grid-4">
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Open-Box</span>
+                <img src="assets/images/deals/clearance_1.png" alt="Open-Box Curved OLED Display" loading="lazy"
+                  width="640" height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">ASUS · Curved Display</span>
+                <h3 class="product-card__title">PixelView 32" Curved OLED Display</h3>
+                <div class="product-card__price">
+                  <span class="now">$499</span>
+                  <span class="was">$799</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="gaming.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Refurbished</span>
+                <img src="assets/images/deals/clearance_2.png" alt="Factory Outlet ANC Headphones" loading="lazy"
+                  width="640" height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Sony · Noise Cancelling</span>
+                <h3 class="product-card__title">SoundHalo ANC Wireless Headphones</h3>
+                <div class="product-card__price">
+                  <span class="now">$219</span>
+                  <span class="was">$399</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="headphones.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Demo Unit</span>
+                <img src="assets/images/deals/clearance_3.png" alt="Store Demo Ultrabook 14" loading="lazy" width="640"
+                  height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Dell · Business Ultrabook</span>
+                <h3 class="product-card__title">EliteBook Ultraslim 14 (Store Demo)</h3>
+                <div class="product-card__price">
+                  <span class="now">$899</span>
+                  <span class="was">$1,349</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="laptops.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
+              </div>
+            </article>
+
+            <article class="product-card">
+              <div class="product-card__media">
+                <span class="product-card__badge badge-sale">Open-Box</span>
+                <img src="assets/images/deals/clearance_4.png" alt="Open-Box Fitness Smartwatch" loading="lazy"
+                  width="640" height="480">
+              </div>
+              <div class="product-card__body">
+                <span class="product-card__cat">Samsung · Fitness Tech</span>
+                <h3 class="product-card__title">PulseWatch Fit Pro (Open-Box)</h3>
+                <div class="product-card__price">
+                  <span class="now">$159</span>
+                  <span class="was">$279</span>
+                </div>
+              </div>
+              <div class="product-card__actions">
+                <a href="smartwatches.html" class="btn btn-secondary btn-sm">Details</a>
+                <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
+    <!-- ============ FEATURED BRAND SPOTLIGHT ============ -->
     <section class="section">
       <div class="container">
-        <div class="section-head" data-reveal="fade">
-          <span class="eyebrow">Combined Value</span>
-          <h2 class="section-title">Bundle & Save Deals</h2>
-          <p class="section-sub">Pair high-performance hardware with essential accessories and save up to $350 on
-            curated packages.</p>
+        <div class="brand-spotlight-banner" data-reveal="fade"
+          style="background-image: linear-gradient(90deg, rgba(11,15,25,0.92) 0%, rgba(11,15,25,0.45) 50%, rgba(11,15,25,0.85) 100%), url('assets/deal/rog.png'); background-size: cover; background-position: center; border-radius: var(--radius-lg); padding: var(--sp-6) var(--sp-7); margin-bottom: var(--sp-6); border: 1px solid rgba(239,68,68,0.3); display: flex; flex-direction: column; justify-content: center; min-height: 240px;">
+          <span class="eyebrow" style="color: #ef4444;">Gaming Performance</span>
+          <h2 class="section-title" style="color: #ffffff; margin-bottom: var(--sp-2);">Featured: ASUS ROG</h2>
+          <p class="section-sub" style="color: rgba(255,255,255,0.85); max-width: 540px; margin-bottom: var(--sp-4);">
+            Republic of Gamers hardware built for uncompromising performance, extreme refresh rates, and liquid-cooled
+            power.</p>
+          <a href="gaming.html" class="btn btn-primary btn-sm" style="align-self: flex-start;">Explore ROG
+            Collection</a>
         </div>
-        <div class="grid grid-4" data-reveal="fade">
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Bundle Save $350</span>
-              <img src="assets/images/deals/bundle_1.png" alt="Creator Studio Bundle" loading="lazy" width="640"
-                height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Lenovo & Dell · Creator Suite</span>
-              <h3 class="product-card__title">Creator Studio Pro Bundle</h3>
-              <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Studio
-                Laptop + 27" 4K Monitor + SSD</p>
-              <div class="product-card__price">
-                <span class="now">$1,799</span>
-                <span class="was">$2,149</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="laptops.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-new">Bundle Save $300</span>
-              <img src="assets/images/deals/bundle_2.png" alt="Ultimate Gaming Rig Pack" loading="lazy" width="640"
-                height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">ASUS ROG · Gaming Rig</span>
-              <h3 class="product-card__title">Ultimate Gaming Battlestation Pack</h3>
-              <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes RTX Gaming
-                PC + 360Hz Display + Mech KB</p>
-              <div class="product-card__price">
-                <span class="now">$3,499</span>
-                <span class="was">$3,799</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="gaming.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Bundle Save $150</span>
-              <img src="assets/images/deals/bundle_3.png" alt="Mobile Power User Pack" loading="lazy" width="640"
-                height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Apple · Ecosystem Pack</span>
-              <h3 class="product-card__title">Mobile Power User Ecosystem</h3>
-              <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Flagship
-                Phone + Wireless Buds + GaN Charger</p>
-              <div class="product-card__price">
-                <span class="now">$1,399</span>
-                <span class="was">$1,549</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="smartphones.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Bundle Save $100</span>
-              <img src="assets/images/deals/bundle_4.png" alt="Audio Enthusiast Pair" loading="lazy" width="640"
-                height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Sony & JBL · Studio Audio</span>
-              <h3 class="product-card__title">Audio Enthusiast Studio Pair</h3>
-              <p style="font-size:var(--fs-xs); color:var(--text-muted); margin-bottom:var(--sp-2);">Includes Studio
-                Headphones + USB Stream Mic</p>
-              <div class="product-card__price">
-                <span class="now">$449</span>
-                <span class="was">$549</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="headphones.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add Bundle</button>
-            </div>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section class="section section--alt">
-      <div class="container">
-        <div class="section-head" data-reveal="fade">
-          <span class="eyebrow">Certified Outlet</span>
-          <h2 class="section-title">Clearance & Open-Box</h2>
-          <p class="section-sub">Inspected, tested, and full warranty backed closeout deals. Limited stock available.
-          </p>
-        </div>
-        <div class="grid grid-4" data-reveal="fade">
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Open-Box</span>
-              <img src="assets/images/deals/clearance_1.png" alt="Open-Box Curved OLED Display" loading="lazy"
-                width="640" height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">ASUS · Curved Display</span>
-              <h3 class="product-card__title">PixelView 32" Curved OLED Display</h3>
-              <div class="product-card__price">
-                <span class="now">$499</span>
-                <span class="was">$799</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="gaming.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Refurbished</span>
-              <img src="assets/images/deals/clearance_2.png" alt="Factory Outlet ANC Headphones" loading="lazy"
-                width="640" height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Sony · Noise Cancelling</span>
-              <h3 class="product-card__title">SoundHalo ANC Wireless Headphones</h3>
-              <div class="product-card__price">
-                <span class="now">$219</span>
-                <span class="was">$399</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="headphones.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Demo Unit</span>
-              <img src="assets/images/deals/clearance_3.png" alt="Store Demo Ultrabook 14" loading="lazy" width="640"
-                height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Dell · Business Ultrabook</span>
-              <h3 class="product-card__title">EliteBook Ultraslim 14 (Store Demo)</h3>
-              <div class="product-card__price">
-                <span class="now">$899</span>
-                <span class="was">$1,349</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="laptops.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-card__media">
-              <span class="product-card__badge badge-sale">Open-Box</span>
-              <img src="assets/images/deals/clearance_4.png" alt="Open-Box Fitness Smartwatch" loading="lazy"
-                width="640" height="480">
-            </div>
-            <div class="product-card__body">
-              <span class="product-card__cat">Samsung · Fitness Tech</span>
-              <h3 class="product-card__title">PulseWatch Fit Pro (Open-Box)</h3>
-              <div class="product-card__price">
-                <span class="now">$159</span>
-                <span class="was">$279</span>
-              </div>
-            </div>
-            <div class="product-card__actions">
-              <a href="smartwatches.html" class="btn btn-secondary btn-sm">Details</a>
-              <button class="btn btn-primary btn-sm add-to-cart">Add to Cart</button>
-            </div>
-          </article>
-        </div>
+        <div class="grid grid-4" data-featured="brand-ASUS" data-limit="4"></div>
       </div>
     </section>
 
     <!-- ============ WEEKLY DEALS CTA ============ -->
-    <section class="section">
+    <section class="final-cta-section" data-reveal="fade"
+      style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/weekly_deals_hero_bg.png'); padding-block: var(--sp-4) !important;">
       <div class="container">
-        <div class="final-cta" data-reveal="scale" style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/weekly_deals_hero_bg.png'); background-size:cover; background-position:center;">
-          <span class="eyebrow">Deals Refreshed Every Monday</span>
+        <div class="final-cta-section__content">
+          <span class="eyebrow-premium">
+            <svg class="zap-icon" viewBox="0 0 24 24" fill="currentColor">
+              <polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"></polygon>
+            </svg>
+            Deals Refreshed Every Monday
+          </span>
           <h2>Never miss a drop or limited-stock flash sale.</h2>
           <p>Get instant alerts when new bundles and open-box items drop at up to 40% off.</p>
-          <div class="hero-cta-row" style="justify-content:center; margin-top:var(--sp-6);">
-            <a href="categories.html" class="btn btn-primary btn-lg">Browse All Products</a>
-            <a href="bulk-orders.html" class="btn btn-secondary btn-lg">Corporate & Bulk Orders</a>
-          </div>
+        </div>
+        <div class="final-cta-section__actions">
+          <a href="categories.html" class="btn btn-primary btn-lg">Browse All Products</a>
+          <a href="bulk-orders.html" class="btn btn-secondary btn-lg">Corporate & Bulk Orders</a>
         </div>
       </div>
     </section>
@@ -315,6 +499,25 @@
   <script src="assets/js/animations.js" defer></script>
   <script src="assets/js/products.js" defer></script>
   <script src="assets/js/comparison.js" defer></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const tabGroup = document.querySelector(".deals-tabs-section [data-tabs]");
+      if (!tabGroup) return;
+
+      const buttons = tabGroup.querySelectorAll("[data-tab-btn]");
+      buttons.forEach(btn => {
+        btn.addEventListener("click", () => {
+          const target = btn.getAttribute("data-tab-btn");
+          const activePanel = tabGroup.querySelector(`[data-tab-panel="${target}"]`);
+          if (activePanel) {
+            activePanel.querySelectorAll("[data-reveal]").forEach(el => {
+              el.classList.add("is-visible");
+            });
+          }
+        });
+      });
+    });
+  </script>
 </body>
 
 </html>

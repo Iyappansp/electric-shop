@@ -311,16 +311,111 @@ Whether you're upgrading your home office, building a gaming setup, or searching
       </div>
     </section>
 
-    <!-- ============ FINAL CTA ============ -->
-    <section class="section">
-      <div class="container">
-        <div class="final-cta" data-reveal="scale" style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/home2_final_cta_bg.png'); background-size:cover; background-position:center;">
-          <span class="eyebrow">Step Inside</span>
+    <!-- ============ SHOWROOM STEP INSIDE (REDESIGNED) ============ -->
+    <section class="showroom-step-inside-section" data-reveal="fade">
+      <div class="container showroom-step-inside-grid">
+        <div class="showroom-step-inside__content">
+          <span class="showroom-step-inside__eyebrow">
+            <span class="pulse-dot"></span>Step Inside
+          </span>
           <h2>The showroom is always open.</h2>
-          <p>Explore live product demos, get expert buying advice, and enjoy same-day pickup.</p>
-          <div class="hero-cta-row" style="justify-content:center; margin-top:var(--sp-6);">
+          <p class="showroom-step-inside__desc">Explore live product demos, get expert buying advice, and enjoy same-day pickup.</p>
+          
+          <div class="showroom-features-list">
+            <div class="showroom-feature-item">
+              <div class="showroom-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71" />
+                  <path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71" />
+                </svg>
+              </div>
+              <div class="showroom-feature-text">
+                <h4>Live Product Demos</h4>
+                <p>Interact with our smart devices in real-time online setups.</p>
+              </div>
+            </div>
+            <div class="showroom-feature-item">
+              <div class="showroom-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z" />
+                </svg>
+              </div>
+              <div class="showroom-feature-text">
+                <h4>Expert Buying Advice</h4>
+                <p>Connect with a real specialist instantly for tailored setups.</p>
+              </div>
+            </div>
+            <div class="showroom-feature-item">
+              <div class="showroom-feature-icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                  <rect x="2" y="3" width="20" height="14" rx="2" ry="2" />
+                  <line x1="8" y1="21" x2="16" y2="21" />
+                  <line x1="12" y1="17" x2="12" y2="21" />
+                </svg>
+              </div>
+              <div class="showroom-feature-text">
+                <h4>1-Hour Pickup</h4>
+                <p>Buy online and collect at any of our physical stores in 60 minutes.</p>
+              </div>
+            </div>
+          </div>
+
+          <div class="showroom-step-inside__actions">
             <a href="categories.html" class="btn btn-primary btn-lg">Start Shopping</a>
             <a href="index.html" class="btn btn-secondary btn-lg">See Home Variant 1</a>
+          </div>
+        </div>
+
+        <div class="showroom-step-inside__preview">
+          <div class="showroom-portal-mockup">
+            <div class="portal-mockup-header">
+              <span class="portal-mockup-dot red"></span>
+              <span class="portal-mockup-dot yellow"></span>
+              <span class="portal-mockup-dot green"></span>
+              <div class="portal-mockup-address">voltage://showroom-3d-portal</div>
+              <div class="portal-mockup-status">
+                <span class="status-indicator-live"></span>
+                <span>LIVE FEED</span>
+              </div>
+            </div>
+            <div class="portal-mockup-body">
+              <div class="portal-mockup-video-overlay">
+                <div class="portal-badge-stream">1080P • 60 FPS</div>
+                <div class="portal-badge-ping">PING: 14ms</div>
+              </div>
+              <div class="portal-interactive-screen">
+                <div class="cockpit-overlay">
+                  <div class="cockpit-stats">
+                    <div class="stat-box">
+                      <span class="stat-lbl">DESKS</span>
+                      <span class="stat-val text-primary">03 Active</span>
+                    </div>
+                    <div class="stat-box">
+                      <span class="stat-lbl">SUPPORT</span>
+                      <span class="stat-val text-secondary">Online</span>
+                    </div>
+                  </div>
+                  <div class="cockpit-center">
+                    <div class="cockpit-radar-circle">
+                      <div class="radar-sweep"></div>
+                      <svg class="radar-target-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <circle cx="12" cy="12" r="10" />
+                        <line x1="22" y1="12" x2="18" y2="12" />
+                        <line x1="6" y1="12" x2="2" y2="12" />
+                        <line x1="12" y1="6" x2="12" y2="2" />
+                        <line x1="12" y1="22" x2="12" y2="18" />
+                      </svg>
+                    </div>
+                    <a href="categories.html" class="portal-enter-btn">
+                      <span>ENTER SHOWROOM</span>
+                      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <polyline points="9 18 15 12 9 6" />
+                      </svg>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>

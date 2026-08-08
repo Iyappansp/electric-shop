@@ -18,7 +18,8 @@
   <meta property="og:site_name" content="Voltage">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Voltage — Flagship Tech, Delivered Worldwide">
-  <meta name="twitter:description" content="Shop premium laptops, smartphones, headphones, gaming rigs and tech accessories with fast dispatch and authorized warranties.">
+  <meta name="twitter:description"
+    content="Shop premium laptops, smartphones, headphones, gaming rigs and tech accessories with fast dispatch and authorized warranties.">
   <meta name="twitter:image" content="assets/images/categories/cat_laptop_hero.png">
 
   <link rel="icon" type="image/png" href="assets/favi.png">
@@ -55,22 +56,95 @@
 
     <!-- ============ HERO ============ -->
     <section class="hero">
-      <video class="hero-bg-video" autoplay loop muted playsinline aria-hidden="true" poster="assets/images/home/hero_bg.png">
-        <source src="assets/854534-uhd_3840_2160_25fps.mp4" type="video/mp4">
-      </video>
-    
-      <div class="container">
+
+      <!-- Ambient glow orbs -->
+      <div class="hero-orb hero-orb--1" aria-hidden="true"></div>
+      <div class="hero-orb hero-orb--2" aria-hidden="true"></div>
+
+      <div class="container hero-split">
+
+        <!-- LEFT: Copy -->
         <div class="hero-copy" data-reveal="fade">
-          
           <span class="eyebrow">New Season Launch</span>
-          <h1 class="hero-title">Powering <span class="accent-text">Tomorrow's</span> Technology, Today.</h1>
-          <p class="hero-lead">Premium laptops, smartphones, and gear engineered for people who expect more.</p>
+          <h1 class="hero-title">Powering <span class="accent-text">Tomorrow's</span> Technology.</h1>
+          <!-- <p class="hero-lead">Premium laptops, smartphones, and gear engineered for people who expect more.</p> -->
           <div class="hero-cta-row">
             <a href="categories.html" class="btn btn-primary btn-lg">Shop All Products</a>
             <a href="weekly-deals.html" class="btn btn-secondary btn-lg">View Weekly Deals</a>
           </div>
+          <div class="hero-trust">
+            <div class="hero-trust__item"><strong>50K+</strong><span>Happy Customers</span></div>
+            <div class="hero-trust__item"><strong>2K+</strong><span>Products</span></div>
+            <div class="hero-trust__item"><strong>98%</strong><span>Satisfaction Rate</span></div>
+          </div>
         </div>
-      </div>
+
+        <!-- RIGHT: 3D Rotating Card Stack -->
+        <div class="hero-cards-wrap" aria-label="Featured products showcase">
+          <div class="hero-cards" id="heroCardStack">
+
+            <div class="hero-card" data-index="0" role="button" tabindex="0" aria-label="Laptop Pro X">
+              <div class="hero-card__inner">
+                <span class="hero-card__badge">01</span>
+                <img src="assets/images/products/product_7.png" alt="Laptop Pro X" loading="lazy">
+                <div class="hero-card__label">Laptop Pro X</div>
+              </div>
+            </div>
+
+            <div class="hero-card" data-index="1" role="button" tabindex="0" aria-label="Smart Phone Ultra">
+              <div class="hero-card__inner">
+                <span class="hero-card__badge">02</span>
+                <img src="assets/images/products/product_19.png" alt="Smart Phone Ultra" loading="lazy">
+                <div class="hero-card__label">Smart Phone Ultra</div>
+              </div>
+            </div>
+
+            <div class="hero-card" data-index="2" role="button" tabindex="0" aria-label="Gaming Rig Pro">
+              <div class="hero-card__inner">
+                <span class="hero-card__badge">03</span>
+                <img src="assets/images/products/product_25.png" alt="Gaming Rig Pro" loading="lazy">
+                <div class="hero-card__label">Gaming Rig Pro</div>
+              </div>
+            </div>
+
+            <div class="hero-card" data-index="3" role="button" tabindex="0" aria-label="Wireless Headset">
+              <div class="hero-card__inner">
+                <span class="hero-card__badge">04</span>
+                <img src="assets/images/products/product_5.png" alt="Wireless Headset" loading="lazy">
+                <div class="hero-card__label">Wireless Headset</div>
+              </div>
+            </div>
+
+            <div class="hero-card" data-index="4" role="button" tabindex="0" aria-label="Smart Watch Elite">
+              <div class="hero-card__inner">
+                <span class="hero-card__badge">05</span>
+                <img src="assets/images/products/product_29.png" alt="Smart Watch Elite" loading="lazy">
+                <div class="hero-card__label">Smart Watch Elite</div>
+              </div>
+            </div>
+
+          </div><!-- /.hero-cards -->
+
+          <!-- Controls (Prev / Dots / Next) -->
+          <div class="hero-card-controls">
+            <button class="hero-card-arrow hero-card-prev" id="heroCardPrev" aria-label="Previous card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m15 18-6-6 6-6"/></svg>
+            </button>
+            <div class="hero-card-dots" id="heroCardDots" role="tablist" aria-label="Product card navigation">
+              <button class="hero-card-dot active" data-dot="0" role="tab" aria-selected="true" aria-label="Card 1"></button>
+              <button class="hero-card-dot" data-dot="1" role="tab" aria-selected="false" aria-label="Card 2"></button>
+              <button class="hero-card-dot" data-dot="2" role="tab" aria-selected="false" aria-label="Card 3"></button>
+              <button class="hero-card-dot" data-dot="3" role="tab" aria-selected="false" aria-label="Card 4"></button>
+              <button class="hero-card-dot" data-dot="4" role="tab" aria-selected="false" aria-label="Card 5"></button>
+            </div>
+            <button class="hero-card-arrow hero-card-next" id="heroCardNext" aria-label="Next card">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="m9 18 6-6-6-6"/></svg>
+            </button>
+          </div>
+
+        </div><!-- /.hero-cards-wrap -->
+
+      </div><!-- /.hero-split -->
     </section>
 
     <!-- ============ SHOP BY CATEGORY (Bento) ============ -->
@@ -168,84 +242,142 @@
           <div class="brand-marquee__track" style="gap: var(--sp-6);">
             <!-- Set 1 -->
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.35c.67-.82 1.13-1.96.99-3.1-.97.04-2.16.65-2.85 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04 0 .07 0 1.09 0 2.14-.54 2.8-1.36z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.35c.67-.82 1.13-1.96.99-3.1-.97.04-2.16.65-2.85 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04 0 .07 0 1.09 0 2.14-.54 2.8-1.36z" />
+              </svg>
               <span class="brand-card__name">Apple</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="5.5"/><path d="M8 12.5c.5.8 1.5 1.2 2.5 1.2 1.8 0 2.8-.8 2.8-2 0-2.2-4.5-1.2-4.5-3.6 0-1.2 1.2-2.1 3-2.1 1.2 0 2.3.4 2.8 1"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="12" rx="9" ry="5.5" />
+                <path
+                  d="M8 12.5c.5.8 1.5 1.2 2.5 1.2 1.8 0 2.8-.8 2.8-2 0-2.2-4.5-1.2-4.5-3.6 0-1.2 1.2-2.1 3-2.1 1.2 0 2.3.4 2.8 1" />
+              </svg>
               <span class="brand-card__name">Samsung</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10h2.5v4H7zM14.5 10H17v4h-2.5z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="7" width="18" height="10" rx="2" />
+                <path d="M7 10h2.5v4H7zM14.5 10H17v4h-2.5z" />
+              </svg>
               <span class="brand-card__name">Sony</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 9h2v6H8zM12 9l3 6M12 15l3-6"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M8 9h2v6H8zM12 9l3 6M12 15l3-6" />
+              </svg>
               <span class="brand-card__name">Dell</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="9"/><path d="M9 7.5v9M13.5 7.5v9M9 12h4.5"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="12" rx="9" ry="9" />
+                <path d="M9 7.5v9M13.5 7.5v9M9 12h4.5" />
+              </svg>
               <span class="brand-card__name">HP</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 10l2 4M11 10v4M15 10c1 0 1.5.5 1.5 1.5s-.5 1.5-1.5 1.5h-1v-3z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="7" width="18" height="10" rx="1.5" />
+                <path d="M7 10l2 4M11 10v4M15 10c1 0 1.5.5 1.5 1.5s-.5 1.5-1.5 1.5h-1v-3z" />
+              </svg>
               <span class="brand-card__name">Lenovo</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l4-10h3l4 10M6.5 13h7M16 17l3-10h2"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 17l4-10h3l4 10M6.5 13h7M16 17l3-10h2" />
+              </svg>
               <span class="brand-card__name">ASUS</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9a9 9 0 0 0 9-9c0-2.12-.74-4.07-1.97-5.61"/><circle cx="16.5" cy="7.5" r="2" fill="currentColor"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9a9 9 0 0 0 9-9c0-2.12-.74-4.07-1.97-5.61" />
+                <circle cx="16.5" cy="7.5" r="2" fill="currentColor" />
+              </svg>
               <span class="brand-card__name">Logitech</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor"><path d="M5 8h3v8H5zM10 8h5a3 3 0 0 1 0 6h-5zM17 8h3v8h-3z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 8h3v8H5zM10 8h5a3 3 0 0 1 0 6h-5zM17 8h3v8h-3z" />
+              </svg>
               <span class="brand-card__name">JBL</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
               <span class="brand-card__name">Canon</span>
             </div>
             <!-- Set 2 (for seamless loop) -->
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.35c.67-.82 1.13-1.96.99-3.1-.97.04-2.16.65-2.85 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04 0 .07 0 1.09 0 2.14-.54 2.8-1.36z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M15.97 6.35c.67-.82 1.13-1.96.99-3.1-.97.04-2.16.65-2.85 1.46-.62.72-1.16 1.88-1.01 3 .01 0 .04 0 .07 0 1.09 0 2.14-.54 2.8-1.36z" />
+              </svg>
               <span class="brand-card__name">Apple</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="5.5"/><path d="M8 12.5c.5.8 1.5 1.2 2.5 1.2 1.8 0 2.8-.8 2.8-2 0-2.2-4.5-1.2-4.5-3.6 0-1.2 1.2-2.1 3-2.1 1.2 0 2.3.4 2.8 1"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="12" rx="9" ry="5.5" />
+                <path
+                  d="M8 12.5c.5.8 1.5 1.2 2.5 1.2 1.8 0 2.8-.8 2.8-2 0-2.2-4.5-1.2-4.5-3.6 0-1.2 1.2-2.1 3-2.1 1.2 0 2.3.4 2.8 1" />
+              </svg>
               <span class="brand-card__name">Samsung</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="2"/><path d="M7 10h2.5v4H7zM14.5 10H17v4h-2.5z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="7" width="18" height="10" rx="2" />
+                <path d="M7 10h2.5v4H7zM14.5 10H17v4h-2.5z" />
+              </svg>
               <span class="brand-card__name">Sony</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="9"/><path d="M8 9h2v6H8zM12 9l3 6M12 15l3-6"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M8 9h2v6H8zM12 9l3 6M12 15l3-6" />
+              </svg>
               <span class="brand-card__name">Dell</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="12" rx="9" ry="9"/><path d="M9 7.5v9M13.5 7.5v9M9 12h4.5"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <ellipse cx="12" cy="12" rx="9" ry="9" />
+                <path d="M9 7.5v9M13.5 7.5v9M9 12h4.5" />
+              </svg>
               <span class="brand-card__name">HP</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="18" height="10" rx="1.5"/><path d="M7 10l2 4M11 10v4M15 10c1 0 1.5.5 1.5 1.5s-.5 1.5-1.5 1.5h-1v-3z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <rect x="3" y="7" width="18" height="10" rx="1.5" />
+                <path d="M7 10l2 4M11 10v4M15 10c1 0 1.5.5 1.5 1.5s-.5 1.5-1.5 1.5h-1v-3z" />
+              </svg>
               <span class="brand-card__name">Lenovo</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 17l4-10h3l4 10M6.5 13h7M16 17l3-10h2"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M4 17l4-10h3l4 10M6.5 13h7M16 17l3-10h2" />
+              </svg>
               <span class="brand-card__name">ASUS</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9a9 9 0 0 0 9-9c0-2.12-.74-4.07-1.97-5.61"/><circle cx="16.5" cy="7.5" r="2" fill="currentColor"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.03 9 9 9a9 9 0 0 0 9-9c0-2.12-.74-4.07-1.97-5.61" />
+                <circle cx="16.5" cy="7.5" r="2" fill="currentColor" />
+              </svg>
               <span class="brand-card__name">Logitech</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor"><path d="M5 8h3v8H5zM10 8h5a3 3 0 0 1 0 6h-5zM17 8h3v8h-3z"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="currentColor">
+                <path d="M5 8h3v8H5zM10 8h5a3 3 0 0 1 0 6h-5zM17 8h3v8h-3z" />
+              </svg>
               <span class="brand-card__name">JBL</span>
             </div>
             <div class="brand-card">
-              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="8"/><path d="M12 8v8M8 12h8"/></svg>
+              <svg class="brand-card__logo" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="8" />
+                <path d="M12 8v8M8 12h8" />
+              </svg>
               <span class="brand-card__name">Canon</span>
             </div>
           </div>
@@ -268,14 +400,20 @@
           <div class="compare-preview__visual">
             <div class="compare-preview__card">
               <img src="assets/images/categories/compare_1.png" alt="Vortex Gaming Laptop RTX">
-              <strong style="font-family:var(--font-display); font-size:var(--fs-base); display:block; margin-top:4px;">Vortex RTX 5080</strong>
-              <div class="text-muted-c" style="font-size:var(--fs-sm); font-weight:600; color:var(--c-primary);">$2,799</div>
+              <strong
+                style="font-family:var(--font-display); font-size:var(--fs-base); display:block; margin-top:4px;">Vortex
+                RTX 5080</strong>
+              <div class="text-muted-c" style="font-size:var(--fs-sm); font-weight:600; color:var(--c-primary);">$2,799
+              </div>
             </div>
             <div class="compare-preview__vs">VS</div>
             <div class="compare-preview__card">
               <img src="assets/images/categories/compare_2.png" alt="AeroBook Pro 16 OLED">
-              <strong style="font-family:var(--font-display); font-size:var(--fs-base); display:block; margin-top:4px;">AeroBook Pro 16</strong>
-              <div class="text-muted-c" style="font-size:var(--fs-sm); font-weight:600; color:var(--c-primary);">$2,199</div>
+              <strong
+                style="font-family:var(--font-display); font-size:var(--fs-base); display:block; margin-top:4px;">AeroBook
+                Pro 16</strong>
+              <div class="text-muted-c" style="font-size:var(--fs-sm); font-weight:600; color:var(--c-primary);">$2,199
+              </div>
             </div>
           </div>
           <div>
@@ -384,7 +522,14 @@
             <div>
               <span class="eyebrow">Level Up</span>
               <h2>Gaming Zone</h2>
-              <p>Gaming laptops, ultra-smooth 240Hz monitors, and precision-engineered peripherals built for competitive play and immersive gaming worlds. Experience lightning-fast performance powered by the latest processors and graphics cards, ultra-responsive displays with minimal input lag, and advanced cooling systems designed for extended gaming sessions. Complete your setup with mechanical keyboards, high-DPI gaming mice, immersive headsets, and premium accessories that deliver exceptional accuracy, comfort, and reliability. Whether you're climbing competitive leaderboards, streaming your gameplay, or exploring expansive open-world adventures, our gaming collection is designed to provide the speed, power, and responsiveness every gamer demands.</p>
+              <p>Gaming laptops, ultra-smooth 240Hz monitors, and precision-engineered peripherals built for competitive
+                play and immersive gaming worlds. Experience lightning-fast performance powered by the latest processors
+                and graphics cards, ultra-responsive displays with minimal input lag, and advanced cooling systems
+                designed for extended gaming sessions. Complete your setup with mechanical keyboards, high-DPI gaming
+                mice, immersive headsets, and premium accessories that deliver exceptional accuracy, comfort, and
+                reliability. Whether you're climbing competitive leaderboards, streaming your gameplay, or exploring
+                expansive open-world adventures, our gaming collection is designed to provide the speed, power, and
+                responsiveness every gamer demands.</p>
               <a href="gaming.html" class="btn btn-primary">Explore Gaming Gear</a>
             </div>
             <div class="grid grid-2" data-featured="Gaming" data-limit="2"></div>
@@ -428,8 +573,7 @@
               <p class="testimonial-card__quote">"Ordered a gaming laptop for my son and the whole process — from
                 checkout to delivery — felt genuinely premium."</p>
               <div class="testimonial-card__author">
-                <img src="assets/images/home/review_1.png" alt="Portrait of customer Maria D." width="46"
-                  height="46">
+                <img src="assets/images/home/review_1.png" alt="Portrait of customer Maria D." width="46" height="46">
                 <div><strong>Maria D.</strong><span>Verified Buyer</span></div>
               </div>
             </div>
@@ -438,10 +582,9 @@
             <div class="testimonial-card">
               <div class="testimonial-card__stars">★★★★★</div>
               <p class="testimonial-card__quote">"The comparison tool saved me hours. I compared four smartwatches side
-                by side and picked exactly the right one."</p>
+                by side and picked exactly."</p>
               <div class="testimonial-card__author">
-                <img src="assets/images/home/review_2.png" alt="Portrait of customer James O." width="46"
-                  height="46">
+                <img src="assets/images/home/review_2.png" alt="Portrait of customer James O." width="46" height="46">
                 <div><strong>James O.</strong><span>Verified Buyer</span></div>
               </div>
             </div>
@@ -450,10 +593,9 @@
             <div class="testimonial-card">
               <div class="testimonial-card__stars">★★★★★</div>
               <p class="testimonial-card__quote">"We ordered 40 laptops for our office through their bulk program.
-                Pricing, delivery, as well as the setup support were all excellent."</p>
+                Pricing, delivery, as well as the setup support were all."</p>
               <div class="testimonial-card__author">
-                <img src="assets/images/home/review_3.png" alt="Portrait of customer Priya K." width="46"
-                  height="46">
+                <img src="assets/images/home/review_3.png" alt="Portrait of customer Priya K." width="46" height="46">
                 <div><strong>Priya K.</strong><span>Account</span></div>
               </div>
             </div>
@@ -538,7 +680,8 @@
     <!-- ============ NEWSLETTER ============ -->
     <section class="section">
       <div class="container">
-        <div class="newsletter-band" data-reveal="scale" style="background-image:linear-gradient(120deg, rgba(10,15,28,0.78), rgba(10,15,28,0.88)), url('assets/images/home/newsletter_cta_bg.png'); background-size:cover; background-position:center;">
+        <div class="newsletter-band" data-reveal="scale"
+          style="background-image:linear-gradient(120deg, rgba(10,15,28,0.78), rgba(10,15,28,0.88)), url('assets/images/home/newsletter_cta_bg.png'); background-size:cover; background-position:center;">
           <h2>Get Exclusive Deals First</h2>
           <p>Join 60,000+ subscribers getting early access to launches, restocks, and members-only pricing.</p>
           <form id="homeNewsletterForm">
@@ -550,19 +693,22 @@
     </section>
 
     <!-- ============ FINAL CTA ============ -->
-    <section class="section">
+    <!-- <section class="section">
       <div class="container">
-        <div class="final-cta" data-reveal="scale" style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/final_cta_bg.png'); background-size:cover; background-position:center;">
-          <span class="eyebrow">Ready to Upgrade?</span>
-          <h2>Experience Next-Gen Hardware Today</h2>
-          <p>Discover flagship smartphones, high-performance laptops, and studio audio with fast 2-day delivery.</p>
-          <div class="hero-cta-row" style="justify-content:center; margin-top:var(--sp-6);">
+        <div class="final-cta final-cta--split" data-reveal="scale"
+          style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/final_cta_bg.png'); background-size:cover; background-position:center;">
+          <div class="final-cta__content">
+            <span class="eyebrow" style="background: rgba(255,255,255,0.1); color: var(--c-secondary); align-self: flex-start; margin-bottom: var(--sp-3); backdrop-filter: blur(4px);">Ready to Upgrade?</span>
+            <h2>Experience Next-Gen Hardware Today</h2>
+            <p>Discover flagship smartphones, high-performance laptops, and studio audio with fast 2-day delivery.</p>
+          </div>
+          <div class="final-cta__actions">
             <a href="categories.html" class="btn btn-primary btn-lg">Explore Catalog</a>
-            <a href="weekly-deals.html" class="btn btn-secondary btn-lg">View Weekly Deals</a>
+            <a href="weekly-deals.html" class="btn btn-secondary btn-lg" style="color:#ffffff; border-color:rgba(255,255,255,0.35);">View Weekly Deals</a>
           </div>
         </div>
       </div>
-    </section>
+    </section> -->
   </main>
 
   <footer id="main-footer"></footer>

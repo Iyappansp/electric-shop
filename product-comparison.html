@@ -4,19 +4,19 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Product Comparison Tool | Voltage</title>
+  <title>Spec Showdown | Voltage</title>
   <meta name="description"
     content="Compare up to 4 laptops, phones, headphones, or smartwatches side by side — specs, pricing, and ratings in one clean view.">
   <link rel="canonical" href="https://www.voltage-store.example/product-comparison.html">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="Product Comparison Tool | Voltage">
+  <meta property="og:title" content="Spec Showdown | Voltage">
   <meta property="og:description"
     content="Compare up to 4 products side by side — specs, pricing, and ratings in one clean view.">
   <meta property="og:image" content="assets/images/categories/compare_1.png">
   <meta property="og:url" content="https://www.voltage-store.example/product-comparison.html">
   <meta property="og:site_name" content="Voltage">
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Product Comparison Tool | Voltage">
+  <meta name="twitter:title" content="Spec Showdown | Voltage">
   <meta name="twitter:description"
     content="Compare up to 4 products side by side — specs, pricing, and ratings in one clean view.">
   <link rel="icon" type="image/png" href="assets/favi.png">
@@ -30,6 +30,7 @@
   <link rel="stylesheet" href="assets/css/dark-mode.css">
   <link rel="stylesheet" href="assets/css/rtl.css">
   <link rel="stylesheet" href="assets/css/responsive.css">
+  <link rel="stylesheet" href="assets/css/home2.css">
   <style>
     .compare-picker {
       display: grid;
@@ -98,6 +99,27 @@
       top: 12px;
       left: 12px;
       z-index: 2;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 11px;
+      font-weight: 700;
+      font-family: var(--font-display);
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
+      padding: 4px 10px;
+      border-radius: var(--radius-pill);
+      color: #FFFFFF !important;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.35);
+      line-height: 1;
+    }
+
+    .compare-picker__badge.badge-new {
+      background: linear-gradient(135deg, #2563EB 0%, #1D4ED8 100%) !important;
+    }
+
+    .compare-picker__badge.badge-sale {
+      background: linear-gradient(135deg, #EF4444 0%, #DC2626 100%) !important;
     }
 
     .compare-picker__check {
@@ -129,7 +151,7 @@
       flex-direction: column;
       gap: 6px;
       flex: 1;
-      text-align: left;
+      text-align: start;
     }
 
     .compare-picker__cat {
@@ -153,7 +175,7 @@
     .compare-picker__title {
       font-size: var(--fs-md);
       font-weight: 700;
-      color: var(--text-color);
+      color: var(--text-primary);
       margin: 0;
       line-height: 1.3;
     }
@@ -177,6 +199,162 @@
       flex-wrap: wrap;
       margin-bottom: var(--sp-6);
     }
+
+    .guide-card {
+      position: relative;
+      height: 340px;
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--border-color);
+      background: var(--surface-2);
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      cursor: pointer;
+      box-sizing: border-box;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+      transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, border-color var(--transition-fast) ease;
+    }
+
+    .guide-card__bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 1;
+      overflow: hidden;
+    }
+
+    .guide-card__bg img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+    }
+
+    .guide-card__overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: 2;
+      background: linear-gradient(to top, rgba(8, 12, 20, 0.95) 0%, rgba(8, 12, 20, 0.4) 60%, rgba(8, 12, 20, 0.15) 100%);
+      transition: background-color 0.4s ease, backdrop-filter 0.4s ease;
+    }
+
+    .guide-card__content {
+      position: relative;
+      z-index: 3;
+      padding: var(--sp-5);
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      box-sizing: border-box;
+    }
+
+    .guide-card__title {
+      font-family: var(--font-display);
+      font-size: var(--fs-md);
+      font-weight: 700;
+      color: var(--text-primary);
+      margin: 0;
+      transition: color 0.3s ease;
+    }
+
+    .guide-card__desc {
+      font-size: var(--fs-sm);
+      color: var(--text-secondary);
+      line-height: 1.5;
+      margin: 0;
+      transition: opacity 0.3s ease, max-height 0.4s cubic-bezier(0.25, 1, 0.5, 1), margin-top 0.4s ease;
+    }
+
+    /* Hover effects for pointer devices */
+    @media (hover: hover) {
+      .guide-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--c-primary);
+        box-shadow: 0 12px 30px rgba(0, 240, 255, 0.15), 0 0 0 1px var(--c-primary);
+      }
+      
+      .guide-card:hover .guide-card__bg img {
+        transform: scale(1.08);
+      }
+      
+      .guide-card:hover .guide-card__overlay {
+        background: rgba(8, 12, 20, 0.88);
+        backdrop-filter: blur(6px);
+      }
+      
+      .guide-card:hover .guide-card__title {
+        color: var(--c-primary);
+      }
+      
+      .guide-card__desc {
+        opacity: 0;
+        max-height: 0;
+        overflow: hidden;
+        margin-top: 0;
+      }
+      
+      .guide-card:hover .guide-card__desc {
+        opacity: 1;
+        max-height: 120px;
+        margin-top: var(--sp-2);
+      }
+    }
+
+    /* Fallback/Static display for touch/no-hover devices to keep content readable and responsive */
+    @media (hover: none) {
+      .guide-card {
+        height: auto;
+        min-height: 280px;
+      }
+      .guide-card__overlay {
+        background: rgba(8, 12, 20, 0.82);
+        backdrop-filter: blur(2px);
+      }
+      .guide-card__desc {
+        opacity: 1;
+        max-height: none;
+        overflow: visible;
+        margin-top: var(--sp-2);
+      }
+      .guide-card__title {
+        color: var(--c-primary);
+      }
+    }
+
+    .spec-glossary-card {
+      transition: transform var(--transition-fast) ease, box-shadow var(--transition-fast) ease, border-color var(--transition-fast) ease;
+    }
+    .spec-glossary-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--c-primary) !important;
+      box-shadow: 0 16px 36px rgba(0, 240, 255, 0.18), 0 0 0 1px var(--c-primary);
+    }
+    .spec-glossary-card__media {
+      margin-bottom: var(--sp-4);
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      aspect-ratio: 4/3;
+      background: var(--surface-2);
+      border: 1px solid var(--border-color);
+      position: relative;
+    }
+    .spec-glossary-card__media img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform var(--transition-normal);
+    }
+    .spec-glossary-card:hover .spec-glossary-card__media img {
+      transform: scale(1.06);
+    }
   </style>
   <script>(function () { try { var t = localStorage.getItem('voltage-theme'); var pd = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches; if (t === 'dark' || (!t && pd)) { document.documentElement.classList.add('dark'); } var d = localStorage.getItem('voltage-dir'); if (d === 'rtl') { document.documentElement.setAttribute('dir', 'rtl'); } } catch (e) { } })();</script>
 </head>
@@ -189,12 +367,15 @@
         background-image: linear-gradient(var(--hero-overlay-start), var(--hero-overlay-end)), url('assets/images/home/comparison_hero_bg.png') !important;
       }
     </style>
-    <section class="page-header-section">
-      <div class="container text-center" style="max-width:680px; margin-inline:auto;">
-        <span class="eyebrow">Decide With Confidence</span>
-        <h1 class="section-title">Product Comparison Tool</h1>
-        <p class="section-sub">Pick a category, select up to four products, and see specs, pricing, and ratings lined up
-          side by side.</p>
+    <section class="page-header-section showroom-hero">
+      <div class="container showroom-hero-grid">
+        <div data-reveal="left">
+          <span class="showroom-eyebrow">Decide With Confidence</span>
+          <h1 class="hero-title" style="font-size:clamp(2rem,1.5rem+2vw,3rem); margin-top:0;">Spec Showdown</h1>
+          <p>Pick a category, select up to four products, and see specs, pricing, and ratings lined up side by side.</p>
+        </div>
+        <img src="assets/images/home/comparison_hero_bg.png" alt="Spec Showdown focal image"
+          style="border-radius:var(--radius-lg); width:100%; height:250px; object-fit:cover;" data-reveal="right">
       </div>
     </section>
 <br>
@@ -224,21 +405,124 @@
       </div>
     </section>
 
-    <section class="section">
+    <!-- ============ EDUCATIONAL COMPARISON GUIDE ============ -->
+    <section class="section" style="background: var(--surface-1); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color);">
       <div class="container">
-        <div class="support-hub-card" data-reveal="scale">
-          <div class="support-hub-card__content">
-            <span class="support-hub-card__tag">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="14" height="14"><circle cx="12" cy="12" r="10"/><path d="M12 16v-4M12 8h.01"/></svg>
-              Expert Advice Available
-            </span>
-            <h2 class="support-hub-card__title">Talk to a Dedicated Product Specialist</h2>
-            <p class="support-hub-card__text">Not sure which specs match your workload? Our technical specialists provide 1-on-1 guidance on processors, display refresh rates, and long-term reliability.</p>
+        <div class="section-head text-center" data-reveal="fade" style="max-width:720px; margin-inline:auto; margin-bottom:var(--sp-7);">
+          <span class="eyebrow">Showdown Guide</span>
+          <h2 class="section-title">How to Choose the Right Tech</h2>
+          <p class="section-sub">Make sense of the specifications and choose the hardware that best fits your daily workflow.</p>
+        </div>
+
+        <div class="grid grid-4" style="gap:var(--sp-5);">
+          <!-- CPU & Performance -->
+          <div class="guide-card" data-reveal="fade">
+            <div class="guide-card__bg">
+              <img src="assets/demo/cpu.png" alt="Processor (CPU)">
+            </div>
+            <div class="guide-card__overlay"></div>
+            <div class="guide-card__content">
+              <h3 class="guide-card__title">Processor (CPU)</h3>
+              <p class="guide-card__desc">Look at generation & cores. Creators benefit from multi-core chips (M4 Pro, Ryzen 9), while everyday tasks run perfectly on standard Core i7 chips.</p>
+            </div>
           </div>
-          <div class="support-hub-card__actions">
-            <a href="contact.html" class="btn btn-primary btn-lg">Contact Specialist</a>
-            <a href="faq.html" class="btn btn-secondary btn-lg" style="color:#ffffff; border-color:rgba(255,255,255,0.35);">View FAQ</a>
+
+          <!-- Display & Refresh Rate -->
+          <div class="guide-card" data-reveal="fade">
+            <div class="guide-card__bg">
+              <img src="assets/demo/display.png" alt="Display Technology">
+            </div>
+            <div class="guide-card__overlay"></div>
+            <div class="guide-card__content">
+              <h3 class="guide-card__title">Display Technology</h3>
+              <p class="guide-card__desc">OLED offers pure blacks. Choose high refresh rates (165Hz–360Hz) for ultra-smooth gaming; 60Hz is standard for normal office workloads.</p>
+            </div>
           </div>
+
+          <!-- RAM & Multitasking -->
+          <div class="guide-card" data-reveal="fade">
+            <div class="guide-card__bg">
+              <img src="assets/demo/Memory.png" alt="Memory (RAM)">
+            </div>
+            <div class="guide-card__overlay"></div>
+            <div class="guide-card__content">
+              <h3 class="guide-card__title">Memory (RAM)</h3>
+              <p class="guide-card__desc">16GB is the sweet spot for multitasking. Go for 32GB or 64GB memory sizes for complex video editing, 3D rendering, or triple-A gaming.</p>
+            </div>
+          </div>
+
+          <!-- Storage Speed -->
+          <div class="guide-card" data-reveal="fade">
+            <div class="guide-card__bg">
+              <img src="assets/demo/Solid.png" alt="Solid State Storage">
+            </div>
+            <div class="guide-card__overlay"></div>
+            <div class="guide-card__content">
+              <h3 class="guide-card__title">Solid State Storage</h3>
+              <p class="guide-card__desc">Choose NVMe SSDs over mechanical HDDs. A 512GB SSD is enough for office files; heavy creative workloads require 1TB to 2TB storage.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ VOLTAGE TECH DECODER ============ -->
+    <section class="section" style="background: var(--surface-2); border-bottom: 1px solid var(--border-color);">
+      <div class="container">
+        <div class="section-head text-center" data-reveal="fade" style="max-width:720px; margin-inline:auto; margin-bottom:var(--sp-7);">
+          <span class="eyebrow">Tech Standards Explained</span>
+          <h2 class="section-title">Next-Gen Spec Glossary</h2>
+          <p class="section-sub">Demystifying modern benchmarks, connectivity, and hardware standards to help you buy smart.</p>
+        </div>
+
+        <div class="grid grid-3" style="gap:var(--sp-5);">
+          <!-- NPU TOPS -->
+          <div class="feature-card spec-glossary-card" data-reveal="fade" style="background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:var(--sp-6);">
+            <div class="spec-glossary-card__media">
+              <img src="assets/deal/npu.png" alt="NPU Performance Graphic">
+            </div>
+            <h3 class="feature-card__title" style="font-family:var(--font-display); font-size:var(--fs-md); font-weight:700; margin-bottom:var(--sp-2);">NPU Performance (TOPS)</h3>
+            <p class="feature-card__text" style="font-size:var(--fs-sm); color:var(--text-secondary); line-height:1.6; margin:0;">
+              <strong>Trillions of Operations Per Second.</strong> The NPU (Neural Processing Unit) powers on-device AI tasks like background blur, live captions, and local LLMs. For next-gen AI PCs (e.g. Copilot+), look for <strong></strong>.
+            </p>
+          </div>
+
+          <!-- PCIe Gen4 vs Gen5 -->
+          <div class="feature-card spec-glossary-card" data-reveal="fade" style="background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:var(--sp-6);">
+            <div class="spec-glossary-card__media">
+              <img src="assets/deal/gen.png" alt="SSD Interface Graphic">
+            </div>
+            <h3 class="feature-card__title" style="font-family:var(--font-display); font-size:var(--fs-md); font-weight:700; margin-bottom:var(--sp-2);">SSD (Gen4 vs Gen5)</h3>
+            <p class="feature-card__text" style="font-size:var(--fs-sm); color:var(--text-secondary); line-height:1.6; margin:0;">
+              <strong>PCIe Bandwidth.</strong> Gen4 SSDs deliver speeds up to 7,500 MB/s, which is ideal for gaming and system speed. Gen5 SSDs double that to 14,000 MB/s, serving heavy 8K creators but requiring robust.
+            </p>
+          </div>
+
+          <!-- DDR5 vs LPDDR5X -->
+          <div class="feature-card spec-glossary-card" data-reveal="fade" style="background:var(--surface-1); border:1px solid var(--border-color); border-radius:var(--radius-lg); padding:var(--sp-6);">
+            <div class="spec-glossary-card__media">
+              <img src="assets/deal/ram.png" alt="RAM Types Graphic">
+            </div>
+            <h3 class="feature-card__title" style="font-family:var(--font-display); font-size:var(--fs-md); font-weight:700; margin-bottom:var(--sp-2);">RAM (DDR5 vs LPDDR5X)</h3>
+            <p class="feature-card__text" style="font-size:var(--fs-sm); color:var(--text-secondary); line-height:1.6; margin:0;">
+              <strong>Modular vs. Soldered Memory.</strong> DDR5 is upgradable, allowing you to add capacity later. LPDDR5X (Low-Power DDR5) is soldered directly to the motherboard, offering faster speeds and better.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ EXPERT ADVICE CTA ============ -->
+    <section class="final-cta-section" data-reveal="fade" style="background-image:linear-gradient(rgba(10,15,28,0.78), rgba(10,15,28,0.9)), url('assets/images/home/compare_cta_bg.png');">
+      <div class="container">
+        <div class="final-cta-section__content">
+          <span class="eyebrow">Expert Advice Available</span>
+          <h2>Talk to a Dedicated Product Specialist</h2>
+          <p>Not sure which specs match your workload? Our technical specialists provide 1-on-1 guidance on processors, display refresh rates, and long-term reliability.</p>
+        </div>
+        <div class="final-cta-section__actions">
+          <a href="contact.html" class="btn btn-primary btn-lg">Contact Specialist</a>
+          <a href="faq.html" class="btn btn-secondary btn-lg">View FAQ Hub</a>
         </div>
       </div>
     </section>

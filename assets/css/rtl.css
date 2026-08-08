@@ -205,3 +205,20 @@
     gap: 10px;
   }
 }
+
+/* ==========================================================================
+   PRODUCT COMPARISON RTL ADJUSTMENTS
+   ========================================================================== */
+[dir="rtl"] .compare-picker__badge {
+  left: auto;
+  right: 12px;
+}
+
+[dir="rtl"] .compare-picker__check {
+  right: auto;
+  left: 12px;
+}
+
+[dir="rtl"] .compare-picker__body {
+  text-align: right;
+}

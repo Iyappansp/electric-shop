@@ -290,6 +290,7 @@ def main():
     gen_cta_bg("assets/images/home/home2_final_cta_bg.png", "SHOWROOM CTA", (245, 158, 11), (236, 72, 153))
     gen_cta_bg("assets/images/home/about_final_cta_bg.png", "ABOUT CTA", (99, 102, 241), (147, 51, 234))
     gen_cta_bg("assets/images/home/compare_cta_bg.png", "COMPARE CTA", (0, 240, 255), (16, 185, 129))
+    gen_cta_bg("assets/images/home/contact_cta_bg.png", "CONTACT CTA", (99, 102, 241), (0, 240, 255))
 
     # Monitors
     gen_pixelview_27("assets/images/products/product_20.png")

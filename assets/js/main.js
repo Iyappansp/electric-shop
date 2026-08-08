@@ -57,9 +57,9 @@
       ]
     },
     { label: "Deals", href: "weekly-deals.html", active: ["weekly-deals.html"] },
-    { label: "Compare", href: "product-comparison.html", active: ["product-comparison.html"] },
+    { label: "Spec Showdown", href: "product-comparison.html", active: ["product-comparison.html"] },
     { label: "Brands", href: "brands.html", active: ["brands.html"] },
-    { label: "Bulk Orders", href: "bulk-orders.html", active: ["bulk-orders.html"] },
+    // { label: "Bulk Orders", href: "bulk-orders.html", active: ["bulk-orders.html"] },
     { label: "Contact", href: "contact.html", active: ["contact.html"] },
   ];
 
@@ -229,7 +229,7 @@
       { label: "iPhone 17 Pro", meta: "Now Shipping", trend: "" },
       { label: "Weekly Deal", meta: "Up to 40% off headphones", trend: "down" },
       { label: "Galaxy Watch 8", meta: "New Arrival", trend: "up" },
-      { label: "Bulk Orders", meta: "Corporate pricing available", trend: "" },
+      // { label: "Bulk Orders", meta: "Corporate pricing available", trend: "" },
       { label: "Free Shipping", meta: "On orders over $99", trend: "" },
       { label: "Gaming Consoles", meta: "Restocked", trend: "up" },
       { label: "Trade-In Program", meta: "Get up to $400 back", trend: "" }
@@ -389,6 +389,135 @@
     handleScroll();
   }
 
+  /* ---------------- HERO CARD ROTATOR (index.html) ---------------- */
+  function initHeroCardRotator() {
+    const stack = document.getElementById('heroCardStack');
+    const dotsContainer = document.getElementById('heroCardDots');
+    if (!stack || !dotsContainer) return;
+
+    const cards = Array.from(stack.querySelectorAll('.hero-card'));
+    const dots  = Array.from(dotsContainer.querySelectorAll('.hero-card-dot'));
+    const prevBtn = document.getElementById('heroCardPrev');
+    const nextBtn = document.getElementById('heroCardNext');
+    const total = cards.length;
+    if (total === 0) return;
+
+    let current = 0;
+    let timer   = null;
+
+    function mod(n, m) { return ((n % m) + m) % m; }
+
+    function applyPositions(activeIdx) {
+      cards.forEach((card, i) => {
+        card.classList.remove('is-active', 'is-next', 'is-far-next', 'is-far-prev', 'is-prev', 'is-hidden');
+
+        const offset = mod(i - activeIdx, total);
+        let cls;
+        if (offset === 0)             cls = 'is-active';
+        else if (offset === 1)        cls = 'is-next';
+        else if (offset === 2)        cls = 'is-far-next';
+        else if (offset === total - 1) cls = 'is-prev';
+        else if (offset === total - 2) cls = 'is-far-prev';
+        else                          cls = 'is-hidden';
+
+        card.classList.add(cls);
+      });
+
+      dots.forEach((dot, i) => {
+        const isActive = i === activeIdx;
+        dot.classList.toggle('active', isActive);
+        dot.setAttribute('aria-selected', isActive ? 'true' : 'false');
+      });
+    }
+
+    function goTo(idx) {
+      current = mod(idx, total);
+      applyPositions(current);
+    }
+
+    function startTimer() {
+      clearInterval(timer);
+      timer = setInterval(() => goTo(current + 1), 1000);
+    }
+
+    // Click on any card → bring it to centre
+    cards.forEach((card) => {
+      card.addEventListener('click', () => {
+        const idx = parseInt(card.dataset.index, 10);
+        goTo(idx);
+        startTimer();
+      });
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          const idx = parseInt(card.dataset.index, 10);
+          goTo(idx);
+          startTimer();
+        }
+      });
+    });
+
+    // Click on dots
+    dots.forEach((dot) => {
+      dot.addEventListener('click', () => {
+        goTo(parseInt(dot.dataset.dot, 10));
+        startTimer();
+      });
+    });
+
+    // Prev / Next button listeners
+    if (prevBtn) {
+      prevBtn.addEventListener('click', () => {
+        goTo(current - 1);
+        startTimer();
+      });
+    }
+    if (nextBtn) {
+      nextBtn.addEventListener('click', () => {
+        goTo(current + 1);
+        startTimer();
+      });
+    }
+
+    // Keyboard arrow navigation on stack
+    stack.addEventListener('keydown', (e) => {
+      if (e.key === 'ArrowLeft') {
+        goTo(current - 1);
+        startTimer();
+      } else if (e.key === 'ArrowRight') {
+        goTo(current + 1);
+        startTimer();
+      }
+    });
+
+    // Touch / Swipe support
+    let startX = 0;
+    stack.addEventListener('touchstart', (e) => {
+      startX = e.touches[0].clientX;
+    }, { passive: true });
+
+    stack.addEventListener('touchend', (e) => {
+      const endX = e.changedTouches[0].clientX;
+      const diff = endX - startX;
+      if (Math.abs(diff) > 30) {
+        if (diff > 0) {
+          goTo(current - 1);
+        } else {
+          goTo(current + 1);
+        }
+        startTimer();
+      }
+    }, { passive: true });
+
+    // Pause on hover
+    stack.addEventListener('mouseenter', () => clearInterval(timer));
+    stack.addEventListener('mouseleave', startTimer);
+
+    // Initialise
+    applyPositions(0);
+    startTimer();
+  }
+
   /* ---------------- NEWSLETTER (demo-only, no backend) ---------------- */
   function initNewsletter() {
     const form = document.getElementById("footerNewsletterForm");
@@ -431,6 +560,7 @@
     initBackToTop();
     initHeaderScroll();
     initNewsletter();
+    initHeroCardRotator();
     document.dispatchEvent(new CustomEvent("voltage:layoutReady"));
   });
 })();

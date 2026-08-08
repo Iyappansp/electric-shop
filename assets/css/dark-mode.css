@@ -45,7 +45,6 @@ html.dark .btn-ghost:hover {
 html.dark .card,
 html.dark .product-card,
 html.dark .category-card,
-html.dark .brand-card,
 html.dark .feature-card {
   background: var(--surface-2);
   border-color: var(--border-color);

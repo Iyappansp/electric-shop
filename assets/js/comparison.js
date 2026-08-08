@@ -79,7 +79,7 @@
             <h3 class="compare-picker__title">${p.name}</h3>
             <div class="compare-picker__price">
               <span>$${p.price.toLocaleString()}</span>
-              ${p.was ? `<span style="text-decoration:line-through;color:var(--text-muted);font-size:0.85em;margin-left:auto;">$${p.was.toLocaleString()}</span>` : ''}
+              ${p.was ? `<span style="text-decoration:line-through;color:var(--text-muted);font-size:0.85em;margin-inline-start:auto;">$${p.was.toLocaleString()}</span>` : ''}
             </div>
           </div>
         </label>`;
