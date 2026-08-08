@@ -799,6 +799,7 @@ textarea:focus-visible,
 
 /* ---- Core card shell ---- */
 .brand-card {
+  --brand-rgb: var(--c-primary-rgb);
   position: relative;
   display: flex;
   align-items: center;
@@ -819,6 +820,55 @@ textarea:focus-visible,
     box-shadow 0.45s cubic-bezier(0.25, 0.46, 0.45, 0.94),
     border-color 0.45s ease;
   text-decoration: none;
+}
+
+/* ---- Brand-Specific Hover Accent Colors ---- */
+#brand-lenovo, [data-brand="lenovo"], [data-brand="Lenovo"], .brand-card--lenovo {
+  --brand-rgb: 226, 35, 26; /* Lenovo Signature Red #E2231A */
+}
+
+#brand-apple, [data-brand="apple"], [data-brand="Apple"], .brand-card--apple {
+  --brand-rgb: 0, 113, 227; /* Apple Interactive Blue #0071E3 */
+}
+
+#brand-samsung, [data-brand="samsung"], [data-brand="Samsung"], .brand-card--samsung {
+  --brand-rgb: 20, 40, 160; /* Samsung Electric Blue #1428A0 */
+}
+
+#brand-sony, [data-brand="sony"], [data-brand="Sony"], .brand-card--sony {
+  --brand-rgb: 0, 140, 255; /* Sony Cyan Blue #008CFF */
+}
+
+#brand-dell, [data-brand="dell"], [data-brand="Dell"], .brand-card--dell {
+  --brand-rgb: 0, 118, 206; /* Dell Ocean Blue #0076CE */
+}
+
+#brand-hp, [data-brand="hp"], [data-brand="HP"], .brand-card--hp {
+  --brand-rgb: 0, 150, 214; /* HP Electric Blue #0096D6 */
+}
+
+#brand-asus, [data-brand="asus"], [data-brand="ASUS"], .brand-card--asus {
+  --brand-rgb: 255, 0, 59; /* ASUS ROG Crimson Red #FF003B */
+}
+
+#brand-logitech, [data-brand="logitech"], [data-brand="Logitech"], .brand-card--logitech {
+  --brand-rgb: 0, 184, 252; /* Logitech Electric Cyan #00B8FC */
+}
+
+#brand-jbl, [data-brand="jbl"], [data-brand="JBL"], .brand-card--jbl {
+  --brand-rgb: 255, 102, 0; /* JBL Signature Orange #FF6600 */
+}
+
+#brand-canon, [data-brand="canon"], [data-brand="Canon"], .brand-card--canon {
+  --brand-rgb: 204, 0, 0; /* Canon Passion Red #CC0000 */
+}
+
+#brand-nvidia, [data-brand="nvidia"], [data-brand="Nvidia"], .brand-card--nvidia {
+  --brand-rgb: 118, 185, 0; /* Nvidia GeForce Green #76B900 */
+}
+
+#brand-amd, [data-brand="amd"], [data-brand="AMD"], .brand-card--amd {
+  --brand-rgb: 237, 28, 36; /* AMD Radeon Red #ED1C24 */
 }
 
 /* ---- Image zoom wrapper (child div with bg that zooms) ---- */
@@ -860,9 +910,9 @@ textarea:focus-visible,
   transform: translateY(-8px) scale(1.02);
   box-shadow:
     0 24px 60px rgba(0, 0, 0, 0.6),
-    0 0 0 1.5px rgba(var(--c-primary-rgb), 0.55),
-    0 0 40px rgba(var(--c-primary-rgb), 0.18);
-  border-color: rgba(var(--c-primary-rgb), 0.45);
+    0 0 0 1.5px rgba(var(--brand-rgb), 0.65),
+    0 0 45px rgba(var(--brand-rgb), 0.30);
+  border-color: rgba(var(--brand-rgb), 0.55);
 }
 
 .brand-card:hover::after {
@@ -902,12 +952,12 @@ textarea:focus-visible,
   opacity: 1;
   visibility: visible;
   transform: translateY(-10px) scale(1.08);
-  background: rgba(var(--c-primary-rgb), 0.88);
+  background: rgba(var(--brand-rgb), 0.92);
   border-color: rgba(255, 255, 255, 0.55);
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.55),
-    0 0 20px rgba(var(--c-primary-rgb), 0.50),
-    0 0 0 1px rgba(255, 255, 255, 0.15);
+    0 0 24px rgba(var(--brand-rgb), 0.60),
+    0 0 0 1px rgba(255, 255, 255, 0.20);
   gap: 10px;                     /* text appears alongside icon */
   padding: 11px 22px;            /* expand padding for text */
 }
@@ -988,8 +1038,8 @@ textarea:focus-visible,
   letter-spacing: -0.01em;
   line-height: 1;
   text-shadow:
-    0 0 40px rgba(var(--c-primary-rgb), 0.9),
-    0 0 80px rgba(var(--c-primary-rgb), 0.4),
+    0 0 40px rgba(var(--brand-rgb), 0.9),
+    0 0 80px rgba(var(--brand-rgb), 0.4),
     0 4px 16px rgba(0, 0, 0, 0.8);
   animation: none;
 }
@@ -1001,15 +1051,15 @@ textarea:focus-visible,
 @keyframes brandNamePulse {
   0%, 100% {
     text-shadow:
-      0 0 30px rgba(var(--c-primary-rgb), 0.8),
-      0 0 60px rgba(var(--c-primary-rgb), 0.3),
+      0 0 30px rgba(var(--brand-rgb), 0.8),
+      0 0 60px rgba(var(--brand-rgb), 0.3),
       0 4px 16px rgba(0, 0, 0, 0.8);
   }
   50% {
     text-shadow:
-      0 0 50px rgba(var(--c-primary-rgb), 1),
-      0 0 100px rgba(var(--c-primary-rgb), 0.5),
-      0 0 140px rgba(var(--c-secondary-rgb), 0.3),
+      0 0 50px rgba(var(--brand-rgb), 1),
+      0 0 100px rgba(var(--brand-rgb), 0.6),
+      0 0 140px rgba(var(--brand-rgb), 0.35),
       0 4px 16px rgba(0, 0, 0, 0.8);
   }
 }
@@ -1092,9 +1142,9 @@ textarea:focus-visible,
   position: absolute;
   top: 0;
   right: 0;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle at top right, rgba(var(--c-primary-rgb), 0.4), transparent 70%);
+  width: 90px;
+  height: 90px;
+  background: radial-gradient(circle at top right, rgba(var(--brand-rgb), 0.55), transparent 70%);
   z-index: 2;
   pointer-events: none;
   opacity: 0;
@@ -1107,7 +1157,7 @@ textarea:focus-visible,
 
 /* ---- Focus ring (accessibility) ---- */
 .brand-card:focus-visible {
-  outline: 2px solid var(--c-primary);
+  outline: 2px solid rgb(var(--brand-rgb));
   outline-offset: 3px;
 }
 
@@ -1130,8 +1180,28 @@ textarea:focus-visible,
 
 .brand-marquee .brand-card:hover {
   transform: translateY(-2px);
-  box-shadow: 0 0 0 1px rgba(var(--c-primary-rgb), 0.3), var(--shadow-md);
-  border-color: var(--c-primary-light);
+  box-shadow: 0 0 0 1px rgba(var(--brand-rgb), 0.5), 0 6px 20px rgba(var(--brand-rgb), 0.25);
+  border-color: rgba(var(--brand-rgb), 0.6);
+  background: rgba(var(--brand-rgb), 0.10);
+}
+
+.brand-marquee .brand-card::after {
+  display: none;
+}
+
+.brand-marquee .brand-card .brand-card__logo {
+  width: 24px;
+  height: 24px;
+  color: var(--c-primary);
+  fill: var(--c-primary);
+  filter: none;
+}
+
+.brand-marquee .brand-card:hover .brand-card__logo {
+  color: rgb(var(--brand-rgb));
+  fill: rgb(var(--brand-rgb));
+  transform: scale(1.15);
+  filter: none;
 }
 
 .brand-marquee .brand-card::after {
